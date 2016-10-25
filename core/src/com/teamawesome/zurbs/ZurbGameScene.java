@@ -8,10 +8,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.runtime.scene.Scene;
-import com.sun.prism.image.ViewPort;
+
 
 public class ZurbGameScene extends ApplicationAdapter {
-	Stage stage;
+	private Stage stage;
 	
 	@Override
 	public void create () {
