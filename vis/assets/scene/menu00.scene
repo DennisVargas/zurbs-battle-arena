@@ -38,8 +38,8 @@
     {
       "components": [
         {
-          "x": 4.33,
-          "y": 4.72,
+          "x": 4.83,
+          "y": 3.92,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -100,7 +100,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "StartGame",
+          "id": "Options",
           "@class": "VisID"
         }
       ],
@@ -109,8 +109,8 @@
     {
       "components": [
         {
-          "x": 4.3499994,
-          "y": 5.400003,
+          "x": 4.8499994,
+          "y": 4.600003,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -180,8 +180,8 @@
     {
       "components": [
         {
-          "x": 4.37,
-          "y": 4.1,
+          "x": 4.87,
+          "y": 3.3,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -242,7 +242,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "StartGame",
+          "id": "Credits",
           "@class": "VisID"
         }
       ],
@@ -251,8 +251,8 @@
     {
       "components": [
         {
-          "x": 4.33,
-          "y": 3.5,
+          "x": 4.83,
+          "y": 2.7,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -313,7 +313,78 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "StartGame",
+          "id": "QuitGame",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 3.5375,
+          "y": 5.2948,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 2.825,
+          "originY": 0.565,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 0.3882353,
+            "g": 0.9019608,
+            "b": 0.9019608,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "fontSize": 160,
+            "relativePath": "font/earthorbiter3d.ttf",
+            "@class": "TtfFontAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "pixelsPerUnits": 100.0,
+          "scale": 0.01,
+          "@class": "PixelsPerUnit"
+        },
+        {
+          "text": "Zurbs",
+          "autoSetOriginToCenter": true,
+          "isUsesDistanceField": false,
+          "@class": "ProtoVisText"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "a184876a-77ba-42b2-adc3-1f6d2f3abb63",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "componentsToDrop": [
+            {
+              "@content": "PixelsPerUnit",
+              "@class": "Class"
+            }
+          ],
+          "@class": "ExporterDropsComponent"
+        },
+        {
+          "id": "Title",
           "@class": "VisID"
         }
       ],
