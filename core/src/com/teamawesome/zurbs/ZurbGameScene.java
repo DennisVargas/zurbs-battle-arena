@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.runtime.scene.Scene;
 
-
 public class ZurbGameScene extends ApplicationAdapter {
 	private Stage stage;
 	

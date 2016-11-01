@@ -32,6 +32,11 @@ public class MenuScene0 extends ApplicationAdapter {
 	}
 
 	@Override
+	public void resize(int width, int height) {
+		scene.resize(width, height);
+	}
+
+	@Override
 	public void dispose(){
 		batch.dispose();
 		manager.dispose();
