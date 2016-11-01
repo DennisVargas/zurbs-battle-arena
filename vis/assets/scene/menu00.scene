@@ -6,9 +6,9 @@
   "pixelsPerUnit": 100.0,
   "viewport": "SCREEN",
   "physicsSettings": {
-    "physicsEnabled": false,
+    "physicsEnabled": true,
     "gravityX": 0.0,
-    "gravityY": 0.0,
+    "gravityY": -9.81,
     "allowSleep": false
   },
   "variables": {
@@ -315,6 +315,24 @@
         {
           "id": "StartGame",
           "@class": "VisID"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
         }
       ],
       "@class": "EntityScheme"
