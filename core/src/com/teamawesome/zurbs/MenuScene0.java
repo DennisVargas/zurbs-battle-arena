@@ -10,7 +10,7 @@ import com.kotcrab.vis.runtime.font.FreeTypeFontProvider;
 import com.kotcrab.vis.runtime.scene.Scene;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 
-
+/*A test class for viewing menuscene00.*/
 public class MenuScene0 extends ApplicationAdapter {
 	SpriteBatch batch;
 	VisAssetManager manager;
