@@ -59,7 +59,6 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
         compile "com.kotcrab.vis:vis-ui:1.1.1"
         compile "com.kotcrab.vis:vis-runtime:0.3.2"
-        compile "net.onedaybeard.artemis:artemis-odb:2.0.0"
     }
 }
 
