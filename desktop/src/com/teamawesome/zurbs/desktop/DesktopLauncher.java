@@ -9,8 +9,8 @@ import com.teamawesome.zurbs.ZurbGameScene;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-//		new LwjglApplication(new ZurbGame(), config);
+		new LwjglApplication(new ZurbGame(), config);
 //		new LwjglApplication(new ZurbGameScene(), config);
-		new LwjglApplication(new MenuScene0(), config);
+//		new LwjglApplication(new MenuScene0(), config);
 	}
 }
