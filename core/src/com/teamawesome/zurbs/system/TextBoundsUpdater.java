@@ -8,26 +8,27 @@ import com.badlogic.gdx.math.Rectangle;
 import com.teamawesome.zurbs.component.Bounds;
 import com.kotcrab.vis.runtime.component.Origin;
 import com.kotcrab.vis.runtime.component.Transform;
-import com.kotcrab.vis.runtime.component.VisSprite;
+import com.kotcrab.vis.runtime.component.VisText;
+import com.kotcrab.vis.runtime.properties.SizeOwner;
 
 
-public class SpriteBoundsUpdater extends IteratingSystem {
-	private ComponentMapper<VisSprite> spriteCm;
+public class TextBoundsUpdater extends IteratingSystem {
+	private ComponentMapper<VisText> spriteCm;
 	private ComponentMapper<Transform> transformCm;
 	private ComponentMapper<Origin> originCm;
 	private ComponentMapper<Bounds> boundsCm;
 
 	private BoundsCalulator calculator = new BoundsCalulator();
 
-	public SpriteBoundsUpdater () {
-		super(Aspect.all(VisSprite.class, Bounds.class));
+	public TextBoundsUpdater () {
+		super(Aspect.all(VisText.class, Bounds.class));
 	}
 
 	@Override
 	protected void process (int entityId) {
 		Transform transform = transformCm.get(entityId);
 		Origin origin = originCm.get(entityId);
-		VisSprite sprite = spriteCm.get(entityId);
+		SizeOwner sprite = spriteCm.get(entityId);
 
 		Bounds bounds = boundsCm.get(entityId);
 
@@ -49,11 +50,11 @@ public class SpriteBoundsUpdater extends IteratingSystem {
 
 		private float[] vertices = new float[8];
 
-		private VisSprite sprite;
+		private SizeOwner sprite;
 		private Transform transform;
 		private Origin origin;
 
-		public void updateBounds (Rectangle target, VisSprite sprite, Transform transform, Origin origin) {
+		public void updateBounds (Rectangle target, SizeOwner sprite, Transform transform, Origin origin) {
 			this.sprite = sprite;
 			this.transform = transform;
 			this.origin = origin;

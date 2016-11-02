@@ -6,13 +6,14 @@ import com.artemis.ComponentMapper;
 import com.artemis.utils.IntBag;
 import com.teamawesome.zurbs.component.Bounds;
 import com.kotcrab.vis.runtime.component.VisSprite;
+import com.kotcrab.vis.runtime.component.VisText;
 
 
-public class SpriteBoundsCreator extends BaseEntitySystem {
+public class TextBoundsCreator extends BaseEntitySystem {
 	private ComponentMapper<Bounds> boundsCm;
 
-	public SpriteBoundsCreator () {
-		super(Aspect.all(VisSprite.class));
+	public TextBoundsCreator () {
+		super(Aspect.all(VisText.class));
 	}
 
 	@Override
