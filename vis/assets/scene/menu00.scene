@@ -1,10 +1,10 @@
 {
   "versionCode": 2,
   "path": "scene/menu00.scene",
-  "width": 12.8,
-  "height": 7.2,
+  "width": 16.0,
+  "height": 9.0,
   "pixelsPerUnit": 100.0,
-  "viewport": "SCREEN",
+  "viewport": "FILL",
   "physicsSettings": {
     "physicsEnabled": false,
     "gravityX": 0.0,
@@ -24,24 +24,32 @@
       "@class": "EditorLayer"
     },
     {
-      "name": "Background",
+      "name": "Static",
       "id": 1,
+      "locked": false,
+      "visible": true,
+      "cordsSystem": "WORLD",
+      "@class": "EditorLayer"
+    },
+    {
+      "name": "Background",
+      "id": 2,
       "locked": false,
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 0,
+  "activeLayerId": 1,
   "groupIds": [],
   "schemes": [
     {
       "components": [
         {
-          "x": 4.89,
-          "y": 2.88,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 7.0,
+          "y": 3.5,
+          "scaleX": 1.25,
+          "scaleY": 1.25,
           "rotation": 0.0,
           "@class": "Transform"
         },
@@ -109,10 +117,10 @@
     {
       "components": [
         {
-          "x": 4.9099994,
-          "y": 3.5600028,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 6.5,
+          "y": 4.75,
+          "scaleX": 1.25,
+          "scaleY": 1.25,
           "rotation": 0.0,
           "@class": "Transform"
         },
@@ -180,10 +188,10 @@
     {
       "components": [
         {
-          "x": 4.93,
-          "y": 2.26,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 7.0,
+          "y": 2.25,
+          "scaleX": 1.25,
+          "scaleY": 1.25,
           "rotation": 0.0,
           "@class": "Transform"
         },
@@ -251,10 +259,10 @@
     {
       "components": [
         {
-          "x": 4.89,
-          "y": 1.6600001,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 6.75,
+          "y": 1.0,
+          "scaleX": 1.25,
+          "scaleY": 1.25,
           "rotation": 0.0,
           "@class": "Transform"
         },
@@ -322,16 +330,16 @@
     {
       "components": [
         {
-          "x": 3.5974998,
-          "y": 4.2548,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 4.25,
+          "y": 6.5,
+          "scaleX": 1.5,
+          "scaleY": 1.5,
           "rotation": 0.0,
           "@class": "Transform"
         },
         {
-          "originX": 2.825,
-          "originY": 0.565,
+          "originX": 3.7149997,
+          "originY": 0.745,
           "@class": "Origin"
         },
         {
@@ -345,7 +353,7 @@
         },
         {
           "asset": {
-            "fontSize": 160,
+            "fontSize": 210,
             "relativePath": "font/earthorbiter3d.ttf",
             "@class": "TtfFontAsset"
           },
@@ -363,11 +371,11 @@
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 0,
+          "layerId": 1,
           "@class": "Layer"
         },
         {
-          "uuid": "a184876a-77ba-42b2-adc3-1f6d2f3abb63",
+          "uuid": "567e1e84-583c-4c88-bc7f-d7828321a942",
           "@class": "VisUUID"
         },
         {
@@ -386,6 +394,47 @@
         {
           "id": "Title",
           "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 8.0,
+          "y": 4.0,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "@class": "Point"
+        },
+        {
+          "layerId": 2,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "daf378c4-ac2f-4c64-aafc-655f3bb9f059",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "componentsToDrop": [
+            {
+              "@content": "Renderable",
+              "@class": "Class"
+            },
+            {
+              "@content": "Layer",
+              "@class": "Class"
+            }
+          ],
+          "@class": "ExporterDropsComponent"
         }
       ],
       "@class": "EntityScheme"
