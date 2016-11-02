@@ -28,7 +28,6 @@ public class MenuSceneManager extends BaseSceneManager {
 		creditsText = getSpriteBounds("Credits");
 		quitText = getSpriteBounds("QuitGame");
 		
-		soundController.setSoundEnabled(true);
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class MenuSceneManager extends BaseSceneManager {
 		
 		if (optionsText.contains(x, y)) {
 			soundController.playClick();
-			//game.loadOptionsScene();
+			game.loadOptionsScene();
 		}
 
 		if (creditsText.contains(x, y)) {

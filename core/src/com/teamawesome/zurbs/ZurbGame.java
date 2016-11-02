@@ -15,7 +15,7 @@ import com.kotcrab.vis.runtime.scene.SceneLoader.SceneParameter;
 import com.kotcrab.vis.runtime.scene.SystemProvider;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
-import com.teamawesome.zurbs.manager.MenuSceneManager;
+import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.TextBoundsCreator;
 import com.teamawesome.zurbs.system.TextBoundsUpdater;
 
@@ -59,6 +59,24 @@ public class ZurbGame extends ApplicationAdapter {
 		});
 
 		scenePath = "scene/menu00.scene";
+		scene = manager.loadSceneNow(scenePath, parameter);
+	}
+	
+	public void loadOptionsScene () {
+		unloadPreviousScene();
+
+		SceneParameter parameter = new SceneParameter();
+		parameter.config.addSystem(TextBoundsCreator.class);
+		parameter.config.addSystem(TextBoundsUpdater.class);
+		//parameter.config.addSystem(SpriteBoundsCreator.class);
+		//parameter.config.addSystem(SpriteBoundsUpdater.class);
+		parameter.config.addSystem(new SystemProvider() {
+			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+				return new OptionsSceneManager(ZurbGame.this);
+			}
+		});
+
+		scenePath = "scene/optionsMenu.scene";
 		scene = manager.loadSceneNow(scenePath, parameter);
 	}
 	

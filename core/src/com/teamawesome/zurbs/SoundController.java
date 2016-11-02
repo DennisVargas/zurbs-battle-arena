@@ -7,7 +7,7 @@ import com.kotcrab.vis.runtime.scene.VisAssetManager;
 
 
 public class SoundController {
-	boolean enabled = false;
+	boolean enabled = true;
 	Music music;
 	Sound click;
 
@@ -44,6 +44,9 @@ public class SoundController {
 	}
 
 	public void setSoundEnabled (boolean enabled) {
+		if(this.enabled == enabled)
+			return;
+		
 		this.enabled = enabled;
 
 		if (enabled)
