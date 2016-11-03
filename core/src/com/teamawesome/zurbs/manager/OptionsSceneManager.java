@@ -34,8 +34,6 @@ public class OptionsSceneManager extends BaseSceneManager {
 		musicDownSprite = getSpriteBounds("musicDown");
 		//fullscreenSprite = getSpriteBounds("fullscreen");
 		doneText = getSpriteBounds("doneText");
-		
-		
 	}
 
 	@Override
@@ -46,6 +44,8 @@ public class OptionsSceneManager extends BaseSceneManager {
 		float x = unprojectVec.x;
 		float y = unprojectVec.y;
 		
+		System.out.println("x pressed: " +x+" y pressed: "+y);
+		System.out.println("soundUpSpriteX: "+ soundUPSprite.getX()+"soudnUpSpriteY:"+soundUPSprite.getY());
 
 		if (soundUPSprite.contains(x, y)) {
 			soundController.playClick();
