@@ -4,7 +4,7 @@
   "width": 16.0,
   "height": 9.0,
   "pixelsPerUnit": 100.0,
-  "viewport": "FILL",
+  "viewport": "SCREEN",
   "physicsSettings": {
     "physicsEnabled": false,
     "gravityX": 0.0,

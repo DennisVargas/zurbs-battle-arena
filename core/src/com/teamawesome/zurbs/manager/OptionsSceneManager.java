@@ -44,25 +44,32 @@ public class OptionsSceneManager extends BaseSceneManager {
 		float x = unprojectVec.x;
 		float y = unprojectVec.y;
 		
-		System.out.println("x pressed: " +x+" y pressed: "+y);
-		System.out.println("soundUpSpriteX: "+ soundUPSprite.getX()+"soudnUpSpriteY:"+soundUPSprite.getY());
+
 
 		if (soundUPSprite.contains(x, y)) {
+			System.out.println("x pressed: " +x+" y pressed: "+y);
+			System.out.println("soundUpSpriteX: "+ soundUPSprite.getX()+"soundUpSpriteY:"+soundUPSprite.getY());
+			soundController.ToggleFxVolumeUp();
 			soundController.playClick();
 			//game.loadGameScene();
 		}
 		
 		if (soundDownSprite.contains(x, y)) {
+			System.out.println("x pressed: " +x+" y pressed: "+y);
+			System.out.println("soundDownSpriteX: "+ soundDownSprite.getX()+"soundUpSpriteY:"+soundDownSprite.getY());
+			soundController.ToggleFxVolumeDown();
 			soundController.playClick();
 			//game.loadOptionsScene();
 		}
 
 		if (musicUPSprite.contains(x, y)) {
+			soundController.ToggleMusicVolumeUp();
 			soundController.playClick();
 			//game.loadHelpScene();
 		}
 		
 		if (musicDownSprite.contains(x, y)) {
+			soundController.ToggleMusicVolumeDown();
 			soundController.playClick();
 			//game.loadHelpScene();
 		}

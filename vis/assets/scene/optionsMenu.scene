@@ -4,7 +4,7 @@
   "width": 16.0,
   "height": 9.0,
   "pixelsPerUnit": 100.0,
-  "viewport": "SCREEN",
+  "viewport": "STRETCH",
   "physicsSettings": {
     "physicsEnabled": false,
     "gravityX": 0.0,
@@ -314,8 +314,8 @@
     {
       "components": [
         {
-          "x": 4.2823925,
-          "y": 4.890178,
+          "x": 4.2824,
+          "y": 4.8902,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -359,6 +359,10 @@
           "@class": "Layer"
         },
         {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
           "uuid": "4274c8ee-55d5-4a53-b0d1-23b0a0daae72",
           "@class": "VisUUID"
         },
@@ -376,6 +380,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
+          "id": "music",
           "@class": "VisID"
         }
       ],
