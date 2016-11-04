@@ -48,7 +48,7 @@ public class MenuSceneManager extends BaseSceneManager {
 
 		if (creditsText.contains(x, y)) {
 			soundController.playClick();
-			//game.loadHelpScene();
+			game.loadCreditsScene();
 		}
 
 		if (quitText.contains(x, y)) {

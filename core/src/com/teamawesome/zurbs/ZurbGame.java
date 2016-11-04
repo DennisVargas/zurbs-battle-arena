@@ -111,7 +111,7 @@ import com.teamawesome.zurbs.system.TextBoundsUpdater;
 		}//	loadStartGameScene()
 // 		========================
 
-/*
+
 //		==================
 //		loadCreditsScene()
 //		===============================
@@ -129,11 +129,11 @@ import com.teamawesome.zurbs.system.TextBoundsUpdater;
 				}
 			});
 
-			scenePath = "scene/credits.scene";	//rename
+			scenePath = "scene/creditsScene.scene";	//rename
 			scene = manager.loadSceneNow(scenePath, parameter);
-		}//	loadStartGameScene()
-// 		========================
-*/
+		}//	loadCreditsScene()
+// 		======================
+
 
 //		=====================
 //		unloadPreviousScene()
