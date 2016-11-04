@@ -4,7 +4,7 @@
   "width": 16.0,
   "height": 9.0,
   "pixelsPerUnit": 100.0,
-  "viewport": "STRETCH",
+  "viewport": "FILL",
   "physicsSettings": {
     "physicsEnabled": false,
     "gravityX": 0.0,
@@ -565,8 +565,8 @@
           "@class": "Transform"
         },
         {
-          "originX": 1.1149999,
-          "originY": 0.26,
+          "originX": 0.8299999,
+          "originY": 0.195,
           "@class": "Origin"
         },
         {
@@ -580,7 +580,7 @@
         },
         {
           "asset": {
-            "fontSize": 80,
+            "fontSize": 60,
             "relativePath": "font/earthorbiter.ttf",
             "@class": "TtfFontAsset"
           },

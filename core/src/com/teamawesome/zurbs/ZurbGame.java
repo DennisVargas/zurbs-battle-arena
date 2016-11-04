@@ -18,6 +18,8 @@ import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
 import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.TextBoundsCreator;
 import com.teamawesome.zurbs.system.TextBoundsUpdater;
+import com.teamawesome.zurbs.system.SpriteBoundsCreator;
+import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
 
 //	========
 //	ZurbGame

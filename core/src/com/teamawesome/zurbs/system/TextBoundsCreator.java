@@ -8,7 +8,6 @@ import com.teamawesome.zurbs.component.Bounds;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisText;
 
-
 public class TextBoundsCreator extends BaseEntitySystem {
 	private ComponentMapper<Bounds> boundsCm;
 

@@ -6,6 +6,8 @@ import com.kotcrab.vis.runtime.component.VisText;
 
 public class PlayerSelectSceneManager extends BaseSceneManager {
     private Bounds backText;
+    private Bounds p1Inner;
+
 
     public PlayerSelectSceneManager (ZurbGame game) {
         super(game);
@@ -16,6 +18,7 @@ public class PlayerSelectSceneManager extends BaseSceneManager {
         super.afterSceneInit();
 
         backText = getSpriteBounds("backButton");
+//        p1Inner = getSpriteBounds("player1Inner");
 
     }
 
@@ -31,6 +34,17 @@ public class PlayerSelectSceneManager extends BaseSceneManager {
             soundController.playClick();
             game.loadMenuScene();
         }
+
+/*
+        if (p1Inner.contains(x, y)) {
+            soundController.playClick();
+            game.loadMenuScene();
+        }
+*/
+
+/*
+Need to implement player box changes on click
+ */
 
         return false;
     }
