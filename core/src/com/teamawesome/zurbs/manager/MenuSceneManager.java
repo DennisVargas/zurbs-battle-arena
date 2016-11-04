@@ -12,7 +12,6 @@ public class MenuSceneManager extends BaseSceneManager {
 	private Bounds optionsText;
 	private Bounds creditsText;
 	private Bounds quitText;
-	
 
 	public MenuSceneManager (ZurbGame game) {
 		super(game);
@@ -21,7 +20,6 @@ public class MenuSceneManager extends BaseSceneManager {
 	@Override
 	public void afterSceneInit () {
 		super.afterSceneInit();
-
 
 		playText = getSpriteBounds("StartGame");
 		optionsText = getSpriteBounds("Options");
@@ -37,7 +35,6 @@ public class MenuSceneManager extends BaseSceneManager {
 
 		float x = unprojectVec.x;
 		float y = unprojectVec.y;
-		
 
 		if (playText.contains(x, y)) {
 			soundController.playClick();
@@ -59,9 +56,6 @@ public class MenuSceneManager extends BaseSceneManager {
 			Gdx.app.exit();
 		}
 
-
 		return false;
 	}
-
-
 }

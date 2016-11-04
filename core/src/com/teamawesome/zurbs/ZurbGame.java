@@ -19,91 +19,152 @@ import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.TextBoundsCreator;
 import com.teamawesome.zurbs.system.TextBoundsUpdater;
 
-public class ZurbGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	VisAssetManager manager;
-	SoundController soundController;
-	
-	String scenePath;
-	Scene scene;
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
+//	========
+//	ZurbGame
+//	==================================================
+	public class ZurbGame extends ApplicationAdapter {
+		SpriteBatch batch;
+		VisAssetManager manager;
+		SoundController soundController;
 
-		
-		manager = new VisAssetManager(batch);
-		manager.getLogger().setLevel(Logger.ERROR);
+		String scenePath;
+		Scene scene;
 
-		manager.enableFreeType(new FreeTypeFontProvider());
-		soundController = new SoundController(manager);
+		@Override
+//		======
+//		create
+//		=====================
+		public void create(){
+			batch = new SpriteBatch();
+			manager = new VisAssetManager(batch);
+			manager.getLogger().setLevel(Logger.ERROR);
 
-		loadMenuScene();
+			manager.enableFreeType(new FreeTypeFontProvider());
+			soundController = new SoundController(manager);
+
+			loadMenuScene();
+		}//	create()
+//		============
+
+//		===============
+//		loadMenuScene()
+//		============================
+		public void loadMenuScene(){
+			unloadPreviousScene();
+
+			SceneParameter parameter = new SceneParameter();
+			parameter.config.addSystem(TextBoundsCreator.class);
+			parameter.config.addSystem(TextBoundsUpdater.class);
+			parameter.config.addSystem(new SystemProvider() {
+				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+					return new MenuSceneManager(ZurbGame.this);
+				}
+			});
+
+			scenePath = "scene/menu00.scene";
+			scene = manager.loadSceneNow(scenePath, parameter);
+		}//	loadMenuScene()
+//		===================
+
+//		==================
+//		loadOptionsScene()
+//		===============================
+		public void loadOptionsScene(){
+			unloadPreviousScene();
+
+			SceneParameter parameter = new SceneParameter();
+			parameter.config.addSystem(TextBoundsCreator.class);
+			parameter.config.addSystem(TextBoundsUpdater.class);
+			//parameter.config.addSystem(SpriteBoundsCreator.class);
+			//parameter.config.addSystem(SpriteBoundsUpdater.class);
+			parameter.config.addSystem(new SystemProvider() {
+				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+					return new OptionsSceneManager(ZurbGame.this);
+				}
+			});
+
+			scenePath = "scene/optionsMenu.scene";
+			scene = manager.loadSceneNow(scenePath, parameter);
+		}//	loadOptionsScene()
+//		======================
+
+/*
+//		==================
+//		loadStartGameScene()
+//		===============================
+		public void loadStartGameScene(){
+			unloadPreviousScene();
+
+			SceneParameter parameter = new SceneParameter();
+			parameter.config.addSystem(TextBoundsCreator.class);
+			parameter.config.addSystem(TextBoundsUpdater.class);
+			//parameter.config.addSystem(SpriteBoundsCreator.class);
+			//parameter.config.addSystem(SpriteBoundsUpdater.class);
+			parameter.config.addSystem(new SystemProvider() {
+				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+					return new StartGameSceneManager(ZurbGame.this);
+				}
+			});
+
+			scenePath = "scene/startgame.scene";	//rename
+			scene = manager.loadSceneNow(scenePath, parameter);
+		}//	loadStartGameScene()
+// 		========================
+
+//		==================
+//		loadCreditsScene()
+//		===============================
+		public void loadCreditsScene(){
+			unloadPreviousScene();
+
+			SceneParameter parameter = new SceneParameter();
+			parameter.config.addSystem(TextBoundsCreator.class);
+			parameter.config.addSystem(TextBoundsUpdater.class);
+			//parameter.config.addSystem(SpriteBoundsCreator.class);
+			//parameter.config.addSystem(SpriteBoundsUpdater.class);
+			parameter.config.addSystem(new SystemProvider() {
+				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+					return new CreditsSceneManager(ZurbGame.this);
+				}
+			});
+
+			scenePath = "scene/credits.scene";	//rename
+			scene = manager.loadSceneNow(scenePath, parameter);
+		}//	loadStartGameScene()
+// 		========================
+*/
+
+//		=====================
+//		unloadPreviousScene()
+//		===================================
+		private void unloadPreviousScene(){
+			if (scenePath != null) {
+				manager.unload(scenePath);
+				scenePath = null;
+				scene = null;
+			}
+		}//	unloadPreviousScene()
+//		=========================
+
+		@Override
+		public void render () {
+			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+			scene.render();
+		}
+
+		@Override
+		public void resize (int width, int height) {
+			scene.resize(width, height);
+		}
+
+		@Override
+		public void dispose () {
+			batch.dispose();
+			manager.dispose();
 	}
-	
 
-	public SoundController getSoundController () {
+		public SoundController getSoundController () {
 		return soundController;
 	}
-	
-	public void loadMenuScene () {
-		unloadPreviousScene();
-
-		SceneParameter parameter = new SceneParameter();
-		parameter.config.addSystem(TextBoundsCreator.class);
-		parameter.config.addSystem(TextBoundsUpdater.class);
-		parameter.config.addSystem(new SystemProvider() {
-			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-				return new MenuSceneManager(ZurbGame.this);
-			}
-		});
-
-		scenePath = "scene/menu00.scene";
-		scene = manager.loadSceneNow(scenePath, parameter);
-	}
-	
-	public void loadOptionsScene () {
-		unloadPreviousScene();
-
-		SceneParameter parameter = new SceneParameter();
-		parameter.config.addSystem(TextBoundsCreator.class);
-		parameter.config.addSystem(TextBoundsUpdater.class);
-		//parameter.config.addSystem(SpriteBoundsCreator.class);
-		//parameter.config.addSystem(SpriteBoundsUpdater.class);
-		parameter.config.addSystem(new SystemProvider() {
-			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-				return new OptionsSceneManager(ZurbGame.this);
-			}
-		});
-
-		scenePath = "scene/optionsMenu.scene";
-		scene = manager.loadSceneNow(scenePath, parameter);
-	}
-	
-	
-
-	private void unloadPreviousScene () {
-		if (scenePath != null) {
-			manager.unload(scenePath);
-			scenePath = null;
-			scene = null;
-		}
-	}
-
-	@Override
-	public void render () {
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		scene.render();
-	}
-
-	@Override
-	public void resize (int width, int height) {
-		scene.resize(width, height);
-	}
-
-	@Override
-	public void dispose () {
-		batch.dispose();
-		manager.dispose();
-}
-}
+	}//	ZurbGame()
+//	==============
