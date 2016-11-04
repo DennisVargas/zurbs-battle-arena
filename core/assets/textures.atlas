@@ -1,12 +1,75 @@
 
 textures.png
-size: 512,512
+size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/default/badlogic
+gfx/UI/buttonArrowLeft
+  rotate: false
+  xy: 1506, 612
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+gfx/UI/buttonArrowRight
+  rotate: false
+  xy: 1553, 612
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+gfx/UI/player1Panel
+  rotate: false
+  xy: 2, 578
+  size: 750, 337
+  orig: 750, 337
+  offset: 0, 0
+  index: -1
+gfx/UI/player2Panel
+  rotate: false
+  xy: 754, 578
+  size: 750, 337
+  orig: 750, 337
+  offset: 0, 0
+  index: -1
+gfx/UI/player3Panel
+  rotate: false
+  xy: 2, 239
+  size: 750, 337
+  orig: 750, 337
+  offset: 0, 0
+  index: -1
+gfx/UI/player4Panel
+  rotate: false
+  xy: 754, 239
+  size: 750, 337
+  orig: 750, 337
+  offset: 0, 0
+  index: -1
+gfx/UI/playerInnerActive
   rotate: false
   xy: 2, 2
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/UI/playerInnerInactive
+  rotate: false
+  xy: 674, 2
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/UI/playerInnerReady
+  rotate: false
+  xy: 1346, 2
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/default/badlogic
+  rotate: false
+  xy: 1506, 659
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

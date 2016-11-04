@@ -6,7 +6,7 @@ import com.teamawesome.zurbs.MenuScene0;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.ZurbGameScene;
 
-// test comment
+
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

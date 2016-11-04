@@ -88,11 +88,11 @@ import com.teamawesome.zurbs.system.TextBoundsUpdater;
 		}//	loadOptionsScene()
 //		======================
 
-/*
+
 //		==================
 //		loadStartGameScene()
 //		===============================
-		public void loadStartGameScene(){
+		public void loadPlayerSelectScene(){
 			unloadPreviousScene();
 
 			SceneParameter parameter = new SceneParameter();
@@ -102,15 +102,16 @@ import com.teamawesome.zurbs.system.TextBoundsUpdater;
 			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-					return new StartGameSceneManager(ZurbGame.this);
+					return new PlayerSelectSceneManager(ZurbGame.this);
 				}
 			});
 
-			scenePath = "scene/startgame.scene";	//rename
+			scenePath = "scene/playerSelect.scene";	//rename
 			scene = manager.loadSceneNow(scenePath, parameter);
 		}//	loadStartGameScene()
 // 		========================
 
+/*
 //		==================
 //		loadCreditsScene()
 //		===============================

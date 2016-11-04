@@ -38,7 +38,7 @@ public class MenuSceneManager extends BaseSceneManager {
 
 		if (playText.contains(x, y)) {
 			soundController.playClick();
-			//game.loadGameScene();
+			game.loadPlayerSelectScene();
 		}
 		
 		if (optionsText.contains(x, y)) {
