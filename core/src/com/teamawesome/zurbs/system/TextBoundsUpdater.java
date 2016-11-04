@@ -13,7 +13,7 @@ import com.kotcrab.vis.runtime.properties.SizeOwner;
 
 
 public class TextBoundsUpdater extends IteratingSystem {
-	private ComponentMapper<VisText> spriteCm;
+	private ComponentMapper<VisText> visTextCm;
 	private ComponentMapper<Transform> transformCm;
 	private ComponentMapper<Origin> originCm;
 	private ComponentMapper<Bounds> boundsCm;
@@ -28,12 +28,13 @@ public class TextBoundsUpdater extends IteratingSystem {
 	protected void process (int entityId) {
 		Transform transform = transformCm.get(entityId);
 		Origin origin = originCm.get(entityId);
-		SizeOwner sprite = spriteCm.get(entityId);
+		SizeOwner sprite = visTextCm.get(entityId);
 
 		Bounds bounds = boundsCm.get(entityId);
 
 		if (transform.isDirty() || origin.isDirty()) {
-			calculator.updateBounds(bounds.bounds, sprite, transform, origin);
+			bounds.bounds = visTextCm.get(entityId).getBoundingRectangle();
+			//calculator.updateBounds(bounds.bounds, sprite, transform, origin);
 		}
 	}
 
