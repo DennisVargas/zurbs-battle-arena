@@ -54,8 +54,7 @@ import com.teamawesome.zurbs.system.*;
 			SceneParameter parameter = new SceneParameter();
 			parameter.config.addSystem(BoundsCreator.class);
 			parameter.config.addSystem(BoundsUpdater.class);
-			//parameter.config.addSystem(TextBoundsCreator.class);
-			//parameter.config.addSystem(TextBoundsUpdater.class);
+
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new MenuSceneManager(ZurbGame.this);
@@ -76,10 +75,6 @@ import com.teamawesome.zurbs.system.*;
 			SceneParameter parameter = new SceneParameter();
 			parameter.config.addSystem(BoundsCreator.class);
 			parameter.config.addSystem(BoundsUpdater.class);
-			//parameter.config.addSystem(TextBoundsCreator.class);
-			//parameter.config.addSystem(TextBoundsUpdater.class);
-			//parameter.config.addSystem(SpriteBoundsCreator.class);
-			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new OptionsSceneManager(ZurbGame.this);
@@ -101,10 +96,6 @@ import com.teamawesome.zurbs.system.*;
 			SceneParameter parameter = new SceneParameter();
 			parameter.config.addSystem(BoundsCreator.class);
 			parameter.config.addSystem(BoundsUpdater.class);
-//			parameter.config.addSystem(TextBoundsCreator.class);
-//			parameter.config.addSystem(TextBoundsUpdater.class);
-			//parameter.config.addSystem(SpriteBoundsCreator.class);
-			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new PlayerSelectSceneManager(ZurbGame.this);
@@ -125,10 +116,6 @@ import com.teamawesome.zurbs.system.*;
 			SceneParameter parameter = new SceneParameter();
 			parameter.config.addSystem(BoundsCreator.class);
 			parameter.config.addSystem(BoundsUpdater.class);
-			//parameter.config.addSystem(TextBoundsCreator.class);
-			//parameter.config.addSystem(TextBoundsUpdater.class);
-			//parameter.config.addSystem(SpriteBoundsCreator.class);
-			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new CreditsSceneManager(ZurbGame.this);

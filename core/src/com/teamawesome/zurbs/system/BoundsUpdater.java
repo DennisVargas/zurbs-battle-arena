@@ -41,7 +41,6 @@ public class BoundsUpdater extends IteratingSystem {
         Origin origin = originCm.get(entityId);
         VisSprite sprite = spriteCm.get(entityId);
         VisText text = textCm.get(entityId);
-
         Bounds bounds = boundsCm.get(entityId);
 
         if (transform.isDirty() || origin.isDirty()) {
@@ -65,11 +64,11 @@ public class BoundsUpdater extends IteratingSystem {
 
         private float[] vertices = new float[8];
 
-        private SizeOwner sprite;
+        private VisSprite sprite;
         private Transform transform;
         private Origin origin;
 
-        public void updateBounds (Rectangle target, SizeOwner sprite, Transform transform, Origin origin) {
+        public void updateBounds (Rectangle target, VisSprite sprite, Transform transform, Origin origin) {
             this.sprite = sprite;
             this.transform = transform;
             this.origin = origin;
