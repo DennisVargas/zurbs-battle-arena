@@ -16,10 +16,7 @@ import com.kotcrab.vis.runtime.scene.SystemProvider;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
 import com.teamawesome.zurbs.manager.*;
-import com.teamawesome.zurbs.system.TextBoundsCreator;
-import com.teamawesome.zurbs.system.TextBoundsUpdater;
-import com.teamawesome.zurbs.system.SpriteBoundsCreator;
-import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
+import com.teamawesome.zurbs.system.*;
 
 //	========
 //	ZurbGame
@@ -55,8 +52,10 @@ import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
 			unloadPreviousScene();
 
 			SceneParameter parameter = new SceneParameter();
-			parameter.config.addSystem(TextBoundsCreator.class);
-			parameter.config.addSystem(TextBoundsUpdater.class);
+			parameter.config.addSystem(BoundsCreator.class);
+			parameter.config.addSystem(BoundsUpdater.class);
+			//parameter.config.addSystem(TextBoundsCreator.class);
+			//parameter.config.addSystem(TextBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new MenuSceneManager(ZurbGame.this);
@@ -75,8 +74,10 @@ import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
 			unloadPreviousScene();
 
 			SceneParameter parameter = new SceneParameter();
-			parameter.config.addSystem(TextBoundsCreator.class);
-			parameter.config.addSystem(TextBoundsUpdater.class);
+			parameter.config.addSystem(BoundsCreator.class);
+			parameter.config.addSystem(BoundsUpdater.class);
+			//parameter.config.addSystem(TextBoundsCreator.class);
+			//parameter.config.addSystem(TextBoundsUpdater.class);
 			//parameter.config.addSystem(SpriteBoundsCreator.class);
 			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
@@ -98,8 +99,10 @@ import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
 			unloadPreviousScene();
 
 			SceneParameter parameter = new SceneParameter();
-			parameter.config.addSystem(TextBoundsCreator.class);
-			parameter.config.addSystem(TextBoundsUpdater.class);
+			parameter.config.addSystem(BoundsCreator.class);
+			parameter.config.addSystem(BoundsUpdater.class);
+//			parameter.config.addSystem(TextBoundsCreator.class);
+//			parameter.config.addSystem(TextBoundsUpdater.class);
 			//parameter.config.addSystem(SpriteBoundsCreator.class);
 			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {
@@ -121,8 +124,10 @@ import com.teamawesome.zurbs.system.SpriteBoundsUpdater;
 			unloadPreviousScene();
 
 			SceneParameter parameter = new SceneParameter();
-			parameter.config.addSystem(TextBoundsCreator.class);
-			parameter.config.addSystem(TextBoundsUpdater.class);
+			parameter.config.addSystem(BoundsCreator.class);
+			parameter.config.addSystem(BoundsUpdater.class);
+			//parameter.config.addSystem(TextBoundsCreator.class);
+			//parameter.config.addSystem(TextBoundsUpdater.class);
 			//parameter.config.addSystem(SpriteBoundsCreator.class);
 			//parameter.config.addSystem(SpriteBoundsUpdater.class);
 			parameter.config.addSystem(new SystemProvider() {

@@ -18,7 +18,7 @@ public class TextBoundsUpdater extends IteratingSystem {
 	private ComponentMapper<Origin> originCm;
 	private ComponentMapper<Bounds> boundsCm;
 
-	private BoundsCalulator calculator = new BoundsCalulator();
+	private BoundsCalculator calculator = new BoundsCalculator();
 
 	public TextBoundsUpdater () {
 		super(Aspect.all(VisText.class, Bounds.class));
@@ -39,7 +39,7 @@ public class TextBoundsUpdater extends IteratingSystem {
 	}
 
 	//Based on libGDX Sprite class
-	private static class BoundsCalulator {
+	private static class BoundsCalculator {
 		private static final int X1 = 0;
 		private static final int X2 = 1;
 		private static final int X3 = 2;

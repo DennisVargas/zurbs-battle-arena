@@ -1,6 +1,5 @@
 package com.teamawesome.zurbs.system;
 
-
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.systems.IteratingSystem;
@@ -10,30 +9,46 @@ import com.kotcrab.vis.runtime.component.Origin;
 import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisText;
+import com.kotcrab.vis.runtime.properties.SizeOwner;
 import com.teamawesome.zurbs.component.Bounds;
 
-public class SpriteBoundsUpdater extends IteratingSystem {
+import java.util.IdentityHashMap;
+
+/**
+ * Created by Dennis on 11/4/2016.
+ */
+public class BoundsUpdater extends IteratingSystem {
+    /**
+     * Creates a new EntityProcessingSystem.
+     *
+     * @param aspect the aspect to match entities
+     */
+    private ComponentMapper<VisText> textCm;
     private ComponentMapper<VisSprite> spriteCm;
     private ComponentMapper<Transform> transformCm;
     private ComponentMapper<Origin> originCm;
     private ComponentMapper<Bounds> boundsCm;
 
-    private BoundsCalculator calculator = new BoundsCalculator();
+    private BoundsUpdater.BoundsCalculator calculator = new BoundsUpdater.BoundsCalculator();
 
-    public SpriteBoundsUpdater() {
-        super(Aspect.all(VisText.class, Bounds.class));
+    public BoundsUpdater() {
+        super(Aspect.one(VisSprite.class, VisText.class).all(Bounds.class));
     }
 
     @Override
-    protected void process (int entityId) {
+    protected void process(int entityId) {
         Transform transform = transformCm.get(entityId);
         Origin origin = originCm.get(entityId);
         VisSprite sprite = spriteCm.get(entityId);
+        VisText text = textCm.get(entityId);
 
         Bounds bounds = boundsCm.get(entityId);
 
         if (transform.isDirty() || origin.isDirty()) {
-            calculator.updateBounds(bounds.bounds, sprite, transform, origin);
+            if (sprite != null)
+                calculator.updateBounds(bounds.bounds, sprite, transform, origin);
+            else
+                bounds.bounds = textCm.get(entityId).getBoundingRectangle();
         }
     }
 
@@ -50,11 +65,11 @@ public class SpriteBoundsUpdater extends IteratingSystem {
 
         private float[] vertices = new float[8];
 
-        private VisSprite sprite;
+        private SizeOwner sprite;
         private Transform transform;
         private Origin origin;
 
-        public void updateBounds (Rectangle target, VisSprite sprite, Transform transform, Origin origin) {
+        public void updateBounds (Rectangle target, SizeOwner sprite, Transform transform, Origin origin) {
             this.sprite = sprite;
             this.transform = transform;
             this.origin = origin;
@@ -152,5 +167,4 @@ public class SpriteBoundsUpdater extends IteratingSystem {
 
         }
     }
-
 }

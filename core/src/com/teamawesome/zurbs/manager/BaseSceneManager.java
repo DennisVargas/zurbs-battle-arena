@@ -16,8 +16,6 @@ import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 
-
-
 public abstract class BaseSceneManager extends Manager implements ControllerListener, InputProcessor,  AfterSceneInit {
 	protected ComponentMapper<Bounds> boundsCm;
 	protected ComponentMapper<Transform> transformCm;

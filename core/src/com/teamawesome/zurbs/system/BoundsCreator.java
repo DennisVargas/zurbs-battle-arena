@@ -1,6 +1,5 @@
 package com.teamawesome.zurbs.system;
 
-
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
 import com.artemis.ComponentMapper;
@@ -9,11 +8,14 @@ import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisText;
 import com.teamawesome.zurbs.component.Bounds;
 
-public class SpriteBoundsCreator extends BaseEntitySystem {
+/**
+ * Created by Dennis on 11/4/2016.
+ */
+public class BoundsCreator extends BaseEntitySystem {
     private ComponentMapper<Bounds> boundsCm;
 
-    public SpriteBoundsCreator() {
-        super(Aspect.all(VisSprite.class));
+    public BoundsCreator(){
+        super(Aspect.one(VisSprite.class,VisText.class));
     }
 
     @Override
