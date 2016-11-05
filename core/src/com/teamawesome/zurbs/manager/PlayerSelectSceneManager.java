@@ -18,7 +18,7 @@ public class PlayerSelectSceneManager extends BaseSceneManager {
         super.afterSceneInit();
 
         backText = getSpriteBounds("backButton");
-//        p1Inner = getSpriteBounds("player1Inner");
+        p1Inner = getSpriteBounds("player1Inner");
 
     }
 
@@ -35,12 +35,11 @@ public class PlayerSelectSceneManager extends BaseSceneManager {
             game.loadMenuScene();
         }
 
-/*
+
         if (p1Inner.contains(x, y)) {
-            soundController.playClick();
-            game.loadMenuScene();
+            //soundController.playClick();
+            System.out.println("p1Inner Clicked!");
         }
-*/
 
 /*
 Need to implement player box changes on click

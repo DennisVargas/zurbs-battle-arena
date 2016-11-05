@@ -122,7 +122,6 @@ import com.teamawesome.zurbs.system.*;
 //		===============================
 		public void loadCreditsScene(){
 			unloadPreviousScene();
-
 			SceneParameter parameter = new SceneParameter();
 			parameter.config.addSystem(BoundsCreator.class);
 			parameter.config.addSystem(BoundsUpdater.class);
