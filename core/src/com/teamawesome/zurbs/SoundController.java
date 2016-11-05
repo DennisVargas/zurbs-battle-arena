@@ -15,7 +15,7 @@ public class SoundController {
 	public SoundController (VisAssetManager manager) {
 		//music is persisted across whole game, so we load it manually
 		String musicPath = "music/boss.ogg";
-		String clickPath = "sound/accept.mp3";
+		String clickPath = "sound/accept.wav";
 
 		manager.load(musicPath, Music.class);
 		manager.load(clickPath, Sound.class);
@@ -56,13 +56,20 @@ public class SoundController {
 			music.stop();
 	}
 
-//	================
+//	=============
+//	GetMusicVol()
+//	=================
+	public float GetMusicVol(){
+		return this.music.getVolume();
+	}//
+
+//	===================
 //	ToggleMusicVolumeUp
 //	==================================
 	public void ToggleMusicVolumeUp(){
 
-		if( this.music.getVolume() < 1){
-			this.music.setVolume(this.music.getVolume()+.125f);
+		if( GetMusicVol() < 1){
+			this.music.setVolume(this.music.getVolume() + 0.015625f);
 		}
 		else{
 			System.out.println("Volume Max!");
@@ -76,7 +83,7 @@ public class SoundController {
 	public void ToggleMusicVolumeDown(){
 
 		if( this.music.getVolume() > 0){
-			this.music.setVolume(this.music.getVolume()-.125f);
+			this.music.setVolume(this.music.getVolume() - 0.015625f);
 		}
 		else{
 			System.out.println("Volume Min!");
@@ -90,7 +97,7 @@ public class SoundController {
 	public void ToggleFxVolumeUp(){
 
 		if( this.fxVolume < 1.0f){
-			this.fxVolume += 0.125f;
+			this.fxVolume += 0.015625f;
 		}
 		else{
 			System.out.println("Volume Max!");
@@ -105,7 +112,7 @@ public class SoundController {
 
 		/* ugh comparing floats */
 		if( this.fxVolume > 0.0f){
-			this.fxVolume -= 0.125f;
+			this.fxVolume -= 0.015625f;
 		}
 		else{
 			System.out.println("Volume Min!");
