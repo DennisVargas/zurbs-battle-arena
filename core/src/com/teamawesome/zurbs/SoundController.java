@@ -56,12 +56,21 @@ public class SoundController {
 			music.stop();
 	}
 
-//	=============
-//	GetMusicVol()
+//	===========
+//	GetMusicVol
 //	=================
 	public float GetMusicVol(){
 		return this.music.getVolume();
-	}//
+	}// GetMusicVol()
+//	=================
+
+//	==========
+//	GetFxVol()
+//	========================
+	public float GetFxVol(){
+		return fxVolume;
+	}//	GetFxVol()
+//	==============
 
 //	===================
 //	ToggleMusicVolumeUp
@@ -69,7 +78,7 @@ public class SoundController {
 	public void ToggleMusicVolumeUp(){
 
 		if( GetMusicVol() < 1){
-			this.music.setVolume(this.music.getVolume() + 0.015625f);
+			this.music.setVolume(this.music.getVolume() + 0.01f);
 		}
 		else{
 			System.out.println("Volume Max!");
@@ -83,7 +92,7 @@ public class SoundController {
 	public void ToggleMusicVolumeDown(){
 
 		if( this.music.getVolume() > 0){
-			this.music.setVolume(this.music.getVolume() - 0.015625f);
+			this.music.setVolume(this.music.getVolume() - 0.01f);
 		}
 		else{
 			System.out.println("Volume Min!");
@@ -97,7 +106,7 @@ public class SoundController {
 	public void ToggleFxVolumeUp(){
 
 		if( this.fxVolume < 1.0f){
-			this.fxVolume += 0.015625f;
+			this.fxVolume += 0.01f;
 		}
 		else{
 			System.out.println("Volume Max!");
@@ -111,10 +120,11 @@ public class SoundController {
 	public void ToggleFxVolumeDown(){
 
 		/* ugh comparing floats */
-		if( this.fxVolume > 0.0f){
-			this.fxVolume -= 0.015625f;
+		if( this.fxVolume > 0.01f){
+			this.fxVolume -= 0.01f;
 		}
 		else{
+			this.fxVolume = 0.0f;
 			System.out.println("Volume Min!");
 		}
 	}//	toggleMusicVolumeDown

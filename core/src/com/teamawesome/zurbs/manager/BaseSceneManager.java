@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.controllers.*;
+import com.kotcrab.vis.runtime.component.VisText;
 import com.teamawesome.zurbs.SoundController;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Bounds;
@@ -20,6 +21,7 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 	protected ComponentMapper<Bounds> boundsCm;
 	protected ComponentMapper<Transform> transformCm;
 	protected ComponentMapper<VisSprite> spriteCm;
+	protected ComponentMapper<VisText> textCm;
 
 	protected ZurbGame game;
 	protected SoundController soundController;

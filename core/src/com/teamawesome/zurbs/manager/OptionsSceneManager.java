@@ -17,7 +17,8 @@ public class OptionsSceneManager extends BaseSceneManager {
 	private Bounds musicDownSprite;
 	private Bounds fullscreenSprite;
 	private Bounds doneText;
-	
+	private VisText volumeText;
+
 
 	public OptionsSceneManager (ZurbGame game) {
 		super(game);
@@ -26,8 +27,8 @@ public class OptionsSceneManager extends BaseSceneManager {
 	@Override
 	public void afterSceneInit () {
 		super.afterSceneInit();
-
-
+		UpdateVolumeText("music");
+		UpdateVolumeText("fx");
 		soundUPSprite = getSpriteBounds("soundUP");
 		soundDownSprite = getSpriteBounds("soundDown");
 		musicUPSprite = getSpriteBounds("musicUP");
@@ -43,33 +44,31 @@ public class OptionsSceneManager extends BaseSceneManager {
 
 		float x = unprojectVec.x;
 		float y = unprojectVec.y;
-		
-
 
 		if (soundUPSprite.contains(x, y)) {
-			System.out.println("x pressed: " +x+" y pressed: "+y);
-			System.out.println("soundUpSpriteX: "+ soundUPSprite.getX()+"soundUpSpriteY:"+soundUPSprite.getY());
 			soundController.ToggleFxVolumeUp();
+			UpdateVolumeText("fx");
 			soundController.playClick();
 			//game.loadGameScene();
 		}
 		
 		if (soundDownSprite.contains(x, y)) {
-			System.out.println("x pressed: " +x+" y pressed: "+y);
-			System.out.println("soundDownSpriteX: "+ soundDownSprite.getX()+"soundUpSpriteY:"+soundDownSprite.getY());
 			soundController.ToggleFxVolumeDown();
+			UpdateVolumeText("fx");
 			soundController.playClick();
 			//game.loadOptionsScene();
 		}
 
 		if (musicUPSprite.contains(x, y)) {
 			soundController.ToggleMusicVolumeUp();
+			UpdateVolumeText("music");
 			soundController.playClick();
 			//game.loadHelpScene();
 		}
 		
 		if (musicDownSprite.contains(x, y)) {
 			soundController.ToggleMusicVolumeDown();
+			UpdateVolumeText("music");
 			soundController.playClick();
 			//game.loadHelpScene();
 		}
@@ -90,8 +89,23 @@ public class OptionsSceneManager extends BaseSceneManager {
 		}
 
 
+
 		return false;
 	}
 
+	private void UpdateVolumeText(String volume){
+		if(volume.equals("music")){
+			volumeText = textCm.get(idManager.get("musicLevel"));
+			float normLevel = soundController.GetMusicVol()*100f;
+			Integer level = (int)normLevel;
+			volumeText.setText(level.toString());
+		}
+		else if (volume.equals("fx")){
+			volumeText = textCm.get(idManager.get("soundLevel"));
+			float normLevel = soundController.GetFxVol()*100f;
+			Integer level = (int)normLevel;
+			volumeText.setText(level.toString());
+		}
+	}
 
 }
