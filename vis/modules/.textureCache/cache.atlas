@@ -1,75 +1,215 @@
 
 cache.png
-size: 2048,1024
+size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 gfx/UI/buttonArrowLeft
   rotate: false
-  xy: 1764, 870
+  xy: 820, 29
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 gfx/UI/buttonArrowRight
   rotate: false
-  xy: 1811, 870
+  xy: 1270, 93
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 gfx/UI/player1Panel
   rotate: false
-  xy: 2, 578
+  xy: 2, 680
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player2Panel
   rotate: false
-  xy: 754, 578
+  xy: 2, 341
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player3Panel
   rotate: false
-  xy: 2, 239
+  xy: 754, 680
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player4Panel
   rotate: false
-  xy: 754, 239
+  xy: 2, 2
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/playerInnerActive
   rotate: false
-  xy: 2, 2
+  xy: 754, 443
   size: 670, 235
   orig: 670, 235
   offset: 0, 0
   index: -1
 gfx/UI/playerInnerInactive
   rotate: false
-  xy: 674, 2
+  xy: 1506, 782
   size: 670, 235
   orig: 670, 235
   offset: 0, 0
   index: -1
 gfx/UI/playerInnerReady
   rotate: false
-  xy: 1346, 2
+  xy: 754, 206
   size: 670, 235
   orig: 670, 235
   offset: 0, 0
   index: -1
+gfx/Zurbs/Zurb-idle
+  rotate: false
+  xy: 2178, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/Zurb-run.1
+  rotate: false
+  xy: 754, 76
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurb-gun
+  rotate: false
+  xy: 2178, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurb-gunidle
+  rotate: false
+  xy: 754, 10
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-gun
+  rotate: false
+  xy: 1012, 76
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-gunidle
+  rotate: false
+  xy: 1270, 140
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-idle.1
+  rotate: false
+  xy: 2694, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-run
+  rotate: false
+  xy: 2952, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-gun
+  rotate: false
+  xy: 3210, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-gunidle
+  rotate: false
+  xy: 3984, 953
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-idle
+  rotate: false
+  xy: 3468, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-run
+  rotate: false
+  xy: 3726, 889
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-gun
+  rotate: false
+  xy: 2694, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-gunidle
+  rotate: false
+  xy: 1426, 614
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-idle
+  rotate: false
+  xy: 2952, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-run
+  rotate: false
+  xy: 3210, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-gun
+  rotate: false
+  xy: 3468, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-gunidle
+  rotate: false
+  xy: 1764, 716
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-idle
+  rotate: false
+  xy: 3726, 759
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-run
+  rotate: false
+  xy: 1506, 652
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
 gfx/default/badlogic
   rotate: false
-  xy: 1506, 659
+  xy: 2436, 761
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

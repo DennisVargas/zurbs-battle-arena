@@ -1,0 +1,557 @@
+{
+  "versionCode": 2,
+  "path": "scene/game00.scene",
+  "width": 16.0,
+  "height": 9.0,
+  "pixelsPerUnit": 100.0,
+  "viewport": "STRETCH",
+  "physicsSettings": {
+    "physicsEnabled": true,
+    "gravityX": 0.0,
+    "gravityY": -10.0,
+    "allowSleep": false
+  },
+  "variables": {
+    "variables": []
+  },
+  "layers": [
+    {
+      "name": "Background",
+      "id": 0,
+      "locked": false,
+      "visible": true,
+      "cordsSystem": "WORLD",
+      "@class": "EditorLayer"
+    }
+  ],
+  "activeLayerId": 0,
+  "groupIds": [],
+  "schemes": [
+    {
+      "components": [
+        {
+          "x": 13.25,
+          "y": 7.5,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.32,
+          "originY": 0.32,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Zurbs/zurbBLUE-gunidle.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.64,
+          "height": 0.64,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "1cbca9f5-9984-44d6-b7ca-e9eeebd165ed",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "vertices": [],
+          "@class": "VisPolygon"
+        },
+        {
+          "id": "Player01",
+          "@class": "VisID"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 2.5,
+          "y": 7.5,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.32,
+          "originY": 0.32,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Zurbs/zurbGREEN-gunidle.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.64,
+          "height": 0.64,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "25caffd2-d1d3-463d-9257-0018bc5a5f6f",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "vertices": [
+            {
+              "x": 2.6905003,
+              "y": 7.857845,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.6702065,
+              "y": 7.7650733,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.62672,
+              "y": 7.736082,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.6441147,
+              "y": 7.6288157,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.707895,
+              "y": 7.6259165,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.6615093,
+              "y": 7.509952,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.9688141,
+              "y": 7.504154,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.9282267,
+              "y": 7.5650353,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.9398232,
+              "y": 7.6375127,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 3.0615854,
+              "y": 7.672302,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 3.139861,
+              "y": 7.7215867,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 3.1340632,
+              "y": 7.785367,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.9427223,
+              "y": 7.785367,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.823859,
+              "y": 7.892634,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.7368858,
+              "y": 7.881037,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 2.7368858,
+                "y": 7.881037
+              },
+              {
+                "x": 2.6905003,
+                "y": 7.857845
+              },
+              {
+                "x": 2.9427223,
+                "y": 7.785367
+              },
+              {
+                "x": 2.823859,
+                "y": 7.892634
+              }
+            ],
+            [
+              {
+                "x": 3.1340632,
+                "y": 7.785367
+              },
+              {
+                "x": 2.9427223,
+                "y": 7.785367
+              },
+              {
+                "x": 3.139861,
+                "y": 7.7215867
+              }
+            ],
+            [
+              {
+                "x": 2.9427223,
+                "y": 7.785367
+              },
+              {
+                "x": 2.6905003,
+                "y": 7.857845
+              },
+              {
+                "x": 2.9398232,
+                "y": 7.6375127
+              },
+              {
+                "x": 3.0615854,
+                "y": 7.672302
+              },
+              {
+                "x": 3.139861,
+                "y": 7.7215867
+              }
+            ],
+            [
+              {
+                "x": 2.9398232,
+                "y": 7.6375127
+              },
+              {
+                "x": 2.6905003,
+                "y": 7.857845
+              },
+              {
+                "x": 2.9282267,
+                "y": 7.5650353
+              }
+            ],
+            [
+              {
+                "x": 2.9282267,
+                "y": 7.5650353
+              },
+              {
+                "x": 2.6905003,
+                "y": 7.857845
+              },
+              {
+                "x": 2.707895,
+                "y": 7.6259165
+              },
+              {
+                "x": 2.9688141,
+                "y": 7.504154
+              }
+            ],
+            [
+              {
+                "x": 2.6615093,
+                "y": 7.509952
+              },
+              {
+                "x": 2.9688141,
+                "y": 7.504154
+              },
+              {
+                "x": 2.707895,
+                "y": 7.6259165
+              }
+            ],
+            [
+              {
+                "x": 2.707895,
+                "y": 7.6259165
+              },
+              {
+                "x": 2.6905003,
+                "y": 7.857845
+              },
+              {
+                "x": 2.6702065,
+                "y": 7.7650733
+              },
+              {
+                "x": 2.6441147,
+                "y": 7.6288157
+              }
+            ],
+            [
+              {
+                "x": 2.62672,
+                "y": 7.736082
+              },
+              {
+                "x": 2.6441147,
+                "y": 7.6288157
+              },
+              {
+                "x": 2.6702065,
+                "y": 7.7650733
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
+        },
+        {
+          "id": "Player00",
+          "@class": "VisID"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 13.25,
+          "y": 1.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.32,
+          "originY": 0.32,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Zurbs/zurbPURPLE-gunidle.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.64,
+          "height": 0.64,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "160155f4-64f2-4166-839f-193c1ab769a2",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "vertices": [],
+          "@class": "VisPolygon"
+        },
+        {
+          "id": "Player04",
+          "@class": "VisID"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 2.25,
+          "y": 1.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.32,
+          "originY": 0.32,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Zurbs/zurbRED-gunidle.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.64,
+          "height": 0.64,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "d1702d5d-b504-454f-a5af-13430d33b7e8",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "vertices": [],
+          "@class": "VisPolygon"
+        },
+        {
+          "id": "Player03",
+          "@class": "VisID"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    }
+  ]
+}
