@@ -32,7 +32,7 @@
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 1,
+  "activeLayerId": 0,
   "groupIds": [],
   "schemes": [
     {
@@ -612,7 +612,6 @@
           "@class": "Renderable"
         },
         {
-          "id": "Bkgrnd",
           "@class": "VisID"
         }
       ],
