@@ -46,6 +46,28 @@ import com.teamawesome.zurbs.system.*;
 //		============
 
 //		===============
+//		loadGameScene()
+//		============================
+	public void loadGameScene(){
+		unloadPreviousScene();
+
+		SceneParameter parameter = new SceneParameter();
+		parameter.config.addSystem(BoundsCreator.class);
+		parameter.config.addSystem(BoundsUpdater.class);
+
+
+		parameter.config.addSystem(new SystemProvider() {
+			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+				return new GameSceneManager(ZurbGame.this);
+			}
+		});
+
+		scenePath = "scene/game00.scene";
+		scene = manager.loadSceneNow(scenePath, parameter);
+	}//	loadMenuScene()
+//		===================
+
+//		===============
 //		loadMenuScene()
 //		============================
 		public void loadMenuScene(){

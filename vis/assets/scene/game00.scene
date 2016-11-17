@@ -42,7 +42,7 @@
     {
       "name": "characters",
       "id": 3,
-      "locked": false,
+      "locked": true,
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"

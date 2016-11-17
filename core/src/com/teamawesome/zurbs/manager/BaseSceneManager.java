@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.controllers.*;
+import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.VisText;
 import com.teamawesome.zurbs.SoundController;
 import com.teamawesome.zurbs.ZurbGame;
@@ -26,6 +27,8 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 	protected ZurbGame game;
 	protected SoundController soundController;
 
+	protected Array<Controller> controllers;
+
 	protected CameraManager cameraManager;
 	protected VisIDManager idManager;
 
@@ -44,6 +47,7 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 	@Override
 	public void afterSceneInit () {
 		Gdx.input.setInputProcessor(this);
+		controllers = Controllers.getControllers();
 	}
 
 	@Override
