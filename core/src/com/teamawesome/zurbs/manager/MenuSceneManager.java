@@ -4,14 +4,18 @@ import com.artemis.Entity;
 import com.badlogic.gdx.Gdx;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Bounds;
-import com.kotcrab.vis.runtime.component.Transform;
+import com.kotcrab.vis.runtime.component.*;
 
 
 public class MenuSceneManager extends BaseSceneManager {
-	private Bounds playText;
-	private Bounds optionsText;
-	private Bounds creditsText;
-	private Bounds quitText;
+//	private Bounds playText;
+//	private Bounds optionsText;
+//	private Bounds creditsText;
+//	private Bounds quitText;
+	private Bounds playButton;
+	private Bounds optionsButton;
+	private Bounds creditsButton;
+	private Bounds quitButton;
 
 	public MenuSceneManager (ZurbGame game) {
 		super(game);
@@ -21,10 +25,10 @@ public class MenuSceneManager extends BaseSceneManager {
 	public void afterSceneInit () {
 		super.afterSceneInit();
 
-		playText = getSpriteBounds("StartGame");
-		optionsText = getSpriteBounds("Options");
-		creditsText = getSpriteBounds("Credits");
-		quitText = getSpriteBounds("QuitGame");
+		playButton = getSpriteBounds("StartGame");
+		optionsButton = getSpriteBounds("Options");
+		creditsButton = getSpriteBounds("Credits");
+		quitButton = getSpriteBounds("QuitGame");
 		
 	}
 
@@ -36,22 +40,22 @@ public class MenuSceneManager extends BaseSceneManager {
 		float x = unprojectVec.x;
 		float y = unprojectVec.y;
 
-		if (playText.contains(x, y)) {
+		if (playButton.contains(x, y)) {
 			soundController.playClick();
 			game.loadPlayerSelectScene();
 		}
 		
-		if (optionsText.contains(x, y)) {
+		if (optionsButton.contains(x, y)) {
 			soundController.playClick();
 			game.loadOptionsScene();
 		}
 
-		if (creditsText.contains(x, y)) {
+		if (creditsButton.contains(x, y)) {
 			soundController.playClick();
 			game.loadCreditsScene();
 		}
 
-		if (quitText.contains(x, y)) {
+		if (quitButton.contains(x, y)) {
 			soundController.playClick();
 			Gdx.app.exit();
 		}

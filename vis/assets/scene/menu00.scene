@@ -16,7 +16,7 @@
   },
   "layers": [
     {
-      "name": "Buttons",
+      "name": "PNGButtons",
       "id": 0,
       "locked": false,
       "visible": true,
@@ -24,8 +24,16 @@
       "@class": "EditorLayer"
     },
     {
-      "name": "Static",
+      "name": "Buttons",
       "id": 1,
+      "locked": true,
+      "visible": false,
+      "cordsSystem": "WORLD",
+      "@class": "EditorLayer"
+    },
+    {
+      "name": "Static",
+      "id": 2,
       "locked": false,
       "visible": true,
       "cordsSystem": "WORLD",
@@ -33,14 +41,14 @@
     },
     {
       "name": "Background",
-      "id": 2,
+      "id": 3,
       "locked": false,
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 2,
+  "activeLayerId": 0,
   "groupIds": [],
   "schemes": [
     {
@@ -81,13 +89,16 @@
           "@class": "PixelsPerUnit"
         },
         {
+          "@class": "Invisible"
+        },
+        {
           "text": "Options",
           "autoSetOriginToCenter": true,
           "isUsesDistanceField": false,
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 0,
+          "layerId": 1,
           "@class": "Layer"
         },
         {
@@ -108,7 +119,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "Options",
+          "id": "OptionsText",
           "@class": "VisID"
         }
       ],
@@ -152,13 +163,16 @@
           "@class": "PixelsPerUnit"
         },
         {
+          "@class": "Invisible"
+        },
+        {
           "text": "Start Game",
           "autoSetOriginToCenter": true,
           "isUsesDistanceField": false,
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 0,
+          "layerId": 1,
           "@class": "Layer"
         },
         {
@@ -179,7 +193,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "StartGame",
+          "id": "StartGameText",
           "@class": "VisID"
         }
       ],
@@ -223,13 +237,16 @@
           "@class": "PixelsPerUnit"
         },
         {
+          "@class": "Invisible"
+        },
+        {
           "text": "Credits",
           "autoSetOriginToCenter": true,
           "isUsesDistanceField": false,
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 0,
+          "layerId": 1,
           "@class": "Layer"
         },
         {
@@ -250,7 +267,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "Credits",
+          "id": "CreditsText",
           "@class": "VisID"
         }
       ],
@@ -259,7 +276,7 @@
     {
       "components": [
         {
-          "x": 6.75,
+          "x": 6.7421,
           "y": 1.0,
           "scaleX": 1.25,
           "scaleY": 1.25,
@@ -294,13 +311,16 @@
           "@class": "PixelsPerUnit"
         },
         {
+          "@class": "Invisible"
+        },
+        {
           "text": "Quit Game",
           "autoSetOriginToCenter": true,
           "isUsesDistanceField": false,
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 0,
+          "layerId": 1,
           "@class": "Layer"
         },
         {
@@ -321,8 +341,49 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "QuitGame",
+          "id": "QuitGameText",
           "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 8.0,
+          "y": 4.0,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "@class": "Point"
+        },
+        {
+          "layerId": 3,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "daf378c4-ac2f-4c64-aafc-655f3bb9f059",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "componentsToDrop": [
+            {
+              "@content": "Renderable",
+              "@class": "Class"
+            },
+            {
+              "@content": "Layer",
+              "@class": "Class"
+            }
+          ],
+          "@class": "ExporterDropsComponent"
         }
       ],
       "@class": "EntityScheme"
@@ -371,7 +432,7 @@
           "@class": "ProtoVisText"
         },
         {
-          "layerId": 1,
+          "layerId": 2,
           "@class": "Layer"
         },
         {
@@ -401,22 +462,47 @@
     {
       "components": [
         {
-          "x": 8.0,
-          "y": 4.0,
-          "scaleX": 1.0,
-          "scaleY": 1.0,
+          "x": 6.1105,
+          "y": 3.25,
+          "scaleX": 0.8,
+          "scaleY": 0.8,
           "rotation": 0.0,
           "@class": "Transform"
         },
         {
-          "@class": "Point"
+          "originX": 1.865,
+          "originY": 0.35,
+          "@class": "Origin"
         },
         {
-          "layerId": 2,
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/options_reg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 3.73,
+          "height": 0.7,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
           "@class": "Layer"
         },
         {
-          "uuid": "daf378c4-ac2f-4c64-aafc-655f3bb9f059",
+          "uuid": "c1300e57-73cc-45d9-ad00-91f8b4e755f4",
           "@class": "VisUUID"
         },
         {
@@ -424,17 +510,179 @@
           "@class": "Renderable"
         },
         {
-          "componentsToDrop": [
-            {
-              "@content": "Renderable",
-              "@class": "Class"
-            },
-            {
-              "@content": "Layer",
-              "@class": "Class"
-            }
-          ],
-          "@class": "ExporterDropsComponent"
+          "id": "Options",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 6.2105,
+          "y": 2.0,
+          "scaleX": 0.8,
+          "scaleY": 0.8,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 1.795,
+          "originY": 0.35,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/credits_reg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 3.59,
+          "height": 0.7,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "dfa9d283-4d28-4784-9edb-4140ef646122",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Credits",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 5.6632,
+          "y": 0.7737,
+          "scaleX": 0.8,
+          "scaleY": 0.8,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 2.37,
+          "originY": 0.35,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/quit_reg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 4.74,
+          "height": 0.7,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "71927264-43e8-480a-9ae4-273c0468fec1",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "QuitGame",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 5.25,
+          "y": 4.5,
+          "scaleX": 0.8,
+          "scaleY": 0.8,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 2.735,
+          "originY": 0.35,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/start_reg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 5.47,
+          "height": 0.7,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 0,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "7e874f10-8d12-4c5c-aa21-24ca7fae49cc",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "StartGame",
+          "@class": "VisID"
         }
       ],
       "@class": "EntityScheme"
