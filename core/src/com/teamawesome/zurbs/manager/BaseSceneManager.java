@@ -28,7 +28,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 	protected ZurbGame game;
 	protected SoundController soundController;
 
-	protected Array<Controller> controllers;
+	protected Array<Controller> controllers = Controllers.getControllers();
 
 	protected CameraManager cameraManager;
 	protected VisIDManager idManager;
@@ -60,6 +60,21 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 		trans2.setPosition(x, y);
 	}
 
+	protected void MoveXPNG(String id, float displacement){
+		Entity entity = idManager.get(id);
+		Transform trans = transformCm.get(entity);
+
+		trans.setPosition(trans.getX()+displacement, trans.getY());
+
+	}
+
+	protected void MoveYPNG(String id, float displacement){
+		Entity entity = idManager.get(id);
+		Transform trans = transformCm.get(entity);
+
+		trans.setPosition(trans.getX(),trans.getY()+displacement);
+	}
+
 	@Override
 	public void afterSceneInit () {
 		Gdx.input.setInputProcessor(this);
@@ -87,6 +102,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 
 			@Override
 			public boolean axisMoved(Controller controller, int axisCode, float value) {
+				System.out.println("Controller: "+ controller +"Code: "+axisCode+" direction:"+value);
 				return false;
 			}
 

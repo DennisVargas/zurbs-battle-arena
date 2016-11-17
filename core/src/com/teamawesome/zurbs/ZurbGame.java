@@ -141,7 +141,7 @@ import com.teamawesome.zurbs.system.*;
 		parameter.config.addSystem(BoundsUpdater.class);
 		parameter.config.addSystem(new SystemProvider() {
 			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-				return new PlayerSelectSceneManager(ZurbGame.this);
+				return new GameSceneManager(ZurbGame.this);
 			}
 		});
 
