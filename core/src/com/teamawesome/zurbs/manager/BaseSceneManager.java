@@ -19,7 +19,7 @@ import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 
-public abstract class BaseSceneManager extends Manager implements ControllerListener, InputProcessor,  AfterSceneInit {
+public abstract class BaseSceneManager extends Manager implements InputProcessor,  AfterSceneInit {
 	protected ComponentMapper<Bounds> boundsCm;
 	protected ComponentMapper<Transform> transformCm;
 	protected ComponentMapper<VisSprite> spriteCm;
@@ -63,7 +63,53 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 	@Override
 	public void afterSceneInit () {
 		Gdx.input.setInputProcessor(this);
-		controllers = Controllers.getControllers();
+		Controllers.addListener(new ControllerListener() {
+			@Override
+			public void connected(Controller controller) {
+
+			}
+
+			@Override
+			public void disconnected(Controller controller) {
+
+			}
+
+			@Override
+			public boolean buttonDown(Controller controller, int buttonCode) {
+				System.out.println(buttonCode);
+				return false;
+			}
+
+			@Override
+			public boolean buttonUp(Controller controller, int buttonCode) {
+				return false;
+			}
+
+			@Override
+			public boolean axisMoved(Controller controller, int axisCode, float value) {
+				return false;
+			}
+
+			@Override
+			public boolean povMoved(Controller controller, int povCode, PovDirection value) {
+				return false;
+			}
+
+			@Override
+			public boolean xSliderMoved(Controller controller, int sliderCode, boolean value) {
+				return false;
+			}
+
+			@Override
+			public boolean ySliderMoved(Controller controller, int sliderCode, boolean value) {
+				return false;
+			}
+
+			@Override
+			public boolean accelerometerMoved(Controller controller, int accelerometerCode, Vector3 value) {
+				return false;
+			}
+		});
 	}
 
 	@Override
@@ -106,48 +152,4 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 		return false;
 	}
 
-	@Override
-	public void connected(Controller controller) {
-
-	}
-
-	@Override
-	public void disconnected(Controller controller) {
-
-	}
-
-	@Override
-	public boolean buttonDown(Controller controller, int buttonCode) {
-		return false;
-	}
-
-	@Override
-	public boolean buttonUp(Controller controller, int buttonCode) {
-		return false;
-	}
-
-	@Override
-	public boolean axisMoved(Controller controller, int axisCode, float value) {
-		return false;
-	}
-
-	@Override
-	public boolean povMoved(Controller controller, int povCode, PovDirection value) {
-		return false;
-	}
-
-	@Override
-	public boolean xSliderMoved(Controller controller, int sliderCode, boolean value) {
-		return false;
-	}
-
-	@Override
-	public boolean ySliderMoved(Controller controller, int sliderCode, boolean value) {
-		return false;
-	}
-
-	@Override
-	public boolean accelerometerMoved(Controller controller, int accelerometerCode, Vector3 value) {
-		return false;
-	}
 }
