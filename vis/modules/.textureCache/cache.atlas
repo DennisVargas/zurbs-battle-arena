@@ -256,16 +256,72 @@ gfx/Environment/Tile_9
   orig: 256, 256
   offset: 0, 0
   index: -1
+gfx/Sprites/zurb_run_0
+  rotate: false
+  xy: 1426, 1625
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_1
+  rotate: false
+  xy: 1526, 883
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_2
+  rotate: false
+  xy: 2055, 1727
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_3
+  rotate: false
+  xy: 3208, 1562
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_4
+  rotate: false
+  xy: 3848, 1504
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_5
+  rotate: false
+  xy: 3332, 1114
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_6
+  rotate: false
+  xy: 3590, 1244
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurb_run_7
+  rotate: false
+  xy: 674, 881
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 gfx/UI/buttonArrowLeft
   rotate: false
-  xy: 1426, 1644
+  xy: 3466, 1839
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 gfx/UI/buttonArrowRight
   rotate: false
-  xy: 1526, 902
+  xy: 3982, 1653
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
