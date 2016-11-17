@@ -26,7 +26,7 @@
     {
       "name": "Buttons",
       "id": 1,
-      "locked": false,
+      "locked": true,
       "visible": false,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
@@ -119,7 +119,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "Options",
+          "id": "OptionsText",
           "@class": "VisID"
         }
       ],
@@ -128,7 +128,7 @@
     {
       "components": [
         {
-          "x": 7.75,
+          "x": 6.5,
           "y": 4.75,
           "scaleX": 1.25,
           "scaleY": 1.25,
@@ -193,7 +193,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "StartGame",
+          "id": "StartGameText",
           "@class": "VisID"
         }
       ],
@@ -267,7 +267,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "Credits",
+          "id": "CreditsText",
           "@class": "VisID"
         }
       ],
@@ -276,7 +276,7 @@
     {
       "components": [
         {
-          "x": 6.7421103,
+          "x": 6.7421,
           "y": 1.0,
           "scaleX": 1.25,
           "scaleY": 1.25,
@@ -341,7 +341,7 @@
           "@class": "ExporterDropsComponent"
         },
         {
-          "id": "QuitGame",
+          "id": "QuitGameText",
           "@class": "VisID"
         }
       ],
@@ -462,7 +462,7 @@
     {
       "components": [
         {
-          "x": 6.110468,
+          "x": 6.1105,
           "y": 3.25,
           "scaleX": 0.8,
           "scaleY": 0.8,
@@ -510,7 +510,7 @@
           "@class": "Renderable"
         },
         {
-          "id": "optionsButton",
+          "id": "Options",
           "@class": "VisID"
         }
       ],
@@ -519,7 +519,7 @@
     {
       "components": [
         {
-          "x": 6.210547,
+          "x": 6.2105,
           "y": 2.0,
           "scaleX": 0.8,
           "scaleY": 0.8,
@@ -567,7 +567,7 @@
           "@class": "Renderable"
         },
         {
-          "id": "creditsButton",
+          "id": "Credits",
           "@class": "VisID"
         }
       ],
@@ -576,8 +576,8 @@
     {
       "components": [
         {
-          "x": 5.6632032,
-          "y": 0.7736718,
+          "x": 5.6632,
+          "y": 0.7737,
           "scaleX": 0.8,
           "scaleY": 0.8,
           "rotation": 0.0,
@@ -624,7 +624,7 @@
           "@class": "Renderable"
         },
         {
-          "id": "quitButton",
+          "id": "QuitGame",
           "@class": "VisID"
         }
       ],
@@ -681,7 +681,7 @@
           "@class": "Renderable"
         },
         {
-          "id": "startButton",
+          "id": "StartGame",
           "@class": "VisID"
         }
       ],

@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.controllers.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.VisText;
+import com.kotcrab.vis.runtime.scene.Scene;
 import com.teamawesome.zurbs.SoundController;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Bounds;
@@ -42,6 +43,21 @@ public abstract class BaseSceneManager extends Manager implements ControllerList
 	protected Bounds getSpriteBounds (String id) {
 		Entity entity = idManager.get(id);
 		return boundsCm.get(entity);
+	}
+
+	protected void SwapPNG(String id1, String id2){
+		float x, y;
+		Entity entity1 = idManager.get(id1);
+		Entity entity2 = idManager.get(id2);
+
+		Transform trans1 = transformCm.get(entity1);
+		Transform trans2 = transformCm.get(entity2);
+
+		x = trans1.getX();
+		y = trans1.getY();
+
+		trans1.setPosition(trans2.getX(),trans2.getY());
+		trans2.setPosition(x, y);
 	}
 
 	@Override

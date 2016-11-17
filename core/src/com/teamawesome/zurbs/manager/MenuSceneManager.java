@@ -62,4 +62,13 @@ public class MenuSceneManager extends BaseSceneManager {
 
 		return false;
 	}
+	@Override
+	public boolean keyDown(int keyCode){
+		System.out.println(keyCode);
+		if(keyCode == 20)
+			SwapPNG("StartGame", "StartSelect");
+		return false;
+	}
+
+	
 }
