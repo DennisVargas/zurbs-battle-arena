@@ -110,7 +110,7 @@ import com.teamawesome.zurbs.system.*;
 
 
 //		==================
-//		loadStartGameScene()
+//		loadPlayerSelectScene()
 //		====================================
 		public void loadPlayerSelectScene(){
 			unloadPreviousScene();
@@ -124,9 +124,30 @@ import com.teamawesome.zurbs.system.*;
 				}
 			});
 
-			scenePath = "scene/playerSelect.scene";	//rename
+			scenePath = "scene/playerSelect.scene";
 			scene = manager.loadSceneNow(scenePath, parameter);
-		}//	loadStartGameScene()
+		}//	loadPlayerSelectScene()
+// 		========================
+
+
+//		==================
+//		loadStartGameScene()
+//		====================================
+	public void loadStartGameScene(){
+		unloadPreviousScene();
+
+		SceneParameter parameter = new SceneParameter();
+		parameter.config.addSystem(BoundsCreator.class);
+		parameter.config.addSystem(BoundsUpdater.class);
+		parameter.config.addSystem(new SystemProvider() {
+			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+				return new PlayerSelectSceneManager(ZurbGame.this);
+			}
+		});
+
+		scenePath = "scene/game00.scene";
+		scene = manager.loadSceneNow(scenePath, parameter);
+	}//	loadStartGameScene()
 // 		========================
 
 
@@ -144,7 +165,7 @@ import com.teamawesome.zurbs.system.*;
 				}
 			});
 
-			scenePath = "scene/creditsScene.scene";	//rename
+			scenePath = "scene/creditsScene.scene";
 			scene = manager.loadSceneNow(scenePath, parameter);
 		}//	loadCreditsScene()
 // 		======================

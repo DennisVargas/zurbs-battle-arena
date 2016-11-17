@@ -6,7 +6,7 @@
   "pixelsPerUnit": 100.0,
   "viewport": "STRETCH",
   "physicsSettings": {
-    "physicsEnabled": true,
+    "physicsEnabled": false,
     "gravityX": 0.0,
     "gravityY": -10.0,
     "allowSleep": false
@@ -48,7 +48,7 @@
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 3,
+  "activeLayerId": 2,
   "groupIds": [],
   "schemes": [
     {
@@ -92,6 +92,10 @@
         {
           "layerId": 3,
           "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
         },
         {
           "uuid": "76bad5c9-4820-4e78-b97f-042b0f2f0f66",

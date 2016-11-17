@@ -4,415 +4,172 @@ size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Environment/Background01
-  rotate: false
-  xy: 2, 629
-  size: 2000, 1412
-  orig: 2000, 1412
-  offset: 0, 0
-  index: -1
 gfx/Environment/Object_1
   rotate: false
-  xy: 1544, 155
+  xy: 1188, 699
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Object_16
-  rotate: false
-  xy: 2, 115
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_17
-  rotate: false
-  xy: 516, 115
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_18
-  rotate: false
-  xy: 1030, 115
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-gfx/UI/buttonArrowLeft
-  rotate: false
-  xy: 1475, 2
-  size: 45, 45
-  orig: 45, 45
-  offset: 0, 0
-  index: -1
-gfx/UI/buttonArrowRight
-  rotate: false
-  xy: 1802, 366
-  size: 45, 45
-  orig: 45, 45
-  offset: 0, 0
-  index: -1
-gfx/UI/options_box
-  rotate: false
-  xy: 1544, 413
-  size: 373, 70
-  orig: 373, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/options_reg
-  rotate: false
-  xy: 1100, 43
-  size: 373, 70
-  orig: 373, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/quit_box
-  rotate: false
-  xy: 1544, 557
-  size: 474, 70
-  orig: 474, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/quit_reg
-  rotate: false
-  xy: 1544, 485
-  size: 474, 70
-  orig: 474, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/start_box
-  rotate: false
-  xy: 2, 43
-  size: 547, 70
-  orig: 547, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/start_reg
-  rotate: false
-  xy: 551, 43
-  size: 547, 70
-  orig: 547, 70
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/Zurb-idle
-  rotate: false
-  xy: 1544, 25
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurb-gunidle
-  rotate: false
-  xy: 1919, 419
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbBLUE-gunidle
-  rotate: false
-  xy: 1919, 353
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbGREEN-gunidle
-  rotate: false
-  xy: 1475, 49
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbPURPLE-gunidle
-  rotate: false
-  xy: 1802, 287
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbRED-gunidle
-  rotate: false
-  xy: 1802, 221
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-
-textures2.png
-size: 2048,2048
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-gfx/Environment/_Spritesheet
-  rotate: false
-  xy: 2, 239
-  size: 1792, 1792
-  orig: 1792, 1792
-  offset: 0, 0
-  index: -1
-gfx/UI/playerInnerActive
-  rotate: false
-  xy: 2, 2
-  size: 670, 235
-  orig: 670, 235
-  offset: 0, 0
-  index: -1
-gfx/UI/playerInnerInactive
-  rotate: false
-  xy: 674, 2
-  size: 670, 235
-  orig: 670, 235
-  offset: 0, 0
-  index: -1
-gfx/UI/playerInnerReady
-  rotate: false
-  xy: 1346, 2
-  size: 670, 235
-  orig: 670, 235
-  offset: 0, 0
-  index: -1
-
-textures3.png
-size: 2048,2048
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
 gfx/Environment/Object_10
   rotate: false
-  xy: 518, 514
+  xy: 1407, 27
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_11
   rotate: false
-  xy: 518, 256
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_12
-  rotate: false
-  xy: 1526, 1531
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_13
-  rotate: false
-  xy: 1784, 1531
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_14
-  rotate: false
-  xy: 1528, 1273
+  xy: 1665, 27
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_15
   rotate: false
-  xy: 754, 1450
+  xy: 1506, 1789
   size: 512, 256
   orig: 512, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Object_19
+gfx/Environment/Object_16
+  rotate: false
+  xy: 754, 1194
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_17
   rotate: false
   xy: 2, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_18
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_19
+  rotate: false
+  xy: 1268, 1194
   size: 256, 512
   orig: 256, 512
   offset: 0, 0
   index: -1
 gfx/Environment/Object_2
   rotate: false
-  xy: 1506, 1789
+  xy: 1188, 441
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_20
   rotate: false
-  xy: 2, 2
+  xy: 1526, 1275
   size: 256, 512
   orig: 256, 512
   offset: 0, 0
   index: -1
 gfx/Environment/Object_21
   rotate: false
-  xy: 260, 516
+  xy: 1784, 1275
   size: 256, 512
   orig: 256, 512
   offset: 0, 0
   index: -1
 gfx/Environment/Object_3
   rotate: false
-  xy: 754, 1192
+  xy: 1446, 801
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_4
   rotate: false
-  xy: 260, 258
+  xy: 1446, 543
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_5
   rotate: false
-  xy: 1764, 1789
+  xy: 1446, 285
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_6
   rotate: false
-  xy: 1012, 1192
+  xy: 1704, 801
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_7
   rotate: false
-  xy: 1268, 1450
+  xy: 1704, 543
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_8
   rotate: false
-  xy: 1270, 1192
+  xy: 1704, 285
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_9
   rotate: false
-  xy: 518, 772
+  xy: 1149, 183
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Tile_1
+gfx/UI/buttonArrowLeft
   rotate: false
-  xy: 1786, 1273
-  size: 256, 256
-  orig: 256, 256
+  xy: 1426, 1147
+  size: 45, 45
+  orig: 45, 45
   offset: 0, 0
   index: -1
-gfx/Environment/Tile_10
+gfx/UI/buttonArrowRight
   rotate: false
-  xy: 1292, 934
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_11
-  rotate: false
-  xy: 1292, 676
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_12
-  rotate: false
-  xy: 1292, 418
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_13
-  rotate: false
-  xy: 1292, 160
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_14
-  rotate: false
-  xy: 1550, 943
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_15
-  rotate: false
-  xy: 1550, 685
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_2
-  rotate: false
-  xy: 776, 862
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_3
-  rotate: false
-  xy: 776, 604
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_4
-  rotate: false
-  xy: 776, 346
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_5
-  rotate: false
-  xy: 776, 88
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_6
-  rotate: false
-  xy: 1034, 862
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_7
-  rotate: false
-  xy: 1034, 604
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_8
-  rotate: false
-  xy: 1034, 346
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_9
-  rotate: false
-  xy: 1034, 88
-  size: 256, 256
-  orig: 256, 256
+  xy: 582, 983
+  size: 45, 45
+  orig: 45, 45
   offset: 0, 0
   index: -1
 gfx/UI/credits_box
   rotate: false
-  xy: 754, 1120
+  xy: 1526, 1131
   size: 359, 70
   orig: 359, 70
   offset: 0, 0
   index: -1
 gfx/UI/credits_reg
   rotate: false
-  xy: 1528, 1201
+  xy: 1426, 1059
   size: 359, 70
   orig: 359, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/options_box
+  rotate: false
+  xy: 516, 119
+  size: 373, 70
+  orig: 373, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/options_reg
+  rotate: false
+  xy: 516, 47
+  size: 373, 70
+  orig: 373, 70
   offset: 0, 0
   index: -1
 gfx/UI/player1Panel
@@ -443,114 +200,338 @@ gfx/UI/player4Panel
   orig: 750, 337
   offset: 0, 0
   index: -1
-gfx/Zurbs/Zurb-run.1
+gfx/UI/playerInnerActive
   rotate: false
-  xy: 260, 128
+  xy: 754, 957
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/UI/playerInnerInactive
+  rotate: false
+  xy: 516, 720
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/UI/playerInnerReady
+  rotate: false
+  xy: 516, 483
+  size: 670, 235
+  orig: 670, 235
+  offset: 0, 0
+  index: -1
+gfx/UI/quit_box
+  rotate: false
+  xy: 1526, 1203
+  size: 474, 70
+  orig: 474, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/quit_reg
+  rotate: false
+  xy: 516, 191
+  size: 474, 70
+  orig: 474, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/start_box
+  rotate: false
+  xy: 516, 335
+  size: 547, 70
+  orig: 547, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/start_glow
+  rotate: false
+  xy: 516, 407
+  size: 551, 74
+  orig: 551, 74
+  offset: 0, 0
+  index: -1
+gfx/UI/start_reg
+  rotate: false
+  xy: 516, 263
+  size: 547, 70
+  orig: 547, 70
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/Zurb-idle
+  rotate: false
+  xy: 891, 61
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
+gfx/Zurbs/Zurb-run.1
+  rotate: false
+  xy: 1149, 53
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurb-gunidle
+  rotate: false
+  xy: 516, 964
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-gunidle
+  rotate: false
+  xy: 1887, 1137
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-gunidle
+  rotate: false
+  xy: 1787, 1065
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-gunidle
+  rotate: false
+  xy: 992, 197
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-gunidle
+  rotate: false
+  xy: 1069, 417
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+
+textures2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gfx/Environment/Object_12
+  rotate: false
+  xy: 2, 1552
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_13
+  rotate: false
+  xy: 2, 1294
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_14
+  rotate: false
+  xy: 260, 1552
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_1
+  rotate: false
+  xy: 2, 1036
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_10
+  rotate: false
+  xy: 518, 1036
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_11
+  rotate: false
+  xy: 776, 1294
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_12
+  rotate: false
+  xy: 1034, 1552
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_13
+  rotate: false
+  xy: 2, 262
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_14
+  rotate: false
+  xy: 260, 520
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_15
+  rotate: false
+  xy: 518, 778
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_2
+  rotate: false
+  xy: 260, 1294
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_3
+  rotate: false
+  xy: 518, 1552
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_4
+  rotate: false
+  xy: 2, 778
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_5
+  rotate: false
+  xy: 260, 1036
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_6
+  rotate: false
+  xy: 518, 1294
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_7
+  rotate: false
+  xy: 776, 1552
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_8
+  rotate: false
+  xy: 2, 520
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_9
+  rotate: false
+  xy: 260, 778
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
 gfx/Zurbs/zurb-gun
   rotate: false
-  xy: 518, 126
+  xy: 1034, 1422
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-gun
   rotate: false
-  xy: 1550, 297
+  xy: 1292, 1680
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-idle.1
   rotate: false
-  xy: 1550, 167
+  xy: 2, 132
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-run
   rotate: false
-  xy: 1292, 30
+  xy: 260, 390
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbGREEN-gun
   rotate: false
-  xy: 1550, 37
+  xy: 518, 648
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
-gfx/default/badlogic
-  rotate: false
-  xy: 1550, 427
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-
-textures4.png
-size: 1024,512
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
 gfx/Zurbs/zurbGREEN-idle
   rotate: false
-  xy: 2, 262
+  xy: 776, 906
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbGREEN-run
   rotate: false
-  xy: 2, 132
+  xy: 1034, 1292
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbPURPLE-gun
   rotate: false
-  xy: 260, 262
+  xy: 1292, 1550
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbPURPLE-idle
   rotate: false
-  xy: 2, 2
+  xy: 1550, 1680
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbPURPLE-run
   rotate: false
-  xy: 260, 132
+  xy: 2, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-gun
   rotate: false
-  xy: 518, 262
+  xy: 260, 260
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-idle
   rotate: false
-  xy: 260, 2
+  xy: 518, 518
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-run
   rotate: false
-  xy: 518, 132
+  xy: 776, 776
   size: 256, 128
   orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/default/badlogic
+  rotate: false
+  xy: 776, 1036
+  size: 256, 256
+  orig: 256, 256
   offset: 0, 0
   index: -1
