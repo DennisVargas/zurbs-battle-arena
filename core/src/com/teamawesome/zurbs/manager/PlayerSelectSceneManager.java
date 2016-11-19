@@ -39,7 +39,7 @@ public class PlayerSelectSceneManager extends BaseSceneManager {
 
         if (startText.contains(x, y)) {
             soundController.playClick();
-//            game.loadStartGameScene();
+            game.loadStartGameScene();
         }
 
 
