@@ -6,8 +6,12 @@ import com.artemis.Manager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.controllers.*;
+import com.badlogic.gdx.controllers.PovDirection;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.utils.Array;
+import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.VisText;
 import com.kotcrab.vis.runtime.scene.Scene;
 import com.teamawesome.zurbs.SoundController;
@@ -24,11 +28,11 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 	protected ComponentMapper<Transform> transformCm;
 	protected ComponentMapper<VisSprite> spriteCm;
 	protected ComponentMapper<VisText> textCm;
-
+	protected ComponentMapper<PhysicsBody> physicsCm;
 	protected ZurbGame game;
 	protected SoundController soundController;
 
-	protected Array<Controller> controllers = Controllers.getControllers();
+	protected Array<Controller> controllers = Controllers.getControllers();	// for easy debugging of Controllers
 
 	protected CameraManager cameraManager;
 	protected VisIDManager idManager;
