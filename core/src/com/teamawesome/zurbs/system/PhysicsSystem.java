@@ -16,8 +16,10 @@ public class PhysicsSystem extends EntityProcessingSystem {
     /**
      * Creates a new EntityProcessingSystem.
      */
+
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<Transform> transCm;
+    //  custom velocity component
     ComponentMapper<Velocity> velocityCm;
     ComponentMapper<Bounds> boundsCm;
 
