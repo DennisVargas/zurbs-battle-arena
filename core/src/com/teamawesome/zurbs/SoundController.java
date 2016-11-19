@@ -10,7 +10,7 @@ public class SoundController {
 	boolean enabled = true;
 	Music music;
 	Sound click;
-	float fxVolume = 0.5f;
+	float fxVolume = 0.25f;
 
 	public SoundController (VisAssetManager manager) {
 		//music is persisted across whole game, so we load it manually
@@ -24,9 +24,9 @@ public class SoundController {
 
 		music = manager.get(musicPath, Music.class);
 		click = manager.get(clickPath, Sound.class);
-		
-		music.setLooping(true);
 
+		music.setLooping(true);
+		music.setVolume(0.3f);
 		if (enabled) music.play();
 	}
 

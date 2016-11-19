@@ -6,8 +6,12 @@ import com.artemis.Manager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.controllers.*;
+import com.badlogic.gdx.controllers.PovDirection;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.utils.Array;
+import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.VisText;
 import com.kotcrab.vis.runtime.scene.Scene;
 import com.teamawesome.zurbs.SoundController;
@@ -24,11 +28,11 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 	protected ComponentMapper<Transform> transformCm;
 	protected ComponentMapper<VisSprite> spriteCm;
 	protected ComponentMapper<VisText> textCm;
-
+	protected ComponentMapper<PhysicsBody> physicsCm;
 	protected ZurbGame game;
 	protected SoundController soundController;
 
-	protected Array<Controller> controllers;
+	protected Array<Controller> controllers = Controllers.getControllers();	// for easy debugging of Controllers
 
 	protected CameraManager cameraManager;
 	protected VisIDManager idManager;
@@ -60,6 +64,21 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 		trans2.setPosition(x, y);
 	}
 
+	protected void MoveXPNG(String id, float displacement){
+		Entity entity = idManager.get(id);
+		Transform trans = transformCm.get(entity);
+
+		trans.setPosition(trans.getX()+displacement, trans.getY());
+
+	}
+
+	protected void MoveYPNG(String id, float displacement){
+		Entity entity = idManager.get(id);
+		Transform trans = transformCm.get(entity);
+
+		trans.setPosition(trans.getX(),trans.getY()+displacement);
+	}
+
 	@Override
 	public void afterSceneInit () {
 		Gdx.input.setInputProcessor(this);
@@ -87,6 +106,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 
 			@Override
 			public boolean axisMoved(Controller controller, int axisCode, float value) {
+				System.out.println("Controller: "+ controller +"Code: "+axisCode+" direction:"+value);
 				return false;
 			}
 

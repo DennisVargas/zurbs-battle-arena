@@ -14,6 +14,8 @@ import com.kotcrab.vis.runtime.scene.Scene;
 import com.kotcrab.vis.runtime.scene.SceneLoader.SceneParameter;
 import com.kotcrab.vis.runtime.scene.SystemProvider;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
+import com.kotcrab.vis.runtime.system.physics.PhysicsBodyManager;
+import com.kotcrab.vis.runtime.system.physics.PhysicsSystem;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
 import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.*;
@@ -44,28 +46,6 @@ import com.teamawesome.zurbs.system.*;
 			loadMenuScene();
 		}//	create()
 //		============
-
-//		===============
-//		loadGameScene()
-//		============================
-	public void loadGameScene(){
-		unloadPreviousScene();
-
-		SceneParameter parameter = new SceneParameter();
-		parameter.config.addSystem(BoundsCreator.class);
-		parameter.config.addSystem(BoundsUpdater.class);
-
-
-		parameter.config.addSystem(new SystemProvider() {
-			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-				return new GameSceneManager(ZurbGame.this);
-			}
-		});
-
-		scenePath = "scene/game00.scene";
-		scene = manager.loadSceneNow(scenePath, parameter);
-	}//	loadMenuScene()
-//		===================
 
 //		===============
 //		loadMenuScene()
@@ -133,21 +113,24 @@ import com.teamawesome.zurbs.system.*;
 //		==================
 //		loadStartGameScene()
 //		====================================
-	public void loadStartGameScene(){
-		unloadPreviousScene();
+		public void loadStartGameScene(){
+			unloadPreviousScene();
 
-		SceneParameter parameter = new SceneParameter();
-		parameter.config.addSystem(BoundsCreator.class);
-		parameter.config.addSystem(BoundsUpdater.class);
-		parameter.config.addSystem(new SystemProvider() {
-			public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
-				return new PlayerSelectSceneManager(ZurbGame.this);
-			}
-		});
+			//	final Holder<PlatformSpawnerSystem> spawnerSystem = Holder.empty();
 
-		scenePath = "scene/game00.scene";
-		scene = manager.loadSceneNow(scenePath, parameter);
-	}//	loadStartGameScene()
+			SceneParameter parameter = new SceneParameter();
+			parameter.config.addSystem(BoundsCreator.class);
+			parameter.config.addSystem(BoundsUpdater.class);
+		//	parameter.config.addSystem(PhysicsBodyManager.class);
+			parameter.config.addSystem(new SystemProvider() {
+				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
+					return new GameSceneManager(ZurbGame.this);
+				}
+			});
+
+			scenePath = "scene/game00.scene";
+			scene = manager.loadSceneNow(scenePath, parameter);
+		}//	loadStartGameScene()
 // 		========================
 
 
