@@ -2201,8 +2201,8 @@
     {
       "components": [
         {
-          "x": 2.375,
-          "y": 6.75,
+          "x": 2.5,
+          "y": 6.125,
           "scaleX": 1.0,
           "scaleY": 1.0,
           "rotation": 0.0,
@@ -2238,7 +2238,7 @@
           "@class": "ProtoVisSprite"
         },
         {
-          "playMode": "NORMAL",
+          "playMode": "LOOP",
           "frameDuration": 0.001,
           "playing": true,
           "animationName": "zurb_run",
