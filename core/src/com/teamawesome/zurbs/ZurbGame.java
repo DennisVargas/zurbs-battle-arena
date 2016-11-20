@@ -6,16 +6,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.utils.Logger;
 import com.kotcrab.vis.runtime.RuntimeContext;
 import com.kotcrab.vis.runtime.data.SceneData;
 import com.kotcrab.vis.runtime.font.FreeTypeFontProvider;
 import com.kotcrab.vis.runtime.scene.Scene;
+import com.kotcrab.vis.runtime.scene.SceneFeature;
 import com.kotcrab.vis.runtime.scene.SceneLoader.SceneParameter;
 import com.kotcrab.vis.runtime.scene.SystemProvider;
+
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.physics.PhysicsBodyManager;
 import com.kotcrab.vis.runtime.system.physics.PhysicsSystem;
+import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
 import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.*;
@@ -43,7 +47,8 @@ import com.teamawesome.zurbs.system.*;
 			manager.enableFreeType(new FreeTypeFontProvider());
 			soundController = new SoundController(manager);
 
-			loadMenuScene();
+			//loadMenuScene();
+			loadStartGameScene();
 		}//	create()
 //		============
 
@@ -115,20 +120,28 @@ import com.teamawesome.zurbs.system.*;
 //		====================================
 		public void loadStartGameScene(){
 			unloadPreviousScene();
-
+            manager.getLogger().setLevel(Logger.ERROR);
 			//	final Holder<PlatformSpawnerSystem> spawnerSystem = Holder.empty();
 
 			SceneParameter parameter = new SceneParameter();
-			parameter.config.addSystem(BoundsCreator.class);
-			parameter.config.addSystem(BoundsUpdater.class);
-		//	parameter.config.addSystem(PhysicsBodyManager.class);
+		//	parameter.config.addSystem(BoundsCreator.class);
+		//	parameter.config.addSystem(BoundsUpdater.class);
+           parameter.config.enable(SceneFeature.PHYSICS_SYSTEM);
+            parameter.config.enable(SceneFeature.RENDER_BATCHING_SYSTEM);
+            parameter.config.enable(SceneFeature.SPRITE_RENDER_SYSTEM);
+            parameter.config.enable(SceneFeature.PHYSICS_BODY_MANAGER);
+            parameter.config.enable(SceneFeature.PHYSICS_SPRITE_UPDATE_SYSTEM);
+
+
+
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new GameSceneManager(ZurbGame.this);
 				}
 			});
+			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);
 
-			scenePath = "scene/game00.scene";
+			scenePath = "scene/game01.scene";
 			scene = manager.loadSceneNow(scenePath, parameter);
 		}//	loadStartGameScene()
 // 		========================

@@ -2,6 +2,7 @@ package com.teamawesome.zurbs;
 
 import com.artemis.BaseSystem;
 import com.badlogic.gdx.controllers.Controller;
+import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.teamawesome.zurbs.manager.BaseSceneManager;
 
 /**
@@ -12,6 +13,11 @@ public class GameSceneManager extends BaseSceneManager {
         super(game);
     }
 
+    @Override
+    public void afterSceneInit() {
+        super.afterSceneInit();
+        SpriteAnimationUpdateSystem s;
+    }
 
     @Override
     public boolean keyDown(int keyCode){
