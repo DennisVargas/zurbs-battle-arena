@@ -126,12 +126,12 @@ import com.teamawesome.zurbs.system.*;
 			SceneParameter parameter = new SceneParameter();
 		//	parameter.config.addSystem(BoundsCreator.class);
 		//	parameter.config.addSystem(BoundsUpdater.class);
-           parameter.config.enable(SceneFeature.PHYSICS_SYSTEM);
+           /*parameter.config.enable(SceneFeature.PHYSICS_SYSTEM);
             parameter.config.enable(SceneFeature.RENDER_BATCHING_SYSTEM);
             parameter.config.enable(SceneFeature.SPRITE_RENDER_SYSTEM);
             parameter.config.enable(SceneFeature.PHYSICS_BODY_MANAGER);
             parameter.config.enable(SceneFeature.PHYSICS_SPRITE_UPDATE_SYSTEM);
-
+			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);*/
 
 
 			parameter.config.addSystem(new SystemProvider() {
@@ -139,7 +139,7 @@ import com.teamawesome.zurbs.system.*;
 					return new GameSceneManager(ZurbGame.this);
 				}
 			});
-			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);
+
 
 			scenePath = "scene/game01.scene";
 			scene = manager.loadSceneNow(scenePath, parameter);
