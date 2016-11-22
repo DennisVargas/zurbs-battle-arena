@@ -48,7 +48,7 @@
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 1,
+  "activeLayerId": 3,
   "groupIds": [],
   "schemes": [
     {
@@ -963,6 +963,133 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        },
+        {
+          "vertices": [
+            {
+              "x": 6.6721287,
+              "y": 9.434999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 9.328193,
+              "y": 9.435811,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 9.539247,
+              "y": 8.588666,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 9.495276,
+              "y": 8.093276,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 7.2821283,
+              "y": 8.094999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 6.992129,
+              "y": 8.155,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 6.9621286,
+              "y": 8.215,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 6.8621287,
+              "y": 8.215,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 6.682129,
+              "y": 8.355,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 6.662129,
+              "y": 9.164999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 6.6721287,
+                "y": 9.434999
+              },
+              {
+                "x": 6.662129,
+                "y": 9.164999
+              },
+              {
+                "x": 6.9621286,
+                "y": 8.215
+              },
+              {
+                "x": 6.992129,
+                "y": 8.155
+              },
+              {
+                "x": 7.2821283,
+                "y": 8.094999
+              },
+              {
+                "x": 9.495276,
+                "y": 8.093276
+              },
+              {
+                "x": 9.539247,
+                "y": 8.588666
+              },
+              {
+                "x": 9.328193,
+                "y": 9.435811
+              }
+            ],
+            [
+              {
+                "x": 6.9621286,
+                "y": 8.215
+              },
+              {
+                "x": 6.662129,
+                "y": 9.164999
+              },
+              {
+                "x": 6.682129,
+                "y": 8.355
+              },
+              {
+                "x": 6.8621287,
+                "y": 8.215
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -1016,6 +1143,133 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        },
+        {
+          "vertices": [
+            {
+              "x": 8.489475,
+              "y": 9.435444,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 11.457129,
+              "y": 9.434999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 11.467129,
+              "y": 8.594999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 11.407128,
+              "y": 8.344999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 11.257129,
+              "y": 8.174999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 10.937129,
+              "y": 8.094999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 10.537128,
+              "y": 8.135,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 10.417129,
+              "y": 8.094999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 8.788834,
+              "y": 8.096208,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 8.489841,
+              "y": 8.749887,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 8.489475,
+                "y": 9.435444
+              },
+              {
+                "x": 8.489841,
+                "y": 8.749887
+              },
+              {
+                "x": 10.537128,
+                "y": 8.135
+              },
+              {
+                "x": 10.937129,
+                "y": 8.094999
+              },
+              {
+                "x": 11.257129,
+                "y": 8.174999
+              },
+              {
+                "x": 11.407128,
+                "y": 8.344999
+              },
+              {
+                "x": 11.467129,
+                "y": 8.594999
+              },
+              {
+                "x": 11.457129,
+                "y": 9.434999
+              }
+            ],
+            [
+              {
+                "x": 10.537128,
+                "y": 8.135
+              },
+              {
+                "x": 8.489841,
+                "y": 8.749887
+              },
+              {
+                "x": 8.788834,
+                "y": 8.096208
+              },
+              {
+                "x": 10.417129,
+                "y": 8.094999
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -1069,6 +1323,125 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "vertices": [
+            {
+              "x": 13.82,
+              "y": 9.559999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.009999,
+              "y": 9.559999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 17.09681,
+              "y": 9.561068,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 17.247385,
+              "y": 8.222014,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.429999,
+              "y": 8.219999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.139999,
+              "y": 8.28,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.11,
+              "y": 8.34,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.01,
+              "y": 8.34,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.83,
+              "y": 8.48,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.809999,
+              "y": 9.289999,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 13.82,
+                "y": 9.559999
+              },
+              {
+                "x": 13.809999,
+                "y": 9.289999
+              },
+              {
+                "x": 15.009999,
+                "y": 9.559999
+              }
+            ],
+            [
+              {
+                "x": 15.009999,
+                "y": 9.559999
+              },
+              {
+                "x": 13.809999,
+                "y": 9.289999
+              },
+              {
+                "x": 14.11,
+                "y": 8.34
+              },
+              {
+                "x": 14.139999,
+                "y": 8.28
+              },
+              {
+                "x": 14.429999,
+                "y": 8.219999
+              },
+              {
+                "x": 17.247385,
+                "y": 8.222014
+              },
+              {
+                "x": 17.09681,
+                "y": 9.561068
+              }
+            ],
+            [
+              {
+                "x": 14.11,
+                "y": 8.34
+              },
+              {
+                "x": 13.809999,
+                "y": 9.289999
+              },
+              {
+                "x": 13.83,
+                "y": 8.48
+              },
+              {
+                "x": 14.01,
+                "y": 8.34
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -1572,6 +1945,9 @@
           "@class": "Renderable"
         },
         {
+          "@class": "VisID"
+        },
+        {
           "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
@@ -1597,73 +1973,73 @@
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 9.832317,
-              "y": 0.92064595,
+              "x": 11.182836,
+              "y": 0.9256862,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 8.869834,
-              "y": -0.4624313,
+              "x": 11.356987,
+              "y": 0.9096108,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 7.3062015,
-              "y": -0.4624313,
+              "x": 11.450763,
+              "y": 0.76225203,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 7.0699997,
-              "y": -0.44,
+              "x": 11.466845,
+              "y": 0.36572307,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 6.9299994,
-              "y": -0.3,
+              "x": 11.252502,
+              "y": 0.24515682,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 6.66,
-              "y": -0.32,
+              "x": 11.142653,
+              "y": 0.12726977,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 6.37,
-              "y": -0.110000014,
+              "x": 11.113182,
+              "y": -0.04420218,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 6.22,
-              "y": -0.13,
+              "x": 9.655669,
+              "y": -0.19691959,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.97,
-              "y": 0.0,
+              "x": 8.270496,
+              "y": -0.2746178,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.8199997,
-              "y": 0.20999998,
+              "x": 7.137174,
+              "y": -0.27461773,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.81,
-              "y": 0.37,
+              "x": 6.5155883,
+              "y": -0.21299492,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.75,
-              "y": 0.39,
+              "x": 5.983083,
+              "y": -0.03750404,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.72,
-              "y": 0.27999997,
+              "x": 5.825409,
+              "y": 0.22677395,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 5.6499996,
-              "y": 0.39,
+              "x": 5.7168946,
+              "y": 0.2898636,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
@@ -1698,116 +2074,92 @@
                 "y": 0.9280309
               },
               {
-                "x": 6.9299994,
-                "y": -0.3
+                "x": 11.252502,
+                "y": 0.24515682
               },
               {
-                "x": 7.0699997,
-                "y": -0.44
+                "x": 11.466845,
+                "y": 0.36572307
               },
               {
-                "x": 7.3062015,
-                "y": -0.4624313
+                "x": 11.450763,
+                "y": 0.76225203
               },
               {
-                "x": 8.869834,
-                "y": -0.4624313
+                "x": 11.356987,
+                "y": 0.9096108
               },
               {
-                "x": 9.832317,
-                "y": 0.92064595
+                "x": 11.182836,
+                "y": 0.9256862
               }
             ],
             [
               {
-                "x": 6.9299994,
-                "y": -0.3
+                "x": 11.252502,
+                "y": 0.24515682
               },
               {
                 "x": 5.717102,
                 "y": 0.9280309
               },
               {
-                "x": 6.37,
-                "y": -0.110000014
-              },
-              {
-                "x": 6.66,
-                "y": -0.32
+                "x": 11.142653,
+                "y": 0.12726977
               }
             ],
             [
               {
-                "x": 6.37,
-                "y": -0.110000014
+                "x": 11.142653,
+                "y": 0.12726977
               },
               {
                 "x": 5.717102,
                 "y": 0.9280309
               },
               {
-                "x": 5.81,
-                "y": 0.37
+                "x": 5.825409,
+                "y": 0.22677395
               },
               {
-                "x": 5.97,
-                "y": 0.0
+                "x": 5.983083,
+                "y": -0.03750404
               },
               {
-                "x": 6.22,
-                "y": -0.13
+                "x": 6.5155883,
+                "y": -0.21299492
               }
             ],
             [
               {
-                "x": 5.8199997,
-                "y": 0.20999998
+                "x": 6.5155883,
+                "y": -0.21299492
               },
               {
-                "x": 5.97,
-                "y": 0.0
+                "x": 7.137174,
+                "y": -0.27461773
               },
               {
-                "x": 5.81,
-                "y": 0.37
+                "x": 8.270496,
+                "y": -0.2746178
+              },
+              {
+                "x": 9.655669,
+                "y": -0.19691959
+              },
+              {
+                "x": 11.113182,
+                "y": -0.04420218
+              },
+              {
+                "x": 11.142653,
+                "y": 0.12726977
               }
             ],
             [
               {
-                "x": 5.81,
-                "y": 0.37
-              },
-              {
-                "x": 5.717102,
-                "y": 0.9280309
-              },
-              {
-                "x": 5.75,
-                "y": 0.39
-              }
-            ],
-            [
-              {
-                "x": 5.75,
-                "y": 0.39
-              },
-              {
-                "x": 5.717102,
-                "y": 0.9280309
-              },
-              {
-                "x": 5.6499996,
-                "y": 0.39
-              },
-              {
-                "x": 5.72,
-                "y": 0.27999997
-              }
-            ],
-            [
-              {
-                "x": 5.6499996,
-                "y": 0.39
+                "x": 5.825409,
+                "y": 0.22677395
               },
               {
                 "x": 5.717102,
@@ -1824,6 +2176,10 @@
               {
                 "x": 5.6099997,
                 "y": 0.35999995
+              },
+              {
+                "x": 5.7168946,
+                "y": 0.2898636
               }
             ]
           ],
@@ -1881,283 +2237,6 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
-        },
-        {
-          "bodyType": "StaticBody",
-          "friction": 1.0,
-          "density": 1.0,
-          "restitution": 0.0,
-          "sensor": false,
-          "gravityScale": 1.0,
-          "linearDamping": 0.0,
-          "angularDamping": 0.0,
-          "bullet": false,
-          "fixedRotation": false,
-          "active": true,
-          "sleepingAllowed": true,
-          "adjustOrigin": true,
-          "maskBits": -1,
-          "categoryBits": 1,
-          "@class": "PhysicsProperties"
-        },
-        {
-          "vertices": [
-            {
-              "x": 8.668564,
-              "y": 0.92230177,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.97559,
-              "y": 0.9196438,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.34,
-              "y": 0.91999996,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.42,
-              "y": 0.81999993,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.469999,
-              "y": 0.55999994,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.429999,
-              "y": 0.39,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.33,
-              "y": 0.28999996,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.33,
-              "y": 0.35999995,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.25,
-              "y": 0.39,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.24,
-              "y": 0.26999998,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.12,
-              "y": 0.110000014,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 11.11,
-              "y": -0.02000001,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.969999,
-              "y": -0.110000014,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.79,
-              "y": -0.100000024,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.66,
-              "y": -0.26,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.28,
-              "y": -0.37,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 10.23,
-              "y": -0.45,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 9.89,
-              "y": -0.47,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 8.34991,
-              "y": -0.46839878,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            },
-            {
-              "x": 8.234054,
-              "y": 0.38472176,
-              "@class": "com.badlogic.gdx.math.Vector2"
-            }
-          ],
-          "faces": [
-            [
-              {
-                "x": 8.668564,
-                "y": 0.92230177
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 10.97559,
-                "y": 0.9196438
-              }
-            ],
-            [
-              {
-                "x": 10.97559,
-                "y": 0.9196438
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 11.25,
-                "y": 0.39
-              },
-              {
-                "x": 11.469999,
-                "y": 0.55999994
-              },
-              {
-                "x": 11.42,
-                "y": 0.81999993
-              },
-              {
-                "x": 11.34,
-                "y": 0.91999996
-              }
-            ],
-            [
-              {
-                "x": 11.429999,
-                "y": 0.39
-              },
-              {
-                "x": 11.469999,
-                "y": 0.55999994
-              },
-              {
-                "x": 11.33,
-                "y": 0.35999995
-              },
-              {
-                "x": 11.33,
-                "y": 0.28999996
-              }
-            ],
-            [
-              {
-                "x": 11.33,
-                "y": 0.35999995
-              },
-              {
-                "x": 11.469999,
-                "y": 0.55999994
-              },
-              {
-                "x": 11.25,
-                "y": 0.39
-              }
-            ],
-            [
-              {
-                "x": 11.25,
-                "y": 0.39
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 11.12,
-                "y": 0.110000014
-              },
-              {
-                "x": 11.24,
-                "y": 0.26999998
-              }
-            ],
-            [
-              {
-                "x": 11.12,
-                "y": 0.110000014
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 10.79,
-                "y": -0.100000024
-              },
-              {
-                "x": 10.969999,
-                "y": -0.110000014
-              },
-              {
-                "x": 11.11,
-                "y": -0.02000001
-              }
-            ],
-            [
-              {
-                "x": 10.79,
-                "y": -0.100000024
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 10.28,
-                "y": -0.37
-              },
-              {
-                "x": 10.66,
-                "y": -0.26
-              }
-            ],
-            [
-              {
-                "x": 10.28,
-                "y": -0.37
-              },
-              {
-                "x": 8.234054,
-                "y": 0.38472176
-              },
-              {
-                "x": 8.34991,
-                "y": -0.46839878
-              },
-              {
-                "x": 9.89,
-                "y": -0.47
-              },
-              {
-                "x": 10.23,
-                "y": -0.45
-              }
-            ]
-          ],
-          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -2211,6 +2290,292 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        },
+        {
+          "vertices": [
+            {
+              "x": 13.380723,
+              "y": 0.8155508,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.199016,
+              "y": 0.8157299,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.19353,
+              "y": 8.369484,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 16.400307,
+              "y": 8.371643,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 16.445858,
+              "y": 2.603891,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 16.166862,
+              "y": -0.38531986,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.683268,
+              "y": -0.3136611,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.52238,
+              "y": -0.49600074,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.16,
+              "y": -0.445,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.87,
+              "y": -0.23500001,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.719999,
+              "y": -0.255,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.469999,
+              "y": -0.125,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.32,
+              "y": 0.08499998,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.309999,
+              "y": 0.245,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.25,
+              "y": 0.265,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.219999,
+              "y": 0.15499997,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.15,
+              "y": 0.265,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.11,
+              "y": 0.23499995,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.08,
+              "y": 0.46500003,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.13,
+              "y": 0.69499993,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.24,
+              "y": 0.81499994,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 13.380723,
+                "y": 0.8155508
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 15.683268,
+                "y": -0.3136611
+              },
+              {
+                "x": 16.166862,
+                "y": -0.38531986
+              },
+              {
+                "x": 15.199016,
+                "y": 0.8157299
+              }
+            ],
+            [
+              {
+                "x": 15.19353,
+                "y": 8.369484
+              },
+              {
+                "x": 15.199016,
+                "y": 0.8157299
+              },
+              {
+                "x": 16.166862,
+                "y": -0.38531986
+              },
+              {
+                "x": 16.445858,
+                "y": 2.603891
+              },
+              {
+                "x": 16.400307,
+                "y": 8.371643
+              }
+            ],
+            [
+              {
+                "x": 15.683268,
+                "y": -0.3136611
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 13.87,
+                "y": -0.23500001
+              },
+              {
+                "x": 14.16,
+                "y": -0.445
+              },
+              {
+                "x": 15.52238,
+                "y": -0.49600074
+              }
+            ],
+            [
+              {
+                "x": 13.87,
+                "y": -0.23500001
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 13.309999,
+                "y": 0.245
+              },
+              {
+                "x": 13.469999,
+                "y": -0.125
+              },
+              {
+                "x": 13.719999,
+                "y": -0.255
+              }
+            ],
+            [
+              {
+                "x": 13.32,
+                "y": 0.08499998
+              },
+              {
+                "x": 13.469999,
+                "y": -0.125
+              },
+              {
+                "x": 13.309999,
+                "y": 0.245
+              }
+            ],
+            [
+              {
+                "x": 13.309999,
+                "y": 0.245
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 13.25,
+                "y": 0.265
+              }
+            ],
+            [
+              {
+                "x": 13.25,
+                "y": 0.265
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 13.15,
+                "y": 0.265
+              },
+              {
+                "x": 13.219999,
+                "y": 0.15499997
+              }
+            ],
+            [
+              {
+                "x": 13.15,
+                "y": 0.265
+              },
+              {
+                "x": 13.24,
+                "y": 0.81499994
+              },
+              {
+                "x": 13.13,
+                "y": 0.69499993
+              },
+              {
+                "x": 13.08,
+                "y": 0.46500003
+              },
+              {
+                "x": 13.11,
+                "y": 0.23499995
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -2320,6 +2685,9 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "@class": "VisID"
         },
         {
           "bodyType": "StaticBody",
@@ -3161,6 +3529,274 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "bodyType": "StaticBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": false,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        },
+        {
+          "vertices": [
+            {
+              "x": 13.001059,
+              "y": 6.940696,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.741428,
+              "y": 6.940696,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.86086,
+              "y": 6.940698,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 15.8594,
+              "y": 5.5589395,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.195,
+              "y": 5.56,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 14.054999,
+              "y": 5.7,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.785,
+              "y": 5.68,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.495,
+              "y": 5.89,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.344999,
+              "y": 5.87,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 13.094999,
+              "y": 6.0,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.945,
+              "y": 6.21,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.934999,
+              "y": 6.37,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.875,
+              "y": 6.39,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.844999,
+              "y": 6.2799997,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.775,
+              "y": 6.39,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.735,
+              "y": 6.3599997,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.705,
+              "y": 6.5899997,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.755,
+              "y": 6.8199997,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 12.865,
+              "y": 6.9399996,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 13.001059,
+                "y": 6.940696
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 14.741428,
+                "y": 6.940696
+              }
+            ],
+            [
+              {
+                "x": 14.741428,
+                "y": 6.940696
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 14.054999,
+                "y": 5.7
+              },
+              {
+                "x": 14.195,
+                "y": 5.56
+              },
+              {
+                "x": 15.8594,
+                "y": 5.5589395
+              },
+              {
+                "x": 15.86086,
+                "y": 6.940698
+              }
+            ],
+            [
+              {
+                "x": 14.054999,
+                "y": 5.7
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 13.495,
+                "y": 5.89
+              },
+              {
+                "x": 13.785,
+                "y": 5.68
+              }
+            ],
+            [
+              {
+                "x": 13.495,
+                "y": 5.89
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 12.934999,
+                "y": 6.37
+              },
+              {
+                "x": 13.094999,
+                "y": 6.0
+              },
+              {
+                "x": 13.344999,
+                "y": 5.87
+              }
+            ],
+            [
+              {
+                "x": 12.945,
+                "y": 6.21
+              },
+              {
+                "x": 13.094999,
+                "y": 6.0
+              },
+              {
+                "x": 12.934999,
+                "y": 6.37
+              }
+            ],
+            [
+              {
+                "x": 12.934999,
+                "y": 6.37
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 12.875,
+                "y": 6.39
+              }
+            ],
+            [
+              {
+                "x": 12.875,
+                "y": 6.39
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 12.775,
+                "y": 6.39
+              },
+              {
+                "x": 12.844999,
+                "y": 6.2799997
+              }
+            ],
+            [
+              {
+                "x": 12.775,
+                "y": 6.39
+              },
+              {
+                "x": 12.865,
+                "y": 6.9399996
+              },
+              {
+                "x": 12.755,
+                "y": 6.8199997
+              },
+              {
+                "x": 12.705,
+                "y": 6.5899997
+              },
+              {
+                "x": 12.735,
+                "y": 6.3599997
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
         }
       ],
       "@class": "EntityScheme"
@@ -3240,7 +3876,7 @@
           "linearDamping": 0.0,
           "angularDamping": 0.0,
           "bullet": false,
-          "fixedRotation": false,
+          "fixedRotation": true,
           "active": true,
           "sleepingAllowed": true,
           "adjustOrigin": true,

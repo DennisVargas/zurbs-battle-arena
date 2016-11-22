@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
+import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
@@ -16,6 +17,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
+    ComponentMapper<Transform> transformCm;
     VisIDManager idManager;
 
     VisSprite sprite;
@@ -24,8 +26,13 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     @Override
     public void afterSceneInit() {
         Entity player = idManager.get("PlayerXX");
+        Transform trans = transformCm.get(player);
         sprite = spriteCm.get(player);
         body = physicsCm.get(player).body;
+        if (trans.getY() < 0) {
+            trans.setPosition(trans.getX(), 9);
+        }
+        System.out.println("y = " + trans.getY());
     }
 
     @Override
@@ -36,10 +43,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
             desiredVel = -20;
-            sprite.setFlip(true, false);
+            sprite.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
             desiredVel = 20;
-            sprite.setFlip(false, false);
+            sprite.setFlip(true, false);
         }
 
         if (Gdx.input.isKeyJustPressed(Keys.UP)) {
@@ -50,5 +57,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float velChange = desiredVel - x;
         float impulse = body.getMass() * velChange;
         body.applyForce(impulse, 0, body.getWorldCenter().x, body.getWorldCenter().y, true);
+
+        afterSceneInit();
+
     }
 }
