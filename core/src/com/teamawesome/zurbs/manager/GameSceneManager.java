@@ -1,8 +1,9 @@
-package com.teamawesome.zurbs;
+package com.teamawesome.zurbs.manager;
 
 import com.artemis.BaseSystem;
 import com.badlogic.gdx.controllers.Controller;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
+import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.manager.BaseSceneManager;
 
 /**

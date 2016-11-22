@@ -22,17 +22,15 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     VisSprite sprite;
     Body body;
+    Transform trans;
 
     @Override
     public void afterSceneInit() {
         Entity player = idManager.get("PlayerXX");
-        Transform trans = transformCm.get(player);
+        trans = transformCm.get(player);
         sprite = spriteCm.get(player);
         body = physicsCm.get(player).body;
-        if (trans.getY() < 0) {
-            trans.setPosition(trans.getX(), 9);
-        }
-        System.out.println("y = " + trans.getY());
+
     }
 
     @Override
@@ -58,7 +56,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float impulse = body.getMass() * velChange;
         body.applyForce(impulse, 0, body.getWorldCenter().x, body.getWorldCenter().y, true);
 
-        afterSceneInit();
+        if (trans.getY() < 0) {
+            trans.setPosition(trans.getX(), 9);
+        }
+        System.out.println("y = " + trans.getY());
 
     }
 }
