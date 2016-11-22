@@ -15,7 +15,6 @@ import com.kotcrab.vis.runtime.scene.Scene;
 import com.kotcrab.vis.runtime.scene.SceneFeature;
 import com.kotcrab.vis.runtime.scene.SceneLoader.SceneParameter;
 import com.kotcrab.vis.runtime.scene.SystemProvider;
-
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.physics.PhysicsBodyManager;
 import com.kotcrab.vis.runtime.system.physics.PhysicsSystem;
@@ -49,6 +48,7 @@ import com.teamawesome.zurbs.system.*;
 
 			//loadMenuScene();
 			loadStartGameScene();
+
 		}//	create()
 //		============
 
@@ -119,6 +119,8 @@ import com.teamawesome.zurbs.system.*;
 //		loadStartGameScene()
 //		====================================
 		public void loadStartGameScene(){
+
+
 			unloadPreviousScene();
             manager.getLogger().setLevel(Logger.ERROR);
 			//	final Holder<PlatformSpawnerSystem> spawnerSystem = Holder.empty();
@@ -132,7 +134,7 @@ import com.teamawesome.zurbs.system.*;
             parameter.config.enable(SceneFeature.PHYSICS_BODY_MANAGER);
             parameter.config.enable(SceneFeature.PHYSICS_SPRITE_UPDATE_SYSTEM);
 			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);
-
+			parameter.config.addSystem(PlayerSystem.class);
 
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
