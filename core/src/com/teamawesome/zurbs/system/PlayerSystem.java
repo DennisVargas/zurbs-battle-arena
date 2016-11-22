@@ -11,6 +11,7 @@ import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import java.lang.*;
 
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
@@ -47,8 +48,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             sprite.setFlip(true, false);
         }
 
-        if (Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
-            float impulse = body.getMass() * 300;
+        if (Math.abs(body.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
+            float impulse = body.getMass() * 400;
             body.applyForce(0, impulse, body.getWorldCenter().x, body.getWorldCenter().y, true);
         }
 
@@ -58,6 +59,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         if (body.getPosition().y < 0) {
             body.setTransform(body.getPosition().x, 9.0f, 0.0f);
+            System.out.println("position = " + body.getPosition());
+        }
+
+        if (body.getPosition().y > 9) {
+            body.setTransform(body.getPosition().x, 0.0f, 0.0f);
             System.out.println("position = " + body.getPosition());
         }
         //System.out.println("y = " + trans.getY());

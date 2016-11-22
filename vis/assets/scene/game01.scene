@@ -3873,7 +3873,7 @@
           "restitution": 0.0,
           "sensor": false,
           "gravityScale": 1.0,
-          "linearDamping": 0.0,
+          "linearDamping": 1.0,
           "angularDamping": 0.0,
           "bullet": false,
           "fixedRotation": true,
