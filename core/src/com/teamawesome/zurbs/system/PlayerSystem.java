@@ -24,13 +24,13 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     Body body;
     Transform trans;
 
+
     @Override
     public void afterSceneInit() {
         Entity player = idManager.get("PlayerXX");
         trans = transformCm.get(player);
         sprite = spriteCm.get(player);
         body = physicsCm.get(player).body;
-
     }
 
     @Override
@@ -39,16 +39,16 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float y = body.getLinearVelocity().y;
         float desiredVel = 0;
 
-        if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+        if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
             desiredVel = -20;
             sprite.setFlip(false, false);
-        } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+        } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel = 20;
             sprite.setFlip(true, false);
         }
 
-        if (Gdx.input.isKeyJustPressed(Keys.UP)) {
-            float impulse = body.getMass() * 200;
+        if (Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
+            float impulse = body.getMass() * 300;
             body.applyForce(0, impulse, body.getWorldCenter().x, body.getWorldCenter().y, true);
         }
 
@@ -56,10 +56,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float impulse = body.getMass() * velChange;
         body.applyForce(impulse, 0, body.getWorldCenter().x, body.getWorldCenter().y, true);
 
-        if (trans.getY() < 0) {
-            trans.setPosition(trans.getX(), 9);
+        if (body.getPosition().y < 0) {
+            body.setTransform(body.getPosition().x, 9.0f, 0.0f);
+            System.out.println("position = " + body.getPosition());
         }
-        System.out.println("y = " + trans.getY());
+        //System.out.println("y = " + trans.getY());
 
     }
 }
