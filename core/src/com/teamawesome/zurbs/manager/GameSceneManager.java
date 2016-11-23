@@ -26,8 +26,10 @@ public class GameSceneManager extends BaseSceneManager {
         if (keyCode == 131)
             this.game.loadMenuScene();
 
-        if(keyCode == 21)
-            MoveXPNG("Player00", - 0.25f);
+        /*
+         if(keyCode == 21)
+            MoveXPNG("Player02", - 0.25f);
+        */
 
         return false;
     }
