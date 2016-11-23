@@ -58,7 +58,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         }
 
         if (Math.abs(body.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
-            float impulse = body.getMass() * 350;
+            float impulse = body.getMass() * 400;
             body.applyForce(0, impulse, body.getWorldCenter().x, body.getWorldCenter().y, true);
         }
 
