@@ -4,7 +4,10 @@ import com.artemis.BaseSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.controllers.PovDirection;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
@@ -36,14 +39,15 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean falling = false;
     boolean peak = false;
 
-    Controller controller = Controllers.getControllers().first();
+    Controller controller;
     Entity player, player1, player2;
+
 
     @Override
     public void afterSceneInit() {
         // original code
         player = idManager.get("PlayerXX");
-        player.edit().add(new Player(controller, "zurbBlue"));
+//        player.edit().add(new Player(controller, "zurbBlue"));
         sprite = spriteCm.get(player);
         animation = visSprtAnimCM.get(player);
         body = physicsCm.get(player).body;
@@ -51,6 +55,22 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         massData.mass = 50.0f;
         body.setMassData(massData);
 
+  /*      for(int i = 0; i < 4; i++){
+            player = idManager.get("Player0"+(i+1));
+            sprite = spriteCm.get(player);
+            animation = visSprtAnimCM.get(player);
+            body = physicsCm.get(player).body;
+            massData.mass = 50.0f;
+            body.setMassData(massData);
+
+            try{
+                controller = Controllers.getControllers().get(i);
+                controller.addListener(ListenerFactory(body));
+            }catch(Exception e){
+                controller = null;
+                System.out.println("no control "+i);
+            }
+        }*/
         //animation.setAnimationName("zurbBlue_idle");
         // original code
 
@@ -193,5 +213,56 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         }
         // move player2
 
+    }
+
+    private ControllerListener ListenerFactory(final Body bod){
+        ControllerListener listener = new ControllerListener() {
+            @Override
+            public void connected(Controller controller) {
+
+            }
+
+            @Override
+            public void disconnected(Controller controller) {
+
+            }
+
+            @Override
+            public boolean buttonDown(Controller controller, int buttonCode) {
+                return false;
+            }
+
+            @Override
+            public boolean buttonUp(Controller controller, int buttonCode) {
+                return false;
+            }
+
+            @Override
+            public boolean axisMoved(Controller controller, int axisCode, float value) {
+                bod.applyForceToCenter(100.0f, 0, true);
+                return false;
+            }
+
+            @Override
+            public boolean povMoved(Controller controller, int povCode, PovDirection value) {
+                return false;
+            }
+
+            @Override
+            public boolean xSliderMoved(Controller controller, int sliderCode, boolean value) {
+                return false;
+            }
+
+            @Override
+            public boolean ySliderMoved(Controller controller, int sliderCode, boolean value) {
+                return false;
+            }
+
+            @Override
+            public boolean accelerometerMoved(Controller controller, int accelerometerCode, Vector3 value) {
+                return false;
+            }
+        };
+        return listener;
     }
 }
