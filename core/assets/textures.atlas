@@ -4,1228 +4,1516 @@ size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Environment/Background01
+gfx/Environment/_Spritesheet
   rotate: false
-  xy: 2, 628
-  size: 2000, 1412
-  orig: 2000, 1412
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_1
-  rotate: false
-  xy: 1653, 8
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_16
-  rotate: false
-  xy: 2, 102
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_17
-  rotate: false
-  xy: 516, 102
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_18
-  rotate: false
-  xy: 1030, 102
-  size: 512, 512
-  orig: 512, 512
+  xy: 2, 239
+  size: 1792, 1792
+  orig: 1792, 1792
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_01
   rotate: false
-  xy: 2030, 1480
+  xy: 1909, 431
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_02
   rotate: false
-  xy: 2030, 1462
+  xy: 1994, 1464
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_03
   rotate: false
-  xy: 2030, 1444
+  xy: 1909, 413
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_04
   rotate: false
-  xy: 2030, 1426
+  xy: 1994, 1446
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_05
   rotate: false
-  xy: 2030, 1408
+  xy: 1994, 1428
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_06
   rotate: false
-  xy: 2030, 1390
+  xy: 1994, 1410
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_07
   rotate: false
-  xy: 2030, 1372
+  xy: 1994, 1392
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_08
   rotate: false
-  xy: 2030, 1354
+  xy: 1994, 1374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_09
   rotate: false
-  xy: 2030, 1336
+  xy: 1994, 1356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_10
   rotate: false
-  xy: 2030, 1318
+  xy: 1994, 1338
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_100
   rotate: false
-  xy: 272, 8
+  xy: 2012, 1464
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_101
   rotate: false
-  xy: 290, 8
+  xy: 2030, 1464
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_102
   rotate: false
-  xy: 308, 8
+  xy: 2012, 1446
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_103
   rotate: false
-  xy: 326, 8
+  xy: 2030, 1446
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_104
   rotate: false
-  xy: 344, 8
+  xy: 2012, 1428
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_105
   rotate: false
-  xy: 362, 8
+  xy: 2030, 1428
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_106
   rotate: false
-  xy: 380, 8
+  xy: 2012, 1410
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_107
   rotate: false
-  xy: 398, 8
+  xy: 2030, 1410
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_108
   rotate: false
-  xy: 416, 8
+  xy: 2012, 1392
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_109
   rotate: false
-  xy: 434, 8
+  xy: 2030, 1392
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_11
   rotate: false
-  xy: 2030, 1300
+  xy: 1994, 1320
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_110
   rotate: false
-  xy: 452, 8
+  xy: 2012, 1374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_111
   rotate: false
-  xy: 470, 8
+  xy: 2030, 1374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_112
   rotate: false
-  xy: 488, 8
+  xy: 2012, 1356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_113
   rotate: false
-  xy: 506, 8
+  xy: 2030, 1356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_114
   rotate: false
-  xy: 524, 8
+  xy: 2012, 1338
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_115
   rotate: false
-  xy: 542, 8
+  xy: 2030, 1338
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_116
   rotate: false
-  xy: 2020, 598
+  xy: 2012, 1320
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_117
   rotate: false
-  xy: 2020, 580
+  xy: 2030, 1320
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_118
   rotate: false
-  xy: 2020, 562
+  xy: 2012, 1302
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_119
   rotate: false
-  xy: 2020, 544
+  xy: 2030, 1302
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_12
   rotate: false
-  xy: 2030, 1282
+  xy: 1994, 1302
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_13
   rotate: false
-  xy: 2030, 1264
+  xy: 1994, 1284
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_14
   rotate: false
-  xy: 2030, 1246
+  xy: 1994, 1266
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_15
   rotate: false
-  xy: 2030, 1228
+  xy: 1994, 1248
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_16
   rotate: false
-  xy: 2004, 1220
+  xy: 1994, 1230
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_17
   rotate: false
-  xy: 2022, 1210
+  xy: 1994, 1212
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_18
   rotate: false
-  xy: 2004, 1202
+  xy: 1994, 1194
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_19
   rotate: false
-  xy: 2022, 1192
+  xy: 1994, 1176
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_20
   rotate: false
-  xy: 2004, 1184
+  xy: 1994, 1158
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_21
   rotate: false
-  xy: 2022, 1174
+  xy: 1994, 1140
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_22
   rotate: false
-  xy: 2004, 1166
+  xy: 1994, 1122
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_23
   rotate: false
-  xy: 2022, 1156
+  xy: 1994, 1104
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_24
   rotate: false
-  xy: 2004, 1148
+  xy: 1994, 1086
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_25
   rotate: false
-  xy: 2022, 1138
+  xy: 1994, 1068
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_26
   rotate: false
-  xy: 2004, 1130
+  xy: 1994, 1050
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_27
   rotate: false
-  xy: 2022, 1120
+  xy: 1994, 1032
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_28
   rotate: false
-  xy: 2004, 1112
+  xy: 1994, 1014
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_29
   rotate: false
-  xy: 2022, 1102
+  xy: 1994, 996
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_30
   rotate: false
-  xy: 2004, 1094
+  xy: 1994, 978
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_31
   rotate: false
-  xy: 2022, 1084
+  xy: 1994, 960
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_32
   rotate: false
-  xy: 2004, 1076
+  xy: 1994, 942
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_33
   rotate: false
-  xy: 2022, 1066
+  xy: 1994, 924
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_34
   rotate: false
-  xy: 2004, 1058
+  xy: 1994, 906
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_35
   rotate: false
-  xy: 2022, 1048
+  xy: 1994, 888
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_36
   rotate: false
-  xy: 2004, 1040
+  xy: 1994, 870
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_37
   rotate: false
-  xy: 2022, 1030
+  xy: 1994, 852
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_38
   rotate: false
-  xy: 2004, 1022
+  xy: 1994, 834
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_39
   rotate: false
-  xy: 2022, 1012
+  xy: 1994, 816
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_40
   rotate: false
-  xy: 2004, 1004
+  xy: 1994, 798
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_41
   rotate: false
-  xy: 2022, 994
+  xy: 1994, 780
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_42
   rotate: false
-  xy: 2004, 986
+  xy: 1994, 762
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_43
   rotate: false
-  xy: 2022, 976
+  xy: 1994, 744
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_44
   rotate: false
-  xy: 2004, 968
+  xy: 1994, 726
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_45
   rotate: false
-  xy: 2022, 958
+  xy: 1994, 708
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_46
   rotate: false
-  xy: 2004, 950
+  xy: 1994, 690
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_47
   rotate: false
-  xy: 2022, 940
+  xy: 1994, 672
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_48
   rotate: false
-  xy: 2004, 932
+  xy: 1994, 654
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_49
   rotate: false
-  xy: 2022, 922
+  xy: 1994, 636
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_50
   rotate: false
-  xy: 2004, 914
+  xy: 1994, 618
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_51
   rotate: false
-  xy: 2022, 904
+  xy: 1994, 600
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_52
   rotate: false
-  xy: 2004, 896
+  xy: 1994, 582
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_53
   rotate: false
-  xy: 2022, 886
+  xy: 1994, 564
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_54
   rotate: false
-  xy: 2004, 878
+  xy: 1994, 546
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_55
   rotate: false
-  xy: 2022, 868
+  xy: 1994, 528
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_56
   rotate: false
-  xy: 2004, 860
+  xy: 1862, 316
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_57
   rotate: false
-  xy: 2022, 850
+  xy: 1880, 316
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_58
   rotate: false
-  xy: 2004, 842
+  xy: 2028, 1968
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_59
   rotate: false
-  xy: 2022, 832
+  xy: 2028, 1950
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_60
   rotate: false
-  xy: 2004, 824
+  xy: 2028, 1932
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_61
   rotate: false
-  xy: 2022, 814
+  xy: 2028, 1914
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_62
   rotate: false
-  xy: 2004, 806
+  xy: 2028, 1896
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_63
   rotate: false
-  xy: 2022, 796
+  xy: 2028, 1878
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_64
   rotate: false
-  xy: 2004, 788
+  xy: 2028, 1860
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_65
   rotate: false
-  xy: 2022, 778
+  xy: 2028, 1842
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_66
   rotate: false
-  xy: 2004, 770
+  xy: 2028, 1824
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_67
   rotate: false
-  xy: 2022, 760
+  xy: 2028, 1806
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_68
   rotate: false
-  xy: 2004, 752
+  xy: 2028, 1788
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_89
   rotate: false
-  xy: 2004, 752
+  xy: 2028, 1788
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_69
   rotate: false
-  xy: 2022, 742
+  xy: 2028, 1770
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_70
   rotate: false
-  xy: 2004, 734
+  xy: 2028, 1752
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_71
   rotate: false
-  xy: 2022, 724
+  xy: 2028, 1734
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_72
   rotate: false
-  xy: 2004, 716
+  xy: 2028, 1716
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_73
   rotate: false
-  xy: 2022, 706
+  xy: 2028, 1698
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_74
   rotate: false
-  xy: 2004, 698
+  xy: 2028, 1680
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_75
   rotate: false
-  xy: 2022, 688
+  xy: 2028, 1662
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_76
   rotate: false
-  xy: 2004, 680
+  xy: 2028, 1644
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_77
   rotate: false
-  xy: 2022, 670
+  xy: 2028, 1626
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_78
   rotate: false
-  xy: 2004, 662
+  xy: 2028, 1608
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_79
   rotate: false
-  xy: 2022, 652
+  xy: 1994, 510
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_80
   rotate: false
-  xy: 2004, 644
+  xy: 1896, 384
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_81
   rotate: false
-  xy: 2022, 634
+  xy: 1896, 366
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_82
   rotate: false
-  xy: 2004, 626
+  xy: 1896, 348
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_83
   rotate: false
-  xy: 2022, 616
+  xy: 1856, 298
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_84
   rotate: false
-  xy: 2, 8
+  xy: 1856, 280
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_85
   rotate: false
-  xy: 20, 8
+  xy: 1874, 298
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_86
   rotate: false
-  xy: 38, 8
+  xy: 1856, 262
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_87
   rotate: false
-  xy: 56, 8
+  xy: 1874, 280
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_88
   rotate: false
-  xy: 74, 8
+  xy: 1856, 244
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_90
   rotate: false
-  xy: 92, 8
+  xy: 1874, 262
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_91
   rotate: false
-  xy: 110, 8
+  xy: 1874, 244
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_92
   rotate: false
-  xy: 128, 8
+  xy: 1988, 492
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_93
   rotate: false
-  xy: 146, 8
+  xy: 2020, 1590
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_94
   rotate: false
-  xy: 164, 8
+  xy: 2020, 1572
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_95
   rotate: false
-  xy: 182, 8
+  xy: 2020, 1554
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_96
   rotate: false
-  xy: 200, 8
+  xy: 2020, 1536
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_97
   rotate: false
-  xy: 218, 8
+  xy: 2020, 1518
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_98
   rotate: false
-  xy: 236, 8
+  xy: 2020, 1500
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/16x16_99
   rotate: false
-  xy: 254, 8
+  xy: 2020, 1482
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_01
   rotate: false
-  xy: 2004, 1472
+  xy: 1928, 455
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_02
   rotate: false
-  xy: 2004, 1446
+  xy: 1962, 489
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_03
   rotate: false
-  xy: 2004, 1420
+  xy: 1830, 291
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_04
   rotate: false
-  xy: 2004, 1394
+  xy: 1994, 1586
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_05
   rotate: false
-  xy: 2004, 1368
+  xy: 1830, 265
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_06
   rotate: false
-  xy: 2004, 1342
+  xy: 1830, 239
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_07
   rotate: false
-  xy: 2004, 1316
+  xy: 1994, 1560
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_08
   rotate: false
-  xy: 2004, 1290
+  xy: 1994, 1534
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_09
   rotate: false
-  xy: 2004, 1264
+  xy: 1994, 1508
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/24x24_10
   rotate: false
-  xy: 2004, 1238
+  xy: 1994, 1482
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_01
   rotate: false
-  xy: 2004, 2008
+  xy: 1928, 481
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_02
   rotate: false
-  xy: 2004, 1974
+  xy: 1796, 283
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_03
   rotate: false
-  xy: 2004, 1940
+  xy: 1994, 1952
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_04
   rotate: false
-  xy: 2004, 1906
+  xy: 1862, 368
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_05
   rotate: false
-  xy: 2004, 1872
+  xy: 1796, 249
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_06
   rotate: false
-  xy: 2004, 1838
+  xy: 1994, 1918
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_07
   rotate: false
-  xy: 2004, 1804
+  xy: 1862, 334
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_08
   rotate: false
-  xy: 2004, 1770
+  xy: 1994, 1884
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_09
   rotate: false
-  xy: 2004, 1736
+  xy: 1994, 1850
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_10
   rotate: false
-  xy: 2004, 1702
+  xy: 1994, 1816
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_11
   rotate: false
-  xy: 2004, 1668
+  xy: 1994, 1782
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_12
   rotate: false
-  xy: 2004, 1634
+  xy: 1994, 1748
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_13
   rotate: false
-  xy: 2004, 1600
+  xy: 1994, 1714
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_14
   rotate: false
-  xy: 2004, 1566
+  xy: 1994, 1680
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_15
   rotate: false
-  xy: 2004, 1532
+  xy: 1994, 1646
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 gfx/Environment/pinkorange/32x32_16
   rotate: false
-  xy: 2004, 1498
+  xy: 1994, 1612
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
+gfx/Sprites/zurbBLUE_idle_0
+  rotate: false
+  xy: 1862, 1967
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_1
+  rotate: false
+  xy: 1796, 1835
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_2
+  rotate: false
+  xy: 1862, 1901
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_3
+  rotate: false
+  xy: 1928, 1967
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_4
+  rotate: false
+  xy: 1796, 1769
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_5
+  rotate: false
+  xy: 1862, 1835
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_idle_6
+  rotate: false
+  xy: 1928, 1901
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_0
+  rotate: false
+  xy: 1796, 1703
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_1
+  rotate: false
+  xy: 1862, 1769
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_2
+  rotate: false
+  xy: 1928, 1835
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_3
+  rotate: false
+  xy: 1796, 1637
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_4
+  rotate: false
+  xy: 1862, 1703
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_5
+  rotate: false
+  xy: 1928, 1769
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_6
+  rotate: false
+  xy: 1796, 1571
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbBLUE_run_7
+  rotate: false
+  xy: 1862, 1637
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_0
+  rotate: false
+  xy: 1796, 1505
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_1
+  rotate: false
+  xy: 1862, 1571
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_2
+  rotate: false
+  xy: 1928, 1637
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_3
+  rotate: false
+  xy: 1796, 1439
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_4
+  rotate: false
+  xy: 1862, 1505
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_5
+  rotate: false
+  xy: 1928, 1571
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_idle_6
+  rotate: false
+  xy: 1796, 1373
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_0
+  rotate: false
+  xy: 1862, 1439
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_1
+  rotate: false
+  xy: 1928, 1505
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_2
+  rotate: false
+  xy: 1796, 1307
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_3
+  rotate: false
+  xy: 1862, 1373
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_4
+  rotate: false
+  xy: 1928, 1439
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_5
+  rotate: false
+  xy: 1796, 1241
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_6
+  rotate: false
+  xy: 1862, 1307
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbGREEN_run_7
+  rotate: false
+  xy: 1928, 1373
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_0
+  rotate: false
+  xy: 1862, 1241
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_1
+  rotate: false
+  xy: 1928, 1307
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_2
+  rotate: false
+  xy: 1796, 1109
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_3
+  rotate: false
+  xy: 1862, 1175
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_4
+  rotate: false
+  xy: 1928, 1241
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_5
+  rotate: false
+  xy: 1796, 1043
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_idle_6
+  rotate: false
+  xy: 1862, 1109
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_0
+  rotate: false
+  xy: 1928, 1175
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_1
+  rotate: false
+  xy: 1796, 977
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_2
+  rotate: false
+  xy: 1862, 1043
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_3
+  rotate: false
+  xy: 1928, 1109
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_4
+  rotate: false
+  xy: 1796, 911
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_5
+  rotate: false
+  xy: 1862, 977
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_6
+  rotate: false
+  xy: 1928, 1043
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbPURPLE_run_7
+  rotate: false
+  xy: 1796, 845
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_0
+  rotate: false
+  xy: 1928, 977
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_1
+  rotate: false
+  xy: 1796, 779
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_2
+  rotate: false
+  xy: 1862, 845
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_3
+  rotate: false
+  xy: 1928, 911
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_4
+  rotate: false
+  xy: 1796, 713
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_5
+  rotate: false
+  xy: 1862, 779
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_idle_6
+  rotate: false
+  xy: 1928, 845
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_0
+  rotate: false
+  xy: 1796, 647
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_1
+  rotate: false
+  xy: 1862, 713
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_2
+  rotate: false
+  xy: 1928, 779
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_3
+  rotate: false
+  xy: 1796, 581
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_4
+  rotate: false
+  xy: 1862, 647
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_5
+  rotate: false
+  xy: 1928, 713
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_6
+  rotate: false
+  xy: 1796, 515
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Sprites/zurbRED_run_7
+  rotate: false
+  xy: 1862, 581
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 gfx/Sprites/zurb_run_0
   rotate: false
-  xy: 1911, 200
+  xy: 1928, 647
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_1
   rotate: false
-  xy: 1977, 200
+  xy: 1796, 449
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_2
   rotate: false
-  xy: 1911, 134
+  xy: 1862, 515
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_3
   rotate: false
-  xy: 1977, 134
+  xy: 1928, 581
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_4
   rotate: false
-  xy: 1911, 68
+  xy: 1796, 383
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_5
   rotate: false
-  xy: 1977, 68
+  xy: 1862, 449
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_6
   rotate: false
-  xy: 1911, 2
+  xy: 1928, 515
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/Sprites/zurb_run_7
   rotate: false
-  xy: 1977, 2
+  xy: 1796, 317
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 gfx/UI/buttonArrowLeft
   rotate: false
-  xy: 1544, 105
+  xy: 1994, 1986
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 gfx/UI/buttonArrowRight
   rotate: false
-  xy: 1591, 105
+  xy: 1862, 402
   size: 45, 45
   orig: 45, 45
-  offset: 0, 0
-  index: -1
-gfx/UI/credits_box
-  rotate: false
-  xy: 1653, 266
-  size: 359, 70
-  orig: 359, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/options_box
-  rotate: false
-  xy: 1653, 410
-  size: 373, 70
-  orig: 373, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/options_reg
-  rotate: false
-  xy: 1653, 338
-  size: 373, 70
-  orig: 373, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/quit_box
-  rotate: false
-  xy: 1544, 554
-  size: 474, 70
-  orig: 474, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/quit_reg
-  rotate: false
-  xy: 1544, 482
-  size: 474, 70
-  orig: 474, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/start_box
-  rotate: false
-  xy: 555, 30
-  size: 547, 70
-  orig: 547, 70
-  offset: 0, 0
-  index: -1
-gfx/UI/start_glow
-  rotate: false
-  xy: 2, 26
-  size: 551, 74
-  orig: 551, 74
-  offset: 0, 0
-  index: -1
-gfx/UI/start_reg
-  rotate: false
-  xy: 1104, 30
-  size: 547, 70
-  orig: 547, 70
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurb-gunidle
-  rotate: false
-  xy: 1544, 416
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbBLUE-gunidle
-  rotate: false
-  xy: 1544, 350
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbGREEN-gunidle
-  rotate: false
-  xy: 1544, 284
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbPURPLE-gunidle
-  rotate: false
-  xy: 1544, 218
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbRED-gunidle
-  rotate: false
-  xy: 1544, 152
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-
-textures2.png
-size: 2048,2048
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-gfx/Environment/_Spritesheet
-  rotate: false
-  xy: 2, 239
-  size: 1792, 1792
-  orig: 1792, 1792
   offset: 0, 0
   index: -1
 gfx/UI/playerInnerActive
@@ -1249,385 +1537,510 @@ gfx/UI/playerInnerReady
   orig: 670, 235
   offset: 0, 0
   index: -1
+gfx/Zurbs/zurb-gunidle
+  rotate: false
+  xy: 1796, 1967
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbBLUE-gunidle
+  rotate: false
+  xy: 1796, 1901
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-gunidle
+  rotate: false
+  xy: 1928, 1703
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-gunidle
+  rotate: false
+  xy: 1796, 1175
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-gunidle
+  rotate: false
+  xy: 1862, 911
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 
-textures3.png
+textures2.png
 size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Environment/Object_10
+gfx/Environment/Background01
   rotate: false
-  xy: 2, 390
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_11
-  rotate: false
-  xy: 518, 569
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_12
-  rotate: false
-  xy: 1270, 908
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_13
-  rotate: false
-  xy: 1270, 650
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_14
-  rotate: false
-  xy: 1528, 908
-  size: 256, 256
-  orig: 256, 256
+  xy: 2, 629
+  size: 2000, 1412
+  orig: 2000, 1412
   offset: 0, 0
   index: -1
 gfx/Environment/Object_15
   rotate: false
-  xy: 2, 1422
+  xy: 2, 32
   size: 512, 256
   orig: 512, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Object_19
+gfx/Environment/Object_16
   rotate: false
-  xy: 754, 1505
-  size: 256, 512
-  orig: 256, 512
+  xy: 1506, 115
+  size: 512, 512
+  orig: 512, 512
   offset: 0, 0
   index: -1
-gfx/Environment/Object_2
+gfx/UI/credits_box
   rotate: false
-  xy: 1528, 1689
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_20
-  rotate: false
-  xy: 1012, 1505
-  size: 256, 512
-  orig: 256, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_21
-  rotate: false
-  xy: 1270, 1505
-  size: 256, 512
-  orig: 256, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_3
-  rotate: false
-  xy: 1786, 1689
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_4
-  rotate: false
-  xy: 2, 1164
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_5
-  rotate: false
-  xy: 2, 906
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_6
-  rotate: false
-  xy: 2, 648
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_7
-  rotate: false
-  xy: 1012, 908
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_8
-  rotate: false
-  xy: 1012, 650
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_9
-  rotate: false
-  xy: 260, 569
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_1
-  rotate: false
-  xy: 1528, 650
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_10
-  rotate: false
-  xy: 1550, 392
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_11
-  rotate: false
-  xy: 776, 134
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_12
-  rotate: false
-  xy: 260, 53
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_13
-  rotate: false
-  xy: 518, 53
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_14
-  rotate: false
-  xy: 1034, 134
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_15
-  rotate: false
-  xy: 1292, 134
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_2
-  rotate: false
-  xy: 1786, 908
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_3
-  rotate: false
-  xy: 1786, 650
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_4
-  rotate: false
-  xy: 776, 392
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_5
-  rotate: false
-  xy: 260, 311
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_6
-  rotate: false
-  xy: 2, 132
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_7
-  rotate: false
-  xy: 518, 311
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_8
-  rotate: false
-  xy: 1034, 392
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_9
-  rotate: false
-  xy: 1292, 392
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/UI/credits_reg
-  rotate: false
-  xy: 1528, 1947
+  xy: 992, 74
   size: 359, 70
   orig: 359, 70
   offset: 0, 0
   index: -1
+gfx/UI/credits_reg
+  rotate: false
+  xy: 992, 2
+  size: 359, 70
+  orig: 359, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/options_box
+  rotate: false
+  xy: 1065, 218
+  size: 373, 70
+  orig: 373, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/options_reg
+  rotate: false
+  xy: 1065, 146
+  size: 373, 70
+  orig: 373, 70
+  offset: 0, 0
+  index: -1
 gfx/UI/player1Panel
   rotate: false
-  xy: 2, 1680
+  xy: 2, 290
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player2Panel
   rotate: false
-  xy: 516, 1166
+  xy: 754, 290
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
+gfx/UI/quit_box
+  rotate: false
+  xy: 516, 74
+  size: 474, 70
+  orig: 474, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/quit_reg
+  rotate: false
+  xy: 516, 2
+  size: 474, 70
+  orig: 474, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/start_box
+  rotate: false
+  xy: 516, 218
+  size: 547, 70
+  orig: 547, 70
+  offset: 0, 0
+  index: -1
+gfx/UI/start_reg
+  rotate: false
+  xy: 516, 146
+  size: 547, 70
+  orig: 547, 70
+  offset: 0, 0
+  index: -1
+
+textures3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gfx/Environment/Object_1
+  rotate: false
+  xy: 260, 906
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_10
+  rotate: false
+  xy: 260, 390
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_11
+  rotate: false
+  xy: 2, 134
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_12
+  rotate: false
+  xy: 518, 390
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_13
+  rotate: false
+  xy: 776, 390
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_14
+  rotate: false
+  xy: 1034, 215
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_17
+  rotate: false
+  xy: 754, 1503
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_18
+  rotate: false
+  xy: 2, 1164
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_19
+  rotate: false
+  xy: 1268, 1503
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_2
+  rotate: false
+  xy: 518, 906
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_20
+  rotate: false
+  xy: 1268, 989
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_21
+  rotate: false
+  xy: 2, 650
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_3
+  rotate: false
+  xy: 776, 906
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_4
+  rotate: false
+  xy: 1034, 731
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_5
+  rotate: false
+  xy: 260, 648
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_6
+  rotate: false
+  xy: 2, 392
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_7
+  rotate: false
+  xy: 518, 648
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_8
+  rotate: false
+  xy: 776, 648
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_9
+  rotate: false
+  xy: 1034, 473
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_1
+  rotate: false
+  xy: 260, 132
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_10
+  rotate: false
+  xy: 1550, 855
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_11
+  rotate: false
+  xy: 1550, 597
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_12
+  rotate: false
+  xy: 1550, 339
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_13
+  rotate: false
+  xy: 1550, 81
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_14
+  rotate: false
+  xy: 1784, 1759
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_15
+  rotate: false
+  xy: 1784, 1501
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_2
+  rotate: false
+  xy: 518, 132
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_3
+  rotate: false
+  xy: 776, 132
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_4
+  rotate: false
+  xy: 1292, 731
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_5
+  rotate: false
+  xy: 1292, 473
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_6
+  rotate: false
+  xy: 1292, 215
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_7
+  rotate: false
+  xy: 1526, 1759
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_8
+  rotate: false
+  xy: 1526, 1501
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_9
+  rotate: false
+  xy: 1526, 1243
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
 gfx/UI/player3Panel
   rotate: false
-  xy: 1268, 1166
+  xy: 2, 1678
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player4Panel
   rotate: false
-  xy: 260, 827
+  xy: 516, 1164
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/Zurbs/Zurb-idle
   rotate: false
-  xy: 1528, 1559
+  xy: 2, 4
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/Zurb-run.1
   rotate: false
-  xy: 1786, 1559
+  xy: 1034, 85
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurb-gun
   rotate: false
-  xy: 2, 2
+  xy: 260, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-gun
   rotate: false
-  xy: 776, 4
+  xy: 518, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-idle.1
   rotate: false
-  xy: 1034, 4
+  xy: 776, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-run
   rotate: false
-  xy: 1292, 4
+  xy: 1292, 85
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbGREEN-gun
   rotate: false
-  xy: 1550, 4
+  xy: 1526, 1113
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbGREEN-idle
+  rotate: false
+  xy: 1784, 1113
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/default/badlogic
   rotate: false
-  xy: 1550, 134
+  xy: 1784, 1243
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 
 textures4.png
-size: 1024,512
+size: 2048,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Zurbs/zurbGREEN-idle
-  rotate: false
-  xy: 2, 262
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
 gfx/Zurbs/zurbGREEN-run
-  rotate: false
-  xy: 2, 132
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbPURPLE-gun
-  rotate: false
-  xy: 260, 262
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbPURPLE-idle
   rotate: false
   xy: 2, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
-gfx/Zurbs/zurbPURPLE-run
-  rotate: false
-  xy: 260, 132
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbRED-gun
-  rotate: false
-  xy: 518, 262
-  size: 256, 128
-  orig: 256, 128
-  offset: 0, 0
-  index: -1
-gfx/Zurbs/zurbRED-idle
+gfx/Zurbs/zurbPURPLE-gun
   rotate: false
   xy: 260, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
+gfx/Zurbs/zurbPURPLE-idle
+  rotate: false
+  xy: 518, 2
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbPURPLE-run
+  rotate: false
+  xy: 776, 2
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-gun
+  rotate: false
+  xy: 1034, 2
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+gfx/Zurbs/zurbRED-idle
+  rotate: false
+  xy: 1292, 2
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
 gfx/Zurbs/zurbRED-run
   rotate: false
-  xy: 518, 132
+  xy: 1550, 2
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
