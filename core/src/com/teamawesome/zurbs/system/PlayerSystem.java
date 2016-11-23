@@ -41,10 +41,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float desiredVel = 0;
 
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
-            desiredVel = -20;
+            desiredVel = -40;
             sprite.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
-            desiredVel = 20;
+            desiredVel = 40;
             sprite.setFlip(true, false);
         }
 
