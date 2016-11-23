@@ -138,7 +138,7 @@ import com.teamawesome.zurbs.system.*;
 			});
 
 
-			scenePath = "scene/game01.scene";
+			scenePath = "scene/game02.scene";
 			scene = manager.loadSceneNow(scenePath, parameter);
 		}//	loadStartGameScene()
 // 		========================

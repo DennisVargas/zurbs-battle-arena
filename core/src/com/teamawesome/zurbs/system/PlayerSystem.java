@@ -4,8 +4,8 @@ import com.artemis.BaseSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
-import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
@@ -18,38 +18,47 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
-    ComponentMapper<Transform> transformCm;
+
     VisIDManager idManager;
 
     VisSprite sprite;
     Body body;
-    Transform trans;
 
+    private float maxVel = 8.0f;
+
+    MassData massData = new MassData();
+    boolean falling = false;
+    boolean peak = false;
 
     @Override
     public void afterSceneInit() {
         Entity player = idManager.get("PlayerXX");
-        trans = transformCm.get(player);
-        sprite = spriteCm.get(player);
+              sprite = spriteCm.get(player);
         body = physicsCm.get(player).body;
+
+        massData.mass = 50.0f;
+        body.setMassData(massData);
     }
 
     @Override
     protected void processSystem() {
         float x = body.getLinearVelocity().x;
+        System.out.println("x velocity: "+x);
         float y = body.getLinearVelocity().y;
-        float desiredVel = 0;
+        System.out.println("y velocity: "+y);
+
+        float desiredVel = 0.0f;
 
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
-            desiredVel = -40;
+            desiredVel = -maxVel;
             sprite.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
-            desiredVel = 40;
+            desiredVel = maxVel;
             sprite.setFlip(true, false);
         }
 
         if (Math.abs(body.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
-            float impulse = body.getMass() * 400;
+            float impulse = body.getMass() * 350;
             body.applyForce(0, impulse, body.getWorldCenter().x, body.getWorldCenter().y, true);
         }
 
@@ -66,7 +75,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             body.setTransform(body.getPosition().x, 0.0f, 0.0f);
             System.out.println("position = " + body.getPosition());
         }
-        //System.out.println("y = " + trans.getY());
 
     }
 }
