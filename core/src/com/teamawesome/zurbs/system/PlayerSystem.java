@@ -14,6 +14,8 @@ import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import com.teamawesome.zurbs.component.Player;
+
 import java.lang.*;
 
 
@@ -34,9 +36,13 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean falling = false;
     boolean peak = false;
 
+    Controller controller = Controllers.getControllers().first();
+    Entity player;
+
     @Override
     public void afterSceneInit() {
-        Entity player = idManager.get("PlayerXX");
+        player = idManager.get("PlayerXX");
+        player.edit().add(new Player(controller, "zurbBlue"));
         sprite = spriteCm.get(player);
         animation = visSprtAnimCM.get(player);
         body = physicsCm.get(player).body;
@@ -51,17 +57,17 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     @Override
     protected void processSystem() {
         float x = body.getLinearVelocity().x;
-        System.out.println("x velocity: "+x);
+      //  System.out.println("x velocity: "+x);
         float y = body.getLinearVelocity().y;
-        System.out.println("y velocity: "+y);
+       // System.out.println("y velocity: "+y);
 
         float desiredVel = 0.0f;
 
-        Controller controller = Controllers.getControllers().first();
+
 
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
             desiredVel = -maxVel;
-        //    animation.setAnimationName("zurbBlue_run");
+       //     animation.setAnimationName(player.getComponent(Player.class).getSpriteColor()+"_run");
             sprite.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel = maxVel;
