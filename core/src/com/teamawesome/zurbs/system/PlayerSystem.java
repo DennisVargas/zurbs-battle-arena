@@ -3,10 +3,13 @@ package com.teamawesome.zurbs.system;
 import com.artemis.BaseSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.VisSprite;
+import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
@@ -18,10 +21,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
-
+    ComponentMapper<VisSpriteAnimation> visSprtAnimCM;
     VisIDManager idManager;
 
     VisSprite sprite;
+    VisSpriteAnimation animation;
     Body body;
 
     private float maxVel = 8.0f;
@@ -33,11 +37,15 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     @Override
     public void afterSceneInit() {
         Entity player = idManager.get("PlayerXX");
-              sprite = spriteCm.get(player);
+        sprite = spriteCm.get(player);
+        animation = visSprtAnimCM.get(player);
         body = physicsCm.get(player).body;
 
         massData.mass = 50.0f;
         body.setMassData(massData);
+
+        //animation.setAnimationName("zurbBlue_idle");
+
     }
 
     @Override
@@ -49,11 +57,15 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         float desiredVel = 0.0f;
 
+        Controller controller = Controllers.getControllers().first();
+
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
             desiredVel = -maxVel;
+        //    animation.setAnimationName("zurbBlue_run");
             sprite.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel = maxVel;
+            //  animation.setAnimationName("zurbBlue_run");
             sprite.setFlip(true, false);
         }
 
