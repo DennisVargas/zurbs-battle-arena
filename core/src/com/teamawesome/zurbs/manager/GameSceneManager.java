@@ -4,6 +4,7 @@ import com.artemis.BaseSystem;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
@@ -93,8 +94,8 @@ public class GameSceneManager extends BaseSceneManager {
         laserCm.create(newLaser);
         spriteCm.create(newLaser);
         velocityCm.create(newLaser);
-
-        spriteCm.get(newLaser).setRegion(spriteCm.get(laser).getRegion());
+        TextureRegion laserTextureRegion= spriteCm.get(laser).getRegion();
+        spriteCm.get(newLaser).setRegion(laserTextureRegion);
     }
 
 
