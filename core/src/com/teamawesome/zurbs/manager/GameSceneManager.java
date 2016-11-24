@@ -11,12 +11,15 @@ import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
 import com.teamawesome.zurbs.ZurbGame;
+import com.teamawesome.zurbs.component.Laser;
+import com.teamawesome.zurbs.component.Velocity;
 
 /**
  * Created by Dennis on 11/16/2016.
  */
 public class GameSceneManager extends BaseSceneManager {
-
+    ComponentMapper <Laser> laserCm;
+    ComponentMapper <Velocity> velocityCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2,laser;
@@ -85,7 +88,14 @@ public class GameSceneManager extends BaseSceneManager {
     public boolean axisMoved(Controller controller, int axisCode, float value){
 
     }*/
+    public void LaserFactory(){
+        int newLaser = world.create();
+        laserCm.create(newLaser);
+        spriteCm.create(newLaser);
+        velocityCm.create(newLaser);
 
+        spriteCm.get(newLaser).setRegion(spriteCm.get(laser).getRegion());
+    }
 
 
 }
