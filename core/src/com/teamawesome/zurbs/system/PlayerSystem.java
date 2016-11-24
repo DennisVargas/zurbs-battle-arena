@@ -2,6 +2,7 @@ package com.teamawesome.zurbs.system;
 
 import com.artemis.BaseSystem;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerListener;
@@ -54,6 +55,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         massData.mass = 50.0f;
         body.setMassData(massData);
+
+
 
   /*      for(int i = 0; i < 4; i++){
             player = idManager.get("Player0"+(i+1));
@@ -158,7 +161,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             sprite1.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel1 = maxVel;
-            animation1.setAnimationName("zurbBLUE_run");
+            animation1.setAnimationName("zurb_gray_run");
             sprite1.setFlip(true, false);
         }
 
@@ -240,7 +243,9 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
             @Override
             public boolean axisMoved(Controller controller, int axisCode, float value) {
-                bod.applyForceToCenter(100.0f, 0, true);
+                System.out.println("HOwdyControler" + controller);
+                body1.applyForceToCenter(100.0f, 0, true);
+
                 return false;
             }
 
