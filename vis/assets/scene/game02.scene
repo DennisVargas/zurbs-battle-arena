@@ -26,7 +26,7 @@
     {
       "name": "Walls and Floors",
       "id": 1,
-      "locked": false,
+      "locked": true,
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
@@ -38,9 +38,17 @@
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
+    },
+    {
+      "name": "Lasers",
+      "id": 3,
+      "locked": false,
+      "visible": true,
+      "cordsSystem": "WORLD",
+      "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 1,
+  "activeLayerId": 2,
   "groupIds": [],
   "schemes": [
     {
@@ -11113,6 +11121,502 @@
           "restitution": 0.0,
           "sensor": false,
           "gravityScale": 1.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": true,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 1.375,
+          "y": -0.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.05,
+          "originY": 0.03,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Lasers/laser_blue.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.1,
+          "height": 0.06,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 3,
+          "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
+          "uuid": "33563128-3201-4be9-a5d9-e92f8048d1b6",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player1_laser",
+          "@class": "VisID"
+        },
+        {
+          "vertices": [
+            {
+              "x": 1.375,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.4749999,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.4749999,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.375,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 1.375,
+                "y": -0.19
+              },
+              {
+                "x": 1.375,
+                "y": -0.25
+              },
+              {
+                "x": 1.4749999,
+                "y": -0.25
+              },
+              {
+                "x": 1.4749999,
+                "y": -0.19
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
+        },
+        {
+          "bodyType": "DynamicBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 0.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": true,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 1.75,
+          "y": -0.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.05,
+          "originY": 0.03,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Lasers/laser_green.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.1,
+          "height": 0.06,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 3,
+          "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
+          "uuid": "04b14cbd-7afc-463d-b25f-702750f789da",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player3_laser",
+          "@class": "VisID"
+        },
+        {
+          "vertices": [
+            {
+              "x": 1.75,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.8499999,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.8499999,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 1.75,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 1.75,
+                "y": -0.19
+              },
+              {
+                "x": 1.75,
+                "y": -0.25
+              },
+              {
+                "x": 1.8499999,
+                "y": -0.25
+              },
+              {
+                "x": 1.8499999,
+                "y": -0.19
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
+        },
+        {
+          "bodyType": "DynamicBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 0.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": true,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 2.0,
+          "y": -0.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.05,
+          "originY": 0.03,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Lasers/laser_purple.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.1,
+          "height": 0.06,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 3,
+          "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
+          "uuid": "d4eaf6fb-860f-4d92-9bfe-76bf260beb24",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player4_laser",
+          "@class": "VisID"
+        },
+        {
+          "vertices": [
+            {
+              "x": 2.0,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.1,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.1,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.0,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 2.0,
+                "y": -0.19
+              },
+              {
+                "x": 2.0,
+                "y": -0.25
+              },
+              {
+                "x": 2.1,
+                "y": -0.25
+              },
+              {
+                "x": 2.1,
+                "y": -0.19
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
+        },
+        {
+          "bodyType": "DynamicBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 0.0,
+          "linearDamping": 0.0,
+          "angularDamping": 0.0,
+          "bullet": false,
+          "fixedRotation": true,
+          "active": true,
+          "sleepingAllowed": true,
+          "adjustOrigin": true,
+          "maskBits": -1,
+          "categoryBits": 1,
+          "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 2.375,
+          "y": -0.25,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 0.05,
+          "originY": 0.03,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/Lasers/laser_red.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 0.1,
+          "height": 0.06,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 3,
+          "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
+          "uuid": "ce2ae67c-7500-4643-9297-8ae7c088a72c",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player2_laser",
+          "@class": "VisID"
+        },
+        {
+          "vertices": [
+            {
+              "x": 2.375,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.475,
+              "y": -0.25,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.475,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            },
+            {
+              "x": 2.375,
+              "y": -0.19,
+              "@class": "com.badlogic.gdx.math.Vector2"
+            }
+          ],
+          "faces": [
+            [
+              {
+                "x": 2.375,
+                "y": -0.19
+              },
+              {
+                "x": 2.375,
+                "y": -0.25
+              },
+              {
+                "x": 2.475,
+                "y": -0.25
+              },
+              {
+                "x": 2.475,
+                "y": -0.19
+              }
+            ]
+          ],
+          "@class": "VisPolygon"
+        },
+        {
+          "bodyType": "DynamicBody",
+          "friction": 1.0,
+          "density": 1.0,
+          "restitution": 0.0,
+          "sensor": false,
+          "gravityScale": 0.0,
           "linearDamping": 0.0,
           "angularDamping": 0.0,
           "bullet": false,
