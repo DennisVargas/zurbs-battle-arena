@@ -39,6 +39,9 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     MassData massData = new MassData();
     boolean falling = false;
     boolean peak = false;
+    boolean flip1 = false;
+    boolean flip2 = false;
+
 
     Controller controller, controller1, controller2;
     Entity player, player1, player2;
@@ -104,6 +107,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     @Override
     protected void processSystem() {
+        sprite1.setFlip(flip1, false);
+        sprite2.setFlip(flip2, false);
+
+
         float x = body.getLinearVelocity().x;
       //  System.out.println("x velocity: "+x);
         float y = body.getLinearVelocity().y;
@@ -157,12 +164,14 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player1
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
             desiredVel1 = -maxVel;
-            animation1.setAnimationName(player1.getComponent(Player.class).getSpriteColor()+"_run");
+            //animation1.setAnimationName(player1.getComponent(Player.class).getSpriteColor()+"_run");
             sprite1.setFlip(false, false);
+            flip1 = true;
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel1 = maxVel;
-            animation1.setAnimationName("zurb_gray_run");
+            //animation1.setAnimationName("zurb_gray_run");
             sprite1.setFlip(true, false);
+            flip1 = false;
         }
 
         if (Math.abs(body1.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
@@ -189,12 +198,14 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player2
         if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
             desiredVel2 = -maxVel;
-            animation2.setAnimationName(player2.getComponent(Player.class).getSpriteColor()+"_run");
+            //animation2.setAnimationName(player2.getComponent(Player.class).getSpriteColor()+"_run");
             sprite2.setFlip(false, false);
+            flip2 = true;
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
             desiredVel2 = maxVel;
-            animation2.setAnimationName("zurbRED_run");
+            //animation2.setAnimationName("zurbRED_run");
             sprite2.setFlip(true, false);
+            flip2 = false;
         }
 
         if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.UP)) { // UP
