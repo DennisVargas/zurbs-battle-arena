@@ -2104,6 +2104,34 @@ gfx/Environment/pinkorange/32x32_16
   orig: 32, 32
   offset: 0, 0
   index: -1
+gfx/Lasers/laser_blue
+  rotate: false
+  xy: 800, 20
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+gfx/Lasers/laser_green
+  rotate: false
+  xy: 1758, 933
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+gfx/Lasers/laser_purple
+  rotate: false
+  xy: 3564, 1164
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+gfx/Lasers/laser_red
+  rotate: false
+  xy: 2042, 1731
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
 gfx/Sprites/zurbBLUE_idle_0
   rotate: false
   xy: 3067, 1838

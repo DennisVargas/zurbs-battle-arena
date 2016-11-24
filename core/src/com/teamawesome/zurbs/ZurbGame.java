@@ -27,7 +27,12 @@ import com.teamawesome.zurbs.system.*;
 		SoundController soundController;
 
 		String scenePath;
-		Scene scene;
+
+	public Scene getScene() {
+		return scene;
+	}
+
+	Scene scene;
 
 		@Override
 //		======
