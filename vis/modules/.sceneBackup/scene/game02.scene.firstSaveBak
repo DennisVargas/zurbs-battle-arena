@@ -40,7 +40,7 @@
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 0,
+  "activeLayerId": 2,
   "groupIds": [],
   "schemes": [
     {
@@ -9801,6 +9801,7 @@
           "@class": "com.kotcrab.vis.editor.entity.AnimationPreviewComponent"
         },
         {
+          "id": "Player01",
           "@class": "VisID"
         },
         {
@@ -10088,7 +10089,7 @@
     {
       "components": [
         {
-          "x": 13.0,
+          "x": 12.875,
           "y": 1.125,
           "scaleX": 1.0,
           "scaleY": 1.0,
@@ -10147,97 +10148,98 @@
           "@class": "com.kotcrab.vis.editor.entity.AnimationPreviewComponent"
         },
         {
+          "id": "Player02",
           "@class": "VisID"
         },
         {
           "vertices": [
             {
-              "x": 13.28,
+              "x": 13.155,
               "y": 1.5449998,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.42,
+              "x": 13.295,
               "y": 1.4849999,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.44,
+              "x": 13.315,
               "y": 1.385,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.53,
+              "x": 13.405,
               "y": 1.385,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.5199995,
+              "x": 13.3949995,
               "y": 1.305,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.41,
+              "x": 13.285,
               "y": 1.355,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.4,
+              "x": 13.275,
               "y": 1.1949999,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.459999,
+              "x": 13.334999,
               "y": 1.155,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.379999,
+              "x": 13.254999,
               "y": 1.135,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.379999,
+              "x": 13.254999,
               "y": 1.255,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.299999,
+              "x": 13.174999,
               "y": 1.3249999,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.23,
+              "x": 13.105,
               "y": 1.265,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.21,
+              "x": 13.085,
               "y": 1.135,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.15,
+              "x": 13.025,
               "y": 1.135,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.21,
+              "x": 13.085,
               "y": 1.295,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.13,
+              "x": 13.005,
               "y": 1.3149999,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.13,
+              "x": 13.005,
               "y": 1.425,
               "@class": "com.badlogic.gdx.math.Vector2"
             },
             {
-              "x": 13.23,
+              "x": 13.105,
               "y": 1.5149999,
               "@class": "com.badlogic.gdx.math.Vector2"
             }
@@ -10245,165 +10247,165 @@
           "faces": [
             [
               {
-                "x": 13.28,
+                "x": 13.155,
                 "y": 1.5449998
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.44,
+                "x": 13.315,
                 "y": 1.385
               },
               {
-                "x": 13.42,
+                "x": 13.295,
                 "y": 1.4849999
               }
             ],
             [
               {
-                "x": 13.53,
+                "x": 13.405,
                 "y": 1.385
               },
               {
-                "x": 13.44,
+                "x": 13.315,
                 "y": 1.385
               },
               {
-                "x": 13.5199995,
+                "x": 13.3949995,
                 "y": 1.305
               }
             ],
             [
               {
-                "x": 13.44,
+                "x": 13.315,
                 "y": 1.385
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.41,
+                "x": 13.285,
                 "y": 1.355
               },
               {
-                "x": 13.5199995,
+                "x": 13.3949995,
                 "y": 1.305
               }
             ],
             [
               {
-                "x": 13.459999,
+                "x": 13.334999,
                 "y": 1.155
               },
               {
-                "x": 13.4,
+                "x": 13.275,
                 "y": 1.1949999
               },
               {
-                "x": 13.379999,
+                "x": 13.254999,
                 "y": 1.135
               }
             ],
             [
               {
-                "x": 13.4,
+                "x": 13.275,
                 "y": 1.1949999
               },
               {
-                "x": 13.41,
+                "x": 13.285,
                 "y": 1.355
               },
               {
-                "x": 13.379999,
+                "x": 13.254999,
                 "y": 1.255
               },
               {
-                "x": 13.379999,
+                "x": 13.254999,
                 "y": 1.135
               }
             ],
             [
               {
-                "x": 13.41,
+                "x": 13.285,
                 "y": 1.355
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.299999,
+                "x": 13.174999,
                 "y": 1.3249999
               },
               {
-                "x": 13.379999,
+                "x": 13.254999,
                 "y": 1.255
               }
             ],
             [
               {
-                "x": 13.299999,
+                "x": 13.174999,
                 "y": 1.3249999
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.265
               }
             ],
             [
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.265
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.21,
+                "x": 13.085,
                 "y": 1.295
               },
               {
-                "x": 13.21,
+                "x": 13.085,
                 "y": 1.135
               }
             ],
             [
               {
-                "x": 13.15,
+                "x": 13.025,
                 "y": 1.135
               },
               {
-                "x": 13.21,
+                "x": 13.085,
                 "y": 1.135
               },
               {
-                "x": 13.21,
+                "x": 13.085,
                 "y": 1.295
               }
             ],
             [
               {
-                "x": 13.21,
+                "x": 13.085,
                 "y": 1.295
               },
               {
-                "x": 13.23,
+                "x": 13.105,
                 "y": 1.5149999
               },
               {
-                "x": 13.13,
+                "x": 13.005,
                 "y": 1.425
               },
               {
-                "x": 13.13,
+                "x": 13.005,
                 "y": 1.3149999
               }
             ]
@@ -10493,6 +10495,7 @@
           "@class": "com.kotcrab.vis.editor.entity.AnimationPreviewComponent"
         },
         {
+          "id": "Player03",
           "@class": "VisID"
         },
         {
@@ -10839,6 +10842,7 @@
           "@class": "com.kotcrab.vis.editor.entity.AnimationPreviewComponent"
         },
         {
+          "id": "Player04",
           "@class": "VisID"
         },
         {

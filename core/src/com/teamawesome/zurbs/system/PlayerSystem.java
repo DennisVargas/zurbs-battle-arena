@@ -31,6 +31,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     VisSprite sprite, sprite1, sprite2;
     VisSpriteAnimation animation, animation1, animation2;
+    VisSpriteAnimation run1, run2;
     Body body, body1, body2;
 
     private float maxVel = 8.0f;
@@ -39,7 +40,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean falling = false;
     boolean peak = false;
 
-    Controller controller;
+    Controller controller, controller1, controller2;
     Entity player, player1, player2;
 
 
@@ -76,9 +77,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         // player1
         player1 = idManager.get("Player01");
-        player1.edit().add(new Player(controller, "zurbBlue"));
+        player1.edit().add(new Player(controller1, "zurbBLUE"));
         sprite1 = spriteCm.get(player1);
         animation1 = visSprtAnimCM.get(player1);
+//        run1 = new Animation(0.07, );
         body1 = physicsCm.get(player1).body;
 
 //        massData.mass = 50.0f;
@@ -87,7 +89,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         //player2
         player2 = idManager.get("Player02");
-        player2.edit().add(new Player(controller, "zurbRed"));
+        player2.edit().add(new Player(controller2, "zurbRED"));
         sprite2 = spriteCm.get(player2);
         animation2 = visSprtAnimCM.get(player2);
         body2 = physicsCm.get(player2).body;
@@ -153,11 +155,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player1
         if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
             desiredVel1 = -maxVel;
-            //     animation.setAnimationName(player.getComponent(Player.class).getSpriteColor()+"_run");
+            animation1.setAnimationName(player1.getComponent(Player.class).getSpriteColor()+"_run");
             sprite1.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel1 = maxVel;
-            //  animation.setAnimationName("zurbBlue_run");
+            animation1.setAnimationName("zurbBLUE_run");
             sprite1.setFlip(true, false);
         }
 
@@ -185,11 +187,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player2
         if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
             desiredVel2 = -maxVel;
-            //     animation.setAnimationName(player.getComponent(Player.class).getSpriteColor()+"_run");
+            animation2.setAnimationName(player2.getComponent(Player.class).getSpriteColor()+"_run");
             sprite2.setFlip(false, false);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
             desiredVel2 = maxVel;
-            //  animation.setAnimationName("zurbBlue_run");
+            animation2.setAnimationName("zurbRED_run");
             sprite2.setFlip(true, false);
         }
 
