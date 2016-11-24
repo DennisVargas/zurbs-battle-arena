@@ -31,7 +31,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     VisSprite sprite, sprite1, sprite2;
     VisSpriteAnimation animation, animation1, animation2;
-    VisSpriteAnimation run1, run2;
     Body body, body1, body2;
 
     private float maxVel = 8.0f;
