@@ -19,8 +19,7 @@ public class GameSceneManager extends BaseSceneManager {
 
     private ComponentMapper<VisSpriteAnimation> animationCM;
     private VisSpriteAnimation animation1, animation2;
-    private Entity player1, player2;
-    private Array<Entity> lasers;
+    private Entity player1, player2,laser;
     EntityComposer ec;
 
 
@@ -36,17 +35,20 @@ public class GameSceneManager extends BaseSceneManager {
 
         player1 = idManager.get("Player01");
         player2 = idManager.get("Player02");
-        lasers = idManager.getMultiple("Player1_laser");
+        laser = idManager.get("Player1_laser");
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
     }
 
     @Override
     public boolean keyDown(int keyCode){
-        ec = new EntityComposer(game.getScene());
+
         System.out.println(keyCode);
-        if(keyCode == 59)
-            ec.sprite(lasers.get(0).getComponent(VisSprite.class),4, 5);
+        if(keyCode == 59){
+            int newLaser = world.create();
+
+        }
+            //ec.sprite(laser.getComponent(VisSprite.class),4, 5);
 
         if (keyCode == 131) // ESC
             this.game.loadMenuScene();

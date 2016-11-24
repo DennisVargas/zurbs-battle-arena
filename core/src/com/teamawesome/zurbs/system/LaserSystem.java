@@ -5,6 +5,7 @@ package com.teamawesome.zurbs.system;
  */
 
 import com.artemis.*;
+import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
@@ -31,7 +32,7 @@ import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
 
 
-public class LaserSystem extends BaseSystem implements AfterSceneInit {
+public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
@@ -43,8 +44,14 @@ public class LaserSystem extends BaseSystem implements AfterSceneInit {
     Entity laser1;
     float desiredVel1 = 0.0f;
 
+    /**
+     * Creates a new EntityProcessingSystem.
+     */
+    public LaserSystem() {
+        super(Aspect.all(Laser.class));
+    }
 
-    @Override
+/*    @Override
     public void afterSceneInit() {
         // player1
         laser1 = idManager.get("Player01_laser");
@@ -52,10 +59,10 @@ public class LaserSystem extends BaseSystem implements AfterSceneInit {
         body1 = physicsCm.get(laser1).body;
         laser1.edit().add(new Laser(sprite1, 1));
         // player1
-    }
+    }*/
 
     @Override
-    protected void processSystem() {
+    protected void process(int entityId) {
         float y1 = body1.getLinearVelocity().y;
         if (Gdx.input.isKeyPressed(Keys.Q)) { // LEFT
             desiredVel1 = -y1;
@@ -63,6 +70,5 @@ public class LaserSystem extends BaseSystem implements AfterSceneInit {
             desiredVel1 = y1;
         }
     }
-
 
 }

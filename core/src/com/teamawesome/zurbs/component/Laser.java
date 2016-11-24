@@ -10,7 +10,7 @@ import com.kotcrab.vis.runtime.component.VisSprite;
 
 public class Laser extends Component {
 
-    private VisSprite sprite;
+  /*  private VisSprite sprite;
     private float velocity;
 
     public Laser(VisSprite sprite, float velocity) {
@@ -32,6 +32,6 @@ public class Laser extends Component {
 
     public void setVelocity(float velocity) {
         this.velocity = velocity;
-    }
+    }*/
 
 }
