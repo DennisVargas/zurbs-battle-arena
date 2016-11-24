@@ -11,7 +11,6 @@ import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
 import com.teamawesome.zurbs.ZurbGame;
-import com.teamawesome.zurbs.manager.BaseSceneManager;
 
 /**
  * Created by Dennis on 11/16/2016.
@@ -19,12 +18,10 @@ import com.teamawesome.zurbs.manager.BaseSceneManager;
 public class GameSceneManager extends BaseSceneManager {
 
     private ComponentMapper<VisSpriteAnimation> animationCM;
-    //private ComponentMapper<VisSprite> spriteCM;
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2;
     private Array<Entity> lasers;
     EntityComposer ec;
-    //private VisSprite sprite1, sprite2;
 
 
     public GameSceneManager(ZurbGame game) {
@@ -42,9 +39,6 @@ public class GameSceneManager extends BaseSceneManager {
         lasers = idManager.getMultiple("Player1_laser");
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
-
-        //sprite1 = spriteCM.get(player1);
-        //sprite2 = spriteCM.get(player2);
     }
 
     @Override
@@ -54,21 +48,15 @@ public class GameSceneManager extends BaseSceneManager {
         if(keyCode == 59)
             ec.sprite(lasers.get(0).getComponent(VisSprite.class),4, 5);
 
-        if (keyCode == 131)
+        if (keyCode == 131) // ESC
             this.game.loadMenuScene();
 
-        if(keyCode == 29){ // player 1
+        if(keyCode == 29 || keyCode == 32){ // player 1
             animation1.setAnimationName("zurbBLUE_run");
-            //sprite1.setFlip(false, false);
-        }
-        if(keyCode == 32){ // player 1
-            animation1.setAnimationName("zurbBLUE_run");
-            //sprite1.setFlip(true, false);
         }
 
         if(keyCode == 21 || keyCode == 22){ // player 2
             animation2.setAnimationName("zurbRED_run");
-            //sprite2.setFlip(false, false);
         }
 
         /*
@@ -81,17 +69,12 @@ public class GameSceneManager extends BaseSceneManager {
 
     @Override
     public boolean keyUp(int keyCode) {
-        if(keyCode == 29){ // player 1
+        if(keyCode == 29 || keyCode == 32){ // player 1
             animation1.setAnimationName("zurbBLUE_idle");
-            //sprite1.setFlip(true, false);
         }
-        if(keyCode == 32){ // player 1
-            animation1.setAnimationName("zurbBLUE_idle");
-            //sprite1.setFlip(false, false);
-        }
+
         if(keyCode == 21 || keyCode == 22){ // player 2
             animation2.setAnimationName("zurbRED_idle");
-            //sprite2.setFlip(false, false);
         }
         return false;
     }

@@ -19,7 +19,6 @@ import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.teamawesome.zurbs.component.Player;
-
 import java.lang.*;
 
 
@@ -27,24 +26,19 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
-    ComponentMapper<VisSpriteAnimation> visSprtAnimCM;
     VisIDManager idManager;
 
     VisSprite sprite1, sprite2;
-    VisSpriteAnimation animation1, animation2;
     Body body1, body2;
-
-    private float maxVel = 8.0f;
-
-    MassData massData = new MassData();
-    boolean falling = false;
-    boolean peak = false;
+    Controller controller1, controller2;
+    Entity player1, player2;
     boolean flip1 = false;
     boolean flip2 = false;
 
-
-    Controller controller1, controller2;
-    Entity player1, player2;
+    private float maxVel = 8.0f;
+    MassData massData = new MassData();
+    boolean falling = false;
+    boolean peak = false;
 
 
     @Override
@@ -52,14 +46,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         massData.mass = 50.0f;
 
         // original code
-  /*      for(int i = 0; i < 4; i++){
-            player = idManager.get("Player0"+(i+1));
-            sprite = spriteCm.get(player);
-            animation = visSprtAnimCM.get(player);
-            body = physicsCm.get(player).body;
-            massData.mass = 50.0f;
-            body.setMassData(massData);
-
+        /*
+        for(int i = 0; i < 4; i++){
             try{
                 controller = Controllers.getControllers().get(i);
                 controller.addListener(ListenerFactory(body));
@@ -74,7 +62,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         player1 = idManager.get("Player01");
         player1.edit().add(new Player(controller1, "zurbBLUE"));
         sprite1 = spriteCm.get(player1);
-        animation1 = visSprtAnimCM.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
         // player1
@@ -83,7 +70,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         player2 = idManager.get("Player02");
         player2.edit().add(new Player(controller2, "zurbRED"));
         sprite2 = spriteCm.get(player2);
-        animation2 = visSprtAnimCM.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
         //player2
@@ -169,5 +155,5 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player2
 
     }
-    
+
 }
