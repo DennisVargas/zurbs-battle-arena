@@ -14,6 +14,9 @@ public class Player extends Component {
 
     private Controller controller = null;
     private String spriteColor = "bland";
+
+
+
     private boolean facingRight = true;
 
     public Player(Controller controller, final String spriteColor, boolean right) {
@@ -39,9 +42,12 @@ public class Player extends Component {
         this.controller = controller;
     }
 
+    public boolean isFacingRight() { return facingRight; }
+
     public void setFacingRight(boolean facingRight) {
         this.facingRight = facingRight;
         System.out.println(facingRight);
     }
+
 
 }
