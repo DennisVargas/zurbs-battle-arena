@@ -72,7 +72,7 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         tempTrans = transCm.get(entityId);
         desVel = velCm.get(entityId);
         tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
-        System.out.println(tempTrans);
+        //System.out.println(tempTrans);
       /*  float y1 = body1.getLinearVelocity().y;
         if (Gdx.input.isKeyPressed(Keys.Q)) { // LEFT
             desiredVel1 = -y1;

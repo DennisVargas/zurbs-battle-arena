@@ -6,10 +6,7 @@ import com.artemis.Entity;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
-import com.kotcrab.vis.runtime.component.Renderable;
-import com.kotcrab.vis.runtime.component.Transform;
-import com.kotcrab.vis.runtime.component.VisSprite;
-import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
+import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
@@ -27,14 +24,15 @@ public class GameSceneManager extends BaseSceneManager {
     ComponentMapper <Laser> laserCm;
     ComponentMapper <Velocity> velocityCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
-    ComponentMapper<Transform> transCM;
+    private ComponentMapper<Transform> transCM;
     private ComponentMapper<Player> playerCm;
+    private ComponentMapper<PhysicsBody> physicsCm;
+
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2, laser;
-    EntityComposer ec;
+
 
     private float laserVelocity = 0.05f;
-    private float laserDeltaX = 0.1f;
     public GameSceneManager(ZurbGame game) {
         super(game);
 
@@ -60,10 +58,13 @@ public class GameSceneManager extends BaseSceneManager {
 
         System.out.println(keyCode);
         if(keyCode == 59){
+            LaserFactory(player1);
+            System.out.println();
+        }
+        if(keyCode == 60){
             LaserFactory(player2);
             System.out.println();
         }
-            //ec.sprite(laser.getComponent(VisSprite.class),4, 5);
 
         if (keyCode == 131) // ESC
             this.game.loadMenuScene();
@@ -103,7 +104,6 @@ public class GameSceneManager extends BaseSceneManager {
 
     public void LaserFactory(Entity player){
 
-        laserDeltaX += 0.1f;
         float originX = transCM.get(player).getX();
         float originY = transCM.get(player).getY();
         String color = playerCm.get(player).getSpriteColor();
@@ -117,7 +117,6 @@ public class GameSceneManager extends BaseSceneManager {
             originY += .25f;
         }
 
-
         if (color == "zurbBLUE")
             laser = idManager.get("Player1_laser");
         else if (color == "zurbRED")
@@ -125,7 +124,7 @@ public class GameSceneManager extends BaseSceneManager {
 
         EntityComposer ec = new EntityComposer(game.getScene());
         VisSprite laserSprite = spriteCm.get(laser);
-        SpriteEntityComposer spriteComp = ec.sprite(laserSprite, originX+laserDeltaX, originY);
+        SpriteEntityComposer spriteComp = ec.sprite(laserSprite, originX, originY);
         Entity newLaser = spriteComp.finish();
         laserCm.create(newLaser);
         velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
