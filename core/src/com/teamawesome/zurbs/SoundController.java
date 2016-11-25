@@ -14,7 +14,7 @@ public class SoundController {
 
 	public SoundController (VisAssetManager manager) {
 		//music is persisted across whole game, so we load it manually
-		String musicPath = "music/boss.ogg";
+		String musicPath = "music/ACDC.mp3";
 		String clickPath = "sound/accept.wav";
 
 		manager.load(musicPath, Music.class);
