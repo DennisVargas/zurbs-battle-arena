@@ -102,8 +102,8 @@ public class GameSceneManager extends BaseSceneManager {
         VisSprite laserSprite = spriteCm.get(laser);
         SpriteEntityComposer spriteComp = ec.sprite(laserSprite, zurbTransX+laserDeltaX, zurbTransY);
         Entity newLaser = spriteComp.finish();
-
-
+        laserCm.create(newLaser);
+        velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
       /*  int newLaser = world.create();
         renderCM.create(newLaser);
         laserCm.create(newLaser);
