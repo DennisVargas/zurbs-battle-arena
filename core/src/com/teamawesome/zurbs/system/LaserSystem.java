@@ -75,12 +75,16 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     @Override
     protected void process(int entityId) {
+        if(laserCm.get(entityId).hit)
+            ProcessIsHit(entityId);
+        else{
+            tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
+            tempTrans = transCm.get(entityId);
+            desVel = velCm.get(entityId);
 
-        tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
-        tempTrans = transCm.get(entityId);
-        desVel = velCm.get(entityId);
+            tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
+            }
 
-        tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
         //System.out.println(tempTrans);
       /*  float y1 = body1.getLinearVelocity().y;
         if (Gdx.input.isKeyPressed(Keys.Q)) { // LEFT
@@ -88,9 +92,10 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         } else if (Gdx.input.isKeyPressed(Keys.E)) { // RIGHT
             desiredVel1 = y1;
         }*/
+
     }
 
-    void ProcessIsHit(){
+    void ProcessIsHit(int entityId){
 
     }
 }
