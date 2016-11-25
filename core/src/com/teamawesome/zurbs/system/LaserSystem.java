@@ -79,8 +79,6 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
         tempTrans = transCm.get(entityId);
         desVel = velCm.get(entityId);
-        if(!tempPlayer.isFacingRight())
-            desVel.x *= -1.0f;
 
         tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
         //System.out.println(tempTrans);

@@ -33,7 +33,7 @@ public class GameSceneManager extends BaseSceneManager {
     private Entity player1, player2, laser;
 
 
-    private float laserVelocity = 0.05f;
+
     public GameSceneManager(ZurbGame game) {
         super(game);
 
@@ -104,7 +104,7 @@ public class GameSceneManager extends BaseSceneManager {
     }*/
 
     public void LaserFactory(Entity player){
-
+        float laserVelocity = 0.05f;
         float originX = transCM.get(player).getX();
         float originY = transCM.get(player).getY();
         String color = playerCm.get(player).getSpriteColor();
@@ -114,8 +114,9 @@ public class GameSceneManager extends BaseSceneManager {
             originX += .3f;
             originY += .25f;
         }  else {
-            originX += -.3f;
+            originX += -.03f;
             originY += .25f;
+            laserVelocity = -laserVelocity;
         }
 
         if (color == "zurbBLUE")
