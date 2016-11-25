@@ -13,6 +13,7 @@ import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
+import com.kotcrab.vis.runtime.util.entity.composer.SpriteEntityComposer;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Velocity;
@@ -54,7 +55,7 @@ public class GameSceneManager extends BaseSceneManager {
 
         System.out.println(keyCode);
         if(keyCode == 59){
-            LaserFactory();
+            LaserFactory(4.0f,5.0f);
             System.out.println();
         }
             //ec.sprite(laser.getComponent(VisSprite.class),4, 5);
@@ -94,11 +95,14 @@ public class GameSceneManager extends BaseSceneManager {
     public boolean axisMoved(Controller controller, int axisCode, float value){
 
     }*/
-    public void LaserFactory(){
+    public void LaserFactory(float zurbTransX, float zurbTransY){
+
         laserDeltaX += 0.1f;
         EntityComposer ec = new EntityComposer(game.getScene());
         VisSprite laserSprite = spriteCm.get(laser);
-        ec.sprite(laserSprite, 4.0f+laserDeltaX, 5.0f);
+        SpriteEntityComposer spriteComp = ec.sprite(laserSprite, zurbTransX+laserDeltaX, zurbTransY);
+        Entity newLaser = spriteComp.finish();
+
 
       /*  int newLaser = world.create();
         renderCM.create(newLaser);
