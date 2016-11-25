@@ -6,6 +6,8 @@ import com.artemis.Entity;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
+import com.kotcrab.vis.runtime.component.Renderable;
+import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
@@ -19,14 +21,17 @@ import com.teamawesome.zurbs.component.Velocity;
  * Created by Dennis on 11/16/2016.
  */
 public class GameSceneManager extends BaseSceneManager {
+    ComponentMapper<Renderable> renderCM;
     ComponentMapper <Laser> laserCm;
     ComponentMapper <Velocity> velocityCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
+    ComponentMapper<Transform> transCM;
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2,laser;
     EntityComposer ec;
 
-
+    private float laserVelocity = 15.0f;
+    private float laserDeltaX = 0.1f;
     public GameSceneManager(ZurbGame game) {
         super(game);
 
@@ -49,8 +54,8 @@ public class GameSceneManager extends BaseSceneManager {
 
         System.out.println(keyCode);
         if(keyCode == 59){
-            int newLaser = world.create();
-
+            LaserFactory();
+            System.out.println();
         }
             //ec.sprite(laser.getComponent(VisSprite.class),4, 5);
 
@@ -90,12 +95,21 @@ public class GameSceneManager extends BaseSceneManager {
 
     }*/
     public void LaserFactory(){
-        int newLaser = world.create();
+        laserDeltaX += 0.1f;
+        EntityComposer ec = new EntityComposer(game.getScene());
+        VisSprite laserSprite = spriteCm.get(laser);
+        ec.sprite(laserSprite, 4.0f+laserDeltaX, 5.0f);
+
+      /*  int newLaser = world.create();
+        renderCM.create(newLaser);
         laserCm.create(newLaser);
         spriteCm.create(newLaser);
-        velocityCm.create(newLaser);
+        velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
+        transCM.create(newLaser).setPosition(4.0f,5.0f);
         TextureRegion laserTextureRegion= spriteCm.get(laser).getRegion();
-        spriteCm.get(newLaser).setRegion(laserTextureRegion);
+        spriteCm.get(newLaser).setRegion(laserTextureRegion);*/
+
+       /* return newLaser;*/
     }
 
 
