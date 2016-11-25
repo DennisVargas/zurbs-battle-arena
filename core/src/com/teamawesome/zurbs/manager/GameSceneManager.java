@@ -31,7 +31,7 @@ public class GameSceneManager extends BaseSceneManager {
     private Entity player1, player2,laser;
     EntityComposer ec;
 
-    private float laserVelocity = 15.0f;
+    private float laserVelocity = 0.05f;
     private float laserDeltaX = 0.1f;
     public GameSceneManager(ZurbGame game) {
         super(game);
@@ -48,7 +48,10 @@ public class GameSceneManager extends BaseSceneManager {
         laser = idManager.get("Player1_laser");
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
+
+
     }
+
 
     @Override
     public boolean keyDown(int keyCode){

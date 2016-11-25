@@ -24,10 +24,12 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
+import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.teamawesome.zurbs.component.Laser;
+import com.teamawesome.zurbs.component.Velocity;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
 
@@ -35,7 +37,9 @@ import java.lang.*;
 public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     ComponentMapper<VisSprite> spriteCm;
+    ComponentMapper<Velocity> velCm;
     ComponentMapper<PhysicsBody> physicsCm;
+    ComponentMapper<Transform> transCm;
     VisIDManager idManager;
 
     VisSprite sprite1;
@@ -43,6 +47,8 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
     Controller controller1;
     Entity laser1;
     float desiredVel1 = 0.0f;
+    Transform tempTrans;
+    Velocity desVel;
 
     /**
      * Creates a new EntityProcessingSystem.
@@ -63,12 +69,16 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     @Override
     protected void process(int entityId) {
-        float y1 = body1.getLinearVelocity().y;
+        tempTrans = transCm.get(entityId);
+        desVel = velCm.get(entityId);
+        tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
+        System.out.println(tempTrans);
+      /*  float y1 = body1.getLinearVelocity().y;
         if (Gdx.input.isKeyPressed(Keys.Q)) { // LEFT
             desiredVel1 = -y1;
         } else if (Gdx.input.isKeyPressed(Keys.E)) { // RIGHT
             desiredVel1 = y1;
-        }
+        }*/
     }
 
 }

@@ -135,7 +135,7 @@ import com.teamawesome.zurbs.system.*;
             parameter.config.enable(SceneFeature.PHYSICS_SPRITE_UPDATE_SYSTEM);
 			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);
 			parameter.config.addSystem(PlayerSystem.class);
-
+			parameter.config.addSystem(LaserSystem.class);
 			parameter.config.addSystem(new SystemProvider() {
 				public BaseSystem create (EntityEngineConfiguration config, RuntimeContext context, SceneData data) {
 					return new GameSceneManager(ZurbGame.this);
