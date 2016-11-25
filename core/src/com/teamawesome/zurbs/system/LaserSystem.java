@@ -90,4 +90,7 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         }*/
     }
 
+    void ProcessIsHit(){
+
+    }
 }
