@@ -26,6 +26,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
+    ComponentMapper<Player> playerCm;
     VisIDManager idManager;
 
     VisSprite sprite1, sprite2;
@@ -34,6 +35,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     Entity player1, player2;
     boolean flip1 = false;
     boolean flip2 = false;
+
 
     private float maxVel = 8.0f;
     MassData massData = new MassData();
@@ -60,7 +62,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         // player1
         player1 = idManager.get("Player01");
-        player1.edit().add(new Player(controller1, "zurbBLUE"));
+        player1.edit().add(new Player(controller1, "zurbBLUE", true));
         sprite1 = spriteCm.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
@@ -68,7 +70,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
         //player2
         player2 = idManager.get("Player02");
-        player2.edit().add(new Player(controller2, "zurbRED"));
+        player2.edit().add(new Player(controller2, "zurbRED", true));
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
@@ -96,10 +98,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             desiredVel1 = -maxVel;
             sprite1.setFlip(false, false);
             flip1 = true;
+            playerCm.get(player1).setFacingRight(false);
         } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
             desiredVel1 = maxVel;
             sprite1.setFlip(true, false);
             flip1 = false;
+            playerCm.get(player1).setFacingRight(true);
         }
 
         if (Math.abs(body1.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
@@ -128,10 +132,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             desiredVel2 = -maxVel;
             sprite2.setFlip(false, false);
             flip2 = true;
+            playerCm.get(player2).setFacingRight(false);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
             desiredVel2 = maxVel;
             sprite2.setFlip(true, false);
             flip2 = false;
+            playerCm.get(player2).setFacingRight(true);
         }
 
         if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.UP)) { // UP
