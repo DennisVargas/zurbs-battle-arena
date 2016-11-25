@@ -23,6 +23,7 @@ public class GameSceneManager extends BaseSceneManager {
     ComponentMapper<Renderable> renderCM;
     ComponentMapper <Laser> laserCm;
     ComponentMapper <Velocity> velocityCm;
+    ComponentMapper<VisID> idCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
     private ComponentMapper<Transform> transCM;
     private ComponentMapper<Player> playerCm;
@@ -126,7 +127,9 @@ public class GameSceneManager extends BaseSceneManager {
         VisSprite laserSprite = spriteCm.get(laser);
         SpriteEntityComposer spriteComp = ec.sprite(laserSprite, originX, originY);
         Entity newLaser = spriteComp.finish();
-        laserCm.create(newLaser);
+        Laser laserComp = laserCm.create(newLaser);
+        laserComp.whoShotId = idCm.get(player);
+
         velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
       /*  int newLaser = world.create();
         renderCM.create(newLaser);

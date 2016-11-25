@@ -5,10 +5,13 @@ package com.teamawesome.zurbs.component;
  */
 
 import com.artemis.Component;
+import com.kotcrab.vis.runtime.component.VisID;
 import com.kotcrab.vis.runtime.component.VisSprite;
 
 
 public class Laser extends Component {
+    public VisID whoShotId;
+    public boolean hit = false;
 
   /*  private VisSprite sprite;
     private float velocity;

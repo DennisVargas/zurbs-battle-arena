@@ -14,9 +14,6 @@ public class Player extends Component {
 
     private Controller controller = null;
     private String spriteColor = "bland";
-
-
-
     private boolean facingRight = true;
 
     public Player(Controller controller, final String spriteColor, boolean right) {

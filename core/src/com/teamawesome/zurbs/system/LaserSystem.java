@@ -5,6 +5,7 @@ package com.teamawesome.zurbs.system;
  */
 
 import com.artemis.*;
+import com.artemis.Entity;
 import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -25,10 +26,13 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.Transform;
+import com.kotcrab.vis.runtime.component.VisID;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
+import com.sun.xml.internal.stream.*;
 import com.teamawesome.zurbs.component.Laser;
+import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
@@ -40,6 +44,8 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
     ComponentMapper<Velocity> velCm;
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Transform> transCm;
+    ComponentMapper<Player> playerCm;
+    ComponentMapper<Laser> laserCm;
     VisIDManager idManager;
 
     VisSprite sprite1;
@@ -49,7 +55,7 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
     float desiredVel1 = 0.0f;
     Transform tempTrans;
     Velocity desVel;
-
+    Player tempPlayer;
     /**
      * Creates a new EntityProcessingSystem.
      */
@@ -69,8 +75,13 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     @Override
     protected void process(int entityId) {
+
+        tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
         tempTrans = transCm.get(entityId);
         desVel = velCm.get(entityId);
+        if(!tempPlayer.isFacingRight())
+            desVel.x *= -1.0f;
+
         tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
         //System.out.println(tempTrans);
       /*  float y1 = body1.getLinearVelocity().y;
