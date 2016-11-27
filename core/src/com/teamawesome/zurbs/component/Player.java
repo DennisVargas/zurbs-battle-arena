@@ -6,6 +6,7 @@ import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.math.Vector3;
 
+
 /**
  * Created by Dennis on 11/22/2016.
  */
@@ -15,6 +16,8 @@ public class Player extends Component {
     private Controller controller = null;
     private String spriteColor = "bland";
     private boolean facingRight = true;
+
+
 
     public Player(Controller controller, final String spriteColor, boolean right) {
         this.spriteColor = spriteColor;

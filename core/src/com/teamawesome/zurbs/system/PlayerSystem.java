@@ -1,6 +1,9 @@
 package com.teamawesome.zurbs.system;
 
+
 import com.artemis.BaseSystem;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
@@ -10,7 +13,9 @@ import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.MassData;
@@ -20,11 +25,8 @@ import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
-import com.artemis.ComponentMapper;
-import com.artemis.Entity;
 import com.teamawesome.zurbs.component.Player;
 import java.lang.*;
-
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
@@ -54,6 +56,17 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     public void afterSceneInit() {
         massData.mass = 50.0f;
 
+        FixtureDef fdef = new FixtureDef();
+        PolygonShape hat = new PolygonShape();
+        Vector2[] vertice = new Vector2[4];
+        vertice[0] = new Vector2(.19f, -.43f);
+        vertice[1] = new Vector2(.42f, -.43f);
+        vertice[2] = new Vector2(.42f, -.35f);
+        vertice[3] = new Vector2(.19f, -.35f);
+        hat.set(vertice);
+        fdef.shape = hat;
+        fdef.restitution = 0.5f;
+
         // original code
         /*
         for(int i = 0; i < 4; i++){
@@ -73,6 +86,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite1 = spriteCm.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
+        body1.createFixture(fdef).setUserData(this);
         // player1
 
         //player2
@@ -172,5 +186,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         // move player2
 
     }
+
 
 }
