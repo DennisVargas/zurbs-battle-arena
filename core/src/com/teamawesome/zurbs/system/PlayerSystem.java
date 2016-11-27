@@ -26,6 +26,7 @@ import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.teamawesome.zurbs.component.Player;
+import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
@@ -52,19 +53,22 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean peak = false;
 
 
+
+
     @Override
     public void afterSceneInit() {
         massData.mass = 50.0f;
 
         FixtureDef fdef = new FixtureDef();
-        PolygonShape hat = new PolygonShape();
+        PolygonShape head = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
         vertice[0] = new Vector2(.19f, .43f);
         vertice[1] = new Vector2(.42f, .43f);
         vertice[2] = new Vector2(.42f, .35f);
         vertice[3] = new Vector2(.19f, .35f);
-        hat.set(vertice);
-        fdef.shape = hat;
+        head.set(vertice);
+        fdef.shape = head;
+        fdef.filter.categoryBits = GameSceneManager.HEAD_BIT;
 
         // original code
         /*
@@ -85,7 +89,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite1 = spriteCm.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
-        body1.createFixture(fdef).setUserData(this);
+        body1.createFixture(fdef).setUserData(player1);
         // player1
 
         //player2
@@ -94,7 +98,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
-        body2.createFixture(fdef).setUserData(this);
+        body2.createFixture(fdef).setUserData(player2);
         //player2
 
     }
@@ -187,5 +191,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     }
 
+    public void hitOnHead() {
+
+    }
 
 }
