@@ -20,11 +20,17 @@ public class WorldContactListener implements ContactListener {
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
         switch (cDef){
-            case GameSceneManager.HEAD_BIT | GameSceneManager.ZURB_BIT:
-                if(fixA.getFilterData().categoryBits == GameSceneManager.HEAD_BIT)
-                    ((PlayerSystem)fixA.getUserData()).hitOnHead((String) fixB.getUserData());
-                else
-                    ((PlayerSystem)fixB.getUserData()).hitOnHead((String) fixA.getUserData());
+            case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player02"); // hitOnHead(killer, killed)
+                break;
+            case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player01");
+                break;
+            case GameSceneManager.PLAYER02_BIT | GameSceneManager.PLAYER01_LASER_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");
+                break;
+            case GameSceneManager.PLAYER01_BIT | GameSceneManager.PLAYER02_LASER_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
                 break;
 /*
             case MarioBros.ENEMY_BIT | MarioBros.OBJECT_BIT:

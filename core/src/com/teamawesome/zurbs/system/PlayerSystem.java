@@ -59,6 +59,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     public void afterSceneInit() {
         massData.mass = 50.0f;
 
+        // head box
         FixtureDef fdefHead = new FixtureDef();
         PolygonShape head = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
@@ -68,9 +69,23 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         vertice[3] = new Vector2(.19f, .35f);
         head.set(vertice);
         fdefHead.shape = head;
-        fdefHead.filter.categoryBits = GameSceneManager.HEAD_BIT;
 
 
+        // body box
+        FixtureDef fdefZurb = new FixtureDef();
+        PolygonShape body = new PolygonShape();
+        Vector2[] vertice2 = new Vector2[5];
+        vertice2[0] = new Vector2(.14f, .00f);
+        vertice2[1] = new Vector2(.21f, .36f);
+        vertice2[2] = new Vector2(.31f, .40f);
+        vertice2[3] = new Vector2(.39f, .36f);
+        vertice2[4] = new Vector2(.43f, .00f);
+        body.set(vertice2);
+        fdefZurb.shape = body;
+        fdefZurb.isSensor = true;
+
+/*
+        // feet box
         FixtureDef fdefZurb = new FixtureDef();
         PolygonShape feet = new PolygonShape();
         Vector2[] vertice2 = new Vector2[4];
@@ -81,7 +96,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         feet.set(vertice2);
         fdefZurb.shape = feet;
         fdefZurb.isSensor = true;
-        fdefZurb.filter.categoryBits = GameSceneManager.ZURB_BIT;
+*/
 
         // original code
         /*
@@ -104,9 +119,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite1 = spriteCm.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
-
+        fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
+        body1.createFixture(fdefZurb).setUserData(this); // attaches body box
+        fdefHead.filter.categoryBits = GameSceneManager.PLAYER01_HEAD_BIT;
         body1.createFixture(fdefHead).setUserData(this); // attaches head box
-        body1.createFixture(fdefZurb).setUserData("Player01"); // attaches body box
         // player1
 
         //player2
@@ -115,8 +131,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
+        fdefZurb.filter.categoryBits = GameSceneManager.PLAYER02_BIT;
+        body2.createFixture(fdefZurb).setUserData(this); // attaches body box
+        fdefHead.filter.categoryBits = GameSceneManager.PLAYER02_HEAD_BIT;
         body2.createFixture(fdefHead).setUserData(this); // attaches head box
-        body2.createFixture(fdefZurb).setUserData("Player02"); // attaches body box
         //player2
 
     }
@@ -209,8 +227,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     }
 
-    public void hitOnHead(String player) {
-        System.out.println("BAM!");
+    public void hitOnHead(String playerKiller, String playerKilled) {
+        System.out.println(playerKilled + " was squished by " + playerKiller);
+    }
+
+    public void hitByLaser(String playerKiller, String playerKilled) {
+        System.out.println(playerKilled + " was vaporized by " + playerKiller);
     }
 
 }
