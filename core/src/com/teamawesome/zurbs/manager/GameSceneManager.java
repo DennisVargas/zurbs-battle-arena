@@ -4,6 +4,7 @@ import com.artemis.*;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
@@ -41,7 +42,9 @@ public class GameSceneManager extends BaseSceneManager {
 
     @Override
     public void afterSceneInit() {
+
         super.afterSceneInit();
+
         Archetype laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
                                                     .add(VisPolygon.class)
                                                     .add(PhysicsProperties.class)

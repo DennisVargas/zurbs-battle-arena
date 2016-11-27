@@ -5,11 +5,14 @@ import com.artemis.Entity;
 import com.artemis.Manager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.ControllerListener;
+import com.badlogic.gdx.physics.box2d.Box2D;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.VisText;
@@ -39,9 +42,11 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 
 	protected Vector3 unprojectVec = new Vector3();
 
+
 	public BaseSceneManager (ZurbGame game) {
 		this.game = game;
 		this.soundController = game.getSoundController();
+
 	}
 
 	protected Bounds getSpriteBounds (String id) {

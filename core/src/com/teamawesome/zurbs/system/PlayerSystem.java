@@ -8,12 +8,16 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.VisSprite;
 import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
+import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
@@ -24,6 +28,7 @@ import java.lang.*;
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
+    CameraManager cameraManager;
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Player> playerCm;
@@ -36,6 +41,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean flip1 = false;
     boolean flip2 = false;
 
+    //  initialize debugRenderer
+    Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 
     private float maxVel = 8.0f;
     MassData massData = new MassData();
@@ -80,6 +87,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     @Override
     protected void processSystem() {
+
+        //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
+        debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
+
         sprite1.setFlip(flip1, false);
         sprite2.setFlip(flip2, false);
 
