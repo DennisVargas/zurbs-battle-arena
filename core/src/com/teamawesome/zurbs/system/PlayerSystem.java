@@ -59,13 +59,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         FixtureDef fdef = new FixtureDef();
         PolygonShape hat = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
-        vertice[0] = new Vector2(.19f, -.43f);
-        vertice[1] = new Vector2(.42f, -.43f);
-        vertice[2] = new Vector2(.42f, -.35f);
-        vertice[3] = new Vector2(.19f, -.35f);
+        vertice[0] = new Vector2(.19f, .43f);
+        vertice[1] = new Vector2(.42f, .43f);
+        vertice[2] = new Vector2(.42f, .35f);
+        vertice[3] = new Vector2(.19f, .35f);
         hat.set(vertice);
         fdef.shape = hat;
-        fdef.restitution = 0.5f;
 
         // original code
         /*
@@ -95,6 +94,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
+        body2.createFixture(fdef).setUserData(this);
         //player2
 
     }
