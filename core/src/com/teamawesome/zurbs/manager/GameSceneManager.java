@@ -1,10 +1,10 @@
 package com.teamawesome.zurbs.manager;
 
-import com.artemis.BaseSystem;
-import com.artemis.ComponentMapper;
-import com.artemis.Entity;
+import com.artemis.*;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
@@ -15,6 +15,7 @@ import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
+import javafx.geometry.Pos;
 
 /**
  * Created by Dennis on 11/16/2016.
@@ -36,20 +37,23 @@ public class GameSceneManager extends BaseSceneManager {
 
     public GameSceneManager(ZurbGame game) {
         super(game);
-
     }
-
 
     @Override
     public void afterSceneInit() {
         super.afterSceneInit();
-
+        Archetype laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
+                                                    .add(VisPolygon.class)
+                                                    .add(PhysicsProperties.class)
+                                                    .add(Laser.class)
+                                                    .add(Renderable.class)
+                                                    .add(Layer.class)
+                                                    .build(world);
         player1 = idManager.get("Player01");
         player2 = idManager.get("Player02");
 
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
-
 
     }
 
@@ -130,8 +134,11 @@ public class GameSceneManager extends BaseSceneManager {
         Entity newLaser = spriteComp.finish();
         Laser laserComp = laserCm.create(newLaser);
         laserComp.whoShotId = idCm.get(player);
-
         velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
+
+        //physicsCm.create(newLaser);
+        //physics = physicsCm.get(laser,true);
+        //pBody.body.applyForceToCenter(20.0f, 0.0f, true);
       /*  int newLaser = world.create();
         renderCM.create(newLaser);
         laserCm.create(newLaser);
@@ -143,6 +150,5 @@ public class GameSceneManager extends BaseSceneManager {
 
        /* return newLaser;*/
     }
-
 
 }
