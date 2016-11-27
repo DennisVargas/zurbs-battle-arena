@@ -12,10 +12,12 @@ import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
 import com.kotcrab.vis.runtime.util.entity.composer.SpriteEntityComposer;
+import com.teamawesome.zurbs.WorldContactListener;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
+import com.teamawesome.zurbs.WorldContactListener;
 import javafx.geometry.Pos;
 
 /**
@@ -33,7 +35,6 @@ public class GameSceneManager extends BaseSceneManager {
 
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2, laser;
-
 
 
     //Box2D Collision Bits
@@ -70,8 +71,13 @@ public class GameSceneManager extends BaseSceneManager {
         player1 = idManager.get("Player01");
         player2 = idManager.get("Player02");
 
+        //world = player1.getWorld();
+        //world = physicsCm.get(player1).body.getWorld();
+
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
+
+        physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
 
     }
 
