@@ -59,7 +59,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     public void afterSceneInit() {
         massData.mass = 50.0f;
 
-        FixtureDef fdef = new FixtureDef();
+        FixtureDef fdefHead = new FixtureDef();
         PolygonShape head = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
         vertice[0] = new Vector2(.19f, .43f);
@@ -67,8 +67,20 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         vertice[2] = new Vector2(.42f, .35f);
         vertice[3] = new Vector2(.19f, .35f);
         head.set(vertice);
-        fdef.shape = head;
-        fdef.filter.categoryBits = GameSceneManager.HEAD_BIT;
+        fdefHead.shape = head;
+        fdefHead.filter.categoryBits = GameSceneManager.HEAD_BIT;
+
+
+        FixtureDef fdefZurb = new FixtureDef();
+        PolygonShape feet = new PolygonShape();
+        Vector2[] vertice2 = new Vector2[4];
+        vertice2[0] = new Vector2(.14f, .05f);
+        vertice2[1] = new Vector2(.46f, .05f);
+        vertice2[2] = new Vector2(.14f, .00f);
+        vertice2[3] = new Vector2(.46f, .00f);
+        feet.set(vertice2);
+        fdefZurb.shape = feet;
+        fdefZurb.filter.categoryBits = GameSceneManager.ZURB_BIT;
 
         // original code
         /*
@@ -83,13 +95,17 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         }*/
         // original code
 
+
+
         // player1
         player1 = idManager.get("Player01");
         player1.edit().add(new Player(controller1, "zurbBLUE", true));
         sprite1 = spriteCm.get(player1);
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
-        body1.createFixture(fdef).setUserData(player1);
+
+        body1.createFixture(fdefHead).setUserData("Player01"); // attaches head box
+        body1.createFixture(fdefZurb).setUserData("Player01"); // attaches body box
         // player1
 
         //player2
@@ -98,7 +114,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
-        body2.createFixture(fdef).setUserData(player2);
+        body2.createFixture(fdefHead).setUserData("Player02"); // attaches head box
+        body2.createFixture(fdefZurb).setUserData("Player02"); // attaches body box
         //player2
 
     }
@@ -191,8 +208,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     }
 
-    public void hitOnHead() {
-
+    public void hitOnHead(String player) {
+        System.out.println("BAM!");
     }
 
 }

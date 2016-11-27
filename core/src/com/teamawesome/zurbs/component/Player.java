@@ -46,7 +46,6 @@ public class Player extends Component {
 
     public void setFacingRight(boolean facingRight) {
         this.facingRight = facingRight;
-        System.out.println(facingRight);
     }
 
 

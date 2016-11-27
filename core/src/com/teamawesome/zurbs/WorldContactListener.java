@@ -1,5 +1,6 @@
 package com.teamawesome.zurbs;
 
+import com.artemis.Entity;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.Gdx;
 import com.teamawesome.zurbs.manager.GameSceneManager;
@@ -20,10 +21,10 @@ public class WorldContactListener implements ContactListener {
 
         switch (cDef){
             case GameSceneManager.HEAD_BIT | GameSceneManager.ZURB_BIT:
-                //if(fixA.getFilterData().categoryBits == GameSceneManager.HEAD_BIT)
-                   // ((PlayerSystem)fixA.getUserData()).hitOnHead((PlayerSystem) fixB.getUserData());
-               // else
-                   // ((PlayerSystem)fixB.getUserData()).hitOnHead((PlayerSystem) fixA.getUserData());
+                if(fixA.getFilterData().categoryBits == GameSceneManager.HEAD_BIT)
+                    ((PlayerSystem)fixA.getUserData()).hitOnHead((String) fixB.getUserData());
+                else
+                    ((PlayerSystem)fixB.getUserData()).hitOnHead((String) fixA.getUserData());
                 break;
 /*
             case MarioBros.ENEMY_BIT | MarioBros.OBJECT_BIT:
