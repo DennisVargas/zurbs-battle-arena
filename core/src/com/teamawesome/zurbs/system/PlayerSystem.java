@@ -80,6 +80,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         vertice2[3] = new Vector2(.46f, .00f);
         feet.set(vertice2);
         fdefZurb.shape = feet;
+        fdefZurb.isSensor = true;
         fdefZurb.filter.categoryBits = GameSceneManager.ZURB_BIT;
 
         // original code
@@ -104,7 +105,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         body1 = physicsCm.get(player1).body;
         body1.setMassData(massData);
 
-        body1.createFixture(fdefHead).setUserData("Player01"); // attaches head box
+        body1.createFixture(fdefHead).setUserData(this); // attaches head box
         body1.createFixture(fdefZurb).setUserData("Player01"); // attaches body box
         // player1
 
@@ -114,7 +115,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         sprite2 = spriteCm.get(player2);
         body2 = physicsCm.get(player2).body;
         body2.setMassData(massData);
-        body2.createFixture(fdefHead).setUserData("Player02"); // attaches head box
+        body2.createFixture(fdefHead).setUserData(this); // attaches head box
         body2.createFixture(fdefZurb).setUserData("Player02"); // attaches body box
         //player2
 
