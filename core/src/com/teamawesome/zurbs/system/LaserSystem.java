@@ -80,7 +80,8 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         else{
             tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
             PhysicsBody laserBody = physicsCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
-            laserBody.body.applyForceToCenter(1.0f,1.0f,true);
+            laserBody.body.applyForce(-200.0f, 0.0f, laserBody.body.getWorldCenter().x, laserBody.body.getWorldCenter().y, true);
+            System.out.print("");
            // tempTrans = transCm.get(entityId);
            // desVel = velCm.get(entityId);
 
