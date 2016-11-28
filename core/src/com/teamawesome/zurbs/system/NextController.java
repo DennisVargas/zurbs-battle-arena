@@ -13,8 +13,8 @@ public class NextController {
     public static final int BUTTON_R = 6;
     public static final int BUTTON_START = 9;
     public static final int BUTTON_SELECT = 8;
-    public static final int AXIS_X = 0;
-    public static final int AXIS_Y = 1;
-    public static final float STICK_DEADZONE = 0.004F;
+    public static final int AXIS_X = (System.getProperty("os.name").toLowerCase().contains("windows")) ? 1 : 0;
+    public static final int AXIS_Y = (System.getProperty("os.name").toLowerCase().contains("windows")) ? 0 : 1;
+    public static final float STICK_DEADZONE = 0.5F;
 
 }
