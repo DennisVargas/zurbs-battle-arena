@@ -3,9 +3,11 @@ package com.teamawesome.zurbs.manager;
 import com.artemis.*;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
@@ -36,6 +38,7 @@ public class GameSceneManager extends BaseSceneManager {
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2, laser;
 
+    Archetype laserArchetype;
 
     //Box2D Collision Bits
     public static final short NOTHING_BIT = 0;
@@ -63,7 +66,7 @@ public class GameSceneManager extends BaseSceneManager {
 
         super.afterSceneInit();
 
-        Archetype laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
+      laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
                                                     .add(VisPolygon.class)
                                                     .add(PhysicsProperties.class)
                                                     .add(Laser.class)
@@ -71,6 +74,7 @@ public class GameSceneManager extends BaseSceneManager {
                                                     .add(Layer.class)
                                                     .build(world);
         player1 = idManager.get("Player01");
+       // physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
         player2 = idManager.get("Player02");
 
         //world = player1.getWorld();
@@ -80,6 +84,7 @@ public class GameSceneManager extends BaseSceneManager {
         animation2 = animationCM.get(player2);
 
         physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
+        FixtureDef fdef = new FixtureDef();
 
     }
 

@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.Logger;
 import com.kotcrab.vis.runtime.RuntimeContext;
 import com.kotcrab.vis.runtime.data.SceneData;
@@ -29,6 +30,7 @@ import com.teamawesome.zurbs.system.*;
 		SoundController soundController;
 
 		String scenePath;
+		//private World world = PlayerSystem.;
 
 	public Scene getScene() {
 		return scene;
