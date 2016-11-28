@@ -39,12 +39,18 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Player> playerCm;
+    private ComponentMapper<VisSpriteAnimation> animationCM;
+
     VisIDManager idManager;
 
     VisSprite sprite1, sprite2;
+
     Body body1, body2;
-    Controller controller1, controller2;
+    Controller controller1, controller2, controller3, controller4;
     Entity player1, player2;
+
+
+
     boolean flip1 = false;
     boolean flip2 = false;
 
@@ -114,6 +120,19 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             }
         }*/
         // original code
+        Array<Controller> controllers = Controllers.getControllers();
+
+
+
+        if(controllers.size > 2) {
+            controller3 = controllers.get(2);
+        }
+        if(controllers.size > 3) {
+            controller4 = controllers.get(3);
+        }
+
+
+
 
         // player1
         player1 = idManager.get("Player01");
@@ -124,7 +143,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
         body1.createFixture(fdefZurb).setUserData(this); // attaches body box
         fdefHead.filter.categoryBits = GameSceneManager.PLAYER01_HEAD_BIT;
-        body1.createFixture(fdefHead).setUserData(this); // attaches head box
+        body1.createFixture(fdefHead).setUserData(this); // attaches head
+        if(controllers.size > 0) {
+            controller1 = controllers.get(0);
+
+        }
+
         // player1
 
         // player 2
@@ -137,6 +161,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         body2.createFixture(fdefZurb).setUserData(this); // attaches body box
         fdefHead.filter.categoryBits = GameSceneManager.PLAYER02_HEAD_BIT;
         body2.createFixture(fdefHead).setUserData(this); // attaches head box
+        if(controllers.size > 1) {
+            controller2 = controllers.get(1);
+
+        }
+
         // player 2
 
     }
@@ -154,19 +183,24 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             float y1 = body1.getLinearVelocity().y;
             float desiredVel1 = 0.0f;
 
-            if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
+            if (controller1.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
                 desiredVel1 = -maxVel;
+
                 sprite1.setFlip(false, false);
                 flip1 = true;
                 playerCm.get(player1).setFacingRight(false);
-            } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
+
+
+            } else if (controller1.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
                 desiredVel1 = maxVel;
                 sprite1.setFlip(true, false);
                 flip1 = false;
                 playerCm.get(player1).setFacingRight(true);
+
             }
 
-            if (Math.abs(body1.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
+
+            if (Math.abs(body1.getLinearVelocity().y) < 0.005 && controller1.getButton(NextController.BUTTON_B)) { // UP
                 float impulse1 = body1.getMass() * 400;
                 body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
             }
@@ -198,14 +232,19 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 sprite2.setFlip(false, false);
                 flip2 = true;
                 playerCm.get(player2).setFacingRight(false);
+
+
             } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
                 desiredVel2 = maxVel;
                 sprite2.setFlip(true, false);
                 flip2 = false;
                 playerCm.get(player2).setFacingRight(true);
+
+
             }
 
-            if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.UP)) { // UP
+
+            if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyPressed(Keys.UP)) { // UP
                 float impulse2 = body2.getMass() * 400;
                 body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
             }

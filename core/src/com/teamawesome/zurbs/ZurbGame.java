@@ -4,10 +4,13 @@ import com.artemis.BaseSystem;
 import com.artemis.World;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Logger;
 import com.kotcrab.vis.runtime.RuntimeContext;
 import com.kotcrab.vis.runtime.data.SceneData;
@@ -29,7 +32,10 @@ import com.teamawesome.zurbs.system.*;
 		VisAssetManager manager;
 		SoundController soundController;
 
-		String scenePath;
+	    public Array<Controller> controllers;	// for easy debugging of Controllers
+
+
+	String scenePath;
 		//private World world = PlayerSystem.;
 
 	public Scene getScene() {
@@ -50,6 +56,8 @@ import com.teamawesome.zurbs.system.*;
 
 			manager.enableFreeType(new FreeTypeFontProvider());
 			soundController = new SoundController(manager);
+
+			controllers  = Controllers.getControllers();
 
 			//loadMenuScene();
 			loadStartGameScene();
@@ -127,7 +135,6 @@ import com.teamawesome.zurbs.system.*;
 			unloadPreviousScene();
             manager.getLogger().setLevel(Logger.ERROR);
 			//	final Holder<PlatformSpawnerSystem> spawnerSystem = Holder.empty();
-
 
 			SceneParameter parameter = new SceneParameter();
 		//	parameter.config.addSystem(BoundsCreator.class);

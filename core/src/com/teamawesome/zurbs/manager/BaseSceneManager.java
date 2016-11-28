@@ -35,8 +35,6 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 	protected ZurbGame game;
 	protected SoundController soundController;
 
-	protected Array<Controller> controllers = Controllers.getControllers();	// for easy debugging of Controllers
-
 	protected CameraManager cameraManager;
 	protected VisIDManager idManager;
 
