@@ -5,12 +5,10 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
+import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
@@ -24,6 +22,8 @@ import com.teamawesome.zurbs.WorldContactListener;
 import com.teamawesome.zurbs.system.GameModeControllerListener;
 import javafx.geometry.Pos;
 
+import java.util.IdentityHashMap;
+
 /**
  * Created by Dennis on 11/16/2016.
  */
@@ -32,6 +32,8 @@ public class GameSceneManager extends BaseSceneManager {
     ComponentMapper <Laser> laserCm;
     ComponentMapper <Velocity> velocityCm;
     ComponentMapper<VisID> idCm;
+    ComponentMapper<VisPolygon> visPolyCm;
+
     private ComponentMapper<VisSpriteAnimation> animationCM;
     private ComponentMapper<Transform> transCM;
     private ComponentMapper<Player> playerCm;
@@ -114,10 +116,18 @@ public class GameSceneManager extends BaseSceneManager {
 
         if(keyCode == 29 || keyCode == 32){ // player 1
             animation1.setAnimationName("zurbBLUE_run");
+            if(playerCm.get(player1).isDestroyed())
+                System.out.println("Destroyed1");
+
+
         }
 
         if(keyCode == 21 || keyCode == 22){ // player 2
             animation2.setAnimationName("zurbRED_run");
+            Player playerTemp = playerCm.get(player2);
+            if(playerCm.get(player2).isDestroyed())
+                System.out.println("Destroyed2");
+
         }
 
         /*
@@ -165,15 +175,69 @@ public class GameSceneManager extends BaseSceneManager {
             laser = idManager.get("Player1_laser");
         else if (color == "zurbRED")
             laser = idManager.get("Player2_laser");
+        /*
+//  MyNewLaserFactory
+        int newLaser = world.create(laserArchetype);
+        Transform newLaserTrans = transCM.get(newLaser);
+        VisPolygon newVisPolygon = visPolyCm.get(newLaser);
+        VisSprite newVisSprite = spriteCm.get(newLaser);
+        newVisSprite = spriteCm.get(laser);
+        newVisPolygon = visPolyCm.get(laser);
+        //newLaserTrans.setPosition(originX, originY);
+        //PhysicsBody newLaserbody = physicsCm.get(newLaser);
+        //newLaserbody = new PhysicsBody(physicsCm.get(laser).body);
+        //world.edit(newLaser).add(newLaserbody);
+        //  myNewLaserFactory
+*/
+        FixtureDef fdefLaser = new FixtureDef();
+        PolygonShape laserShape = new PolygonShape();
+        Vector2[] vertice = new Vector2[4];
+        vertice[0] = new Vector2(.19f, .43f);
+        vertice[1] = new Vector2(.42f, .43f);
+        vertice[2] = new Vector2(.42f, .35f);
+        vertice[3] = new Vector2(.19f, .35f);
+        laserShape.set(vertice);
+        fdefLaser.shape = laserShape;
 
+        BodyDef laserBodyDef = new BodyDef();
+        laserBodyDef.type = BodyDef.BodyType.DynamicBody;
+        laserBodyDef.position.set(5, 5);
+
+
+
+        fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
+
+        // OldFactory
         EntityComposer ec = new EntityComposer(game.getScene());
         VisSprite laserSprite = spriteCm.get(laser);
-        SpriteEntityComposer spriteComp = ec.sprite(laserSprite, originX, originY);
+        SpriteEntityComposer spriteComp = ec.sprite(laserSprite, -1.0f, -1.0f);
         Entity newLaser = spriteComp.finish();
+
         Laser laserComp = laserCm.create(newLaser);
         laserComp.whoShotId = idCm.get(player);
         velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
+        PhysicsBody newLaserBody = new PhysicsBody(physicsCm.get(laser).body);
 
+        Body newPhysicsLaserBody = physicsCm.get(laser).body.getWorld().createBody(laserBodyDef);
+        Array<Fixture> fixArray = physicsCm.get(laser).body.getFixtureList();
+        fdefLaser.shape = fixArray.get(0).getShape();
+        newPhysicsLaserBody.createFixture(fdefLaser);
+        PhysicsBody newLaserPhysicsBody = new PhysicsBody(newPhysicsLaserBody);
+        //PhysicsBody newLaserPhysicsBody = new PhysicsBody(physicsCm.get(laser).body);
+
+        //MassData massData = new MassData();
+        //massData.mass = 1.0f;
+        //newLaserPhysicsBody.body.setMassData(massData);
+
+        newLaserPhysicsBody.body.setTransform(originX, originY, 0.0f);
+
+        System.out.println();
+        world.edit(newLaser.getId()).add(newLaserPhysicsBody);
+
+
+      //OldFactory
+
+        //junk
         //physicsCm.create(newLaser);
         //physics = physicsCm.get(laser,true);
         //pBody.body.applyForceToCenter(20.0f, 0.0f, true);

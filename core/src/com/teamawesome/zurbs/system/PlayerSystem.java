@@ -174,7 +174,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     protected void processSystem() {
 
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
-  //      debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
+        debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
         // if player 1 is alive
         if (!playerCm.get(player1).getToDestroy() && !playerCm.get(player1).isDestroyed()) {
