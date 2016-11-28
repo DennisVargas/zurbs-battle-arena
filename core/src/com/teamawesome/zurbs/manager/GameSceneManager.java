@@ -1,6 +1,7 @@
 package com.teamawesome.zurbs.manager;
 
 import com.artemis.*;
+import com.artemis.utils.EntityBuilder;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -33,7 +34,7 @@ public class GameSceneManager extends BaseSceneManager {
     ComponentMapper <Velocity> velocityCm;
     ComponentMapper<VisID> idCm;
     ComponentMapper<VisPolygon> visPolyCm;
-
+    ComponentMapper<OriginalRotation> ogRotCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
     private ComponentMapper<Transform> transCM;
     private ComponentMapper<Player> playerCm;
@@ -202,7 +203,7 @@ public class GameSceneManager extends BaseSceneManager {
         BodyDef laserBodyDef = new BodyDef();
         laserBodyDef.type = BodyDef.BodyType.DynamicBody;
         laserBodyDef.position.set(5, 5);
-
+        laserBodyDef.gravityScale = 0.0f;
 
 
         fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
@@ -213,26 +214,36 @@ public class GameSceneManager extends BaseSceneManager {
         SpriteEntityComposer spriteComp = ec.sprite(laserSprite, -1.0f, -1.0f);
         Entity newLaser = spriteComp.finish();
 
+        OriginalRotation ogRotComp = ogRotCm.create(newLaser);
+        ogRotComp.rotation = 0.0f;
+
         Laser laserComp = laserCm.create(newLaser);
         laserComp.whoShotId = idCm.get(player);
         velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
-        PhysicsBody newLaserBody = new PhysicsBody(physicsCm.get(laser).body);
 
-        Body newPhysicsLaserBody = physicsCm.get(laser).body.getWorld().createBody(laserBodyDef);
+        Body newLaserBody = physicsCm.get(laser).body.getWorld().createBody(laserBodyDef);
         Array<Fixture> fixArray = physicsCm.get(laser).body.getFixtureList();
         fdefLaser.shape = fixArray.get(0).getShape();
-        newPhysicsLaserBody.createFixture(fdefLaser);
-        PhysicsBody newLaserPhysicsBody = new PhysicsBody(newPhysicsLaserBody);
+        newLaserBody.createFixture(fdefLaser);
+
+        newLaserBody.setUserData(newLaser);
+
+        PhysicsBody newLaserPhysicsBody = new PhysicsBody(newLaserBody);
+
+
         //PhysicsBody newLaserPhysicsBody = new PhysicsBody(physicsCm.get(laser).body);
 
         //MassData massData = new MassData();
         //massData.mass = 1.0f;
         //newLaserPhysicsBody.body.setMassData(massData);
 
+
         newLaserPhysicsBody.body.setTransform(originX, originY, 0.0f);
 
-        System.out.println();
+        System.out.print("");
+
         world.edit(newLaser.getId()).add(newLaserPhysicsBody);
+
 
 
       //OldFactory
