@@ -12,7 +12,9 @@ import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.ImageResolver;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -65,9 +67,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
 
 
+
     @Override
     public void afterSceneInit() {
         massData.mass = 50.0f;
+
 
         // head box
         FixtureDef fdefHead = new FixtureDef();
@@ -94,32 +98,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.shape = body;
         fdefZurb.isSensor = true;
 
-/*
-        // feet box
-        FixtureDef fdefZurb = new FixtureDef();
-        PolygonShape feet = new PolygonShape();
-        Vector2[] vertice2 = new Vector2[4];
-        vertice2[0] = new Vector2(.14f, .05f);
-        vertice2[1] = new Vector2(.46f, .05f);
-        vertice2[2] = new Vector2(.14f, .00f);
-        vertice2[3] = new Vector2(.46f, .00f);
-        feet.set(vertice2);
-        fdefZurb.shape = feet;
-        fdefZurb.isSensor = true;
-*/
 
-        // original code
-        /*
-        for(int i = 0; i < 4; i++){
-            try{
-                controller = Controllers.getControllers().get(i);
-                controller.addListener(ListenerFactory(body));
-            }catch(Exception e){
-                controller = null;
-                System.out.println("no control "+i);
-            }
-        }*/
-        // original code
         Array<Controller> controllers = Controllers.getControllers();
 
 
@@ -272,11 +251,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
 
         if (playerKilled == "Player01") {
-            playerCm.get(player1).setToDestroy(true);
+            playerCm.get(player1).setDestroyed(true);
             //player1.getWorld().deleteEntity(player1);
         } else {
-            playerCm.get(player2).setToDestroy(true);
-            //player2 = idManager.get("Player02_squish");
+            //playerCm.get(player2).setToDestroy(true);
+            playerCm.get(player2).setDestroyed(true);
+            //player2.getWorld().deleteEntity(player2);
             //body2.getWorld().destroyBody(body2);
         }
     }
