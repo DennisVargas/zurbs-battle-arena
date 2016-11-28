@@ -162,26 +162,27 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             float y1 = body1.getLinearVelocity().y;
             float desiredVel1 = 0.0f;
 
-            if (controller1.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
-                desiredVel1 = -maxVel;
+            if(Controllers.getControllers().size > 0) {
+                if (controller1.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
+                    desiredVel1 = -maxVel;
 
-                sprite1.setFlip(false, false);
-                flip1 = true;
-                playerCm.get(player1).setFacingRight(false);
-
-
-            } else if (controller1.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
-                desiredVel1 = maxVel;
-                sprite1.setFlip(true, false);
-                flip1 = false;
-                playerCm.get(player1).setFacingRight(true);
-
-            }
+                    sprite1.setFlip(false, false);
+                    flip1 = true;
+                    playerCm.get(player1).setFacingRight(false);
 
 
-            if (Math.abs(body1.getLinearVelocity().y) < 0.005 && controller1.getButton(NextController.BUTTON_B)) { // UP
-                float impulse1 = body1.getMass() * 400;
-                body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
+                } else if (controller1.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
+                    desiredVel1 = maxVel;
+                    sprite1.setFlip(true, false);
+                    flip1 = false;
+                    playerCm.get(player1).setFacingRight(true);
+
+                }
+
+                if (Math.abs(body1.getLinearVelocity().y) < 0.005 && controller1.getButton(NextController.BUTTON_B)) { // UP
+                    float impulse1 = body1.getMass() * 400;
+                    body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
+                }
             }
 
             float velChange1 = desiredVel1 - x1;
