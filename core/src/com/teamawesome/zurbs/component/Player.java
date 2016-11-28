@@ -16,6 +16,8 @@ public class Player extends Component {
     private Controller controller = null;
     private String spriteColor = "bland";
     private boolean facingRight = true;
+    public boolean toDestroy = false;
+    private boolean destroyed = false;
 
 
 
@@ -33,7 +35,6 @@ public class Player extends Component {
         this.spriteColor = spriteColor;
     }
 
-
     public Controller getController() {
         return controller;
     }
@@ -48,5 +49,17 @@ public class Player extends Component {
         this.facingRight = facingRight;
     }
 
+    public boolean getToDestroy() { return toDestroy; }
 
+    public void setToDestroy(boolean setToDestroy) { this.toDestroy = setToDestroy; }
+
+    public boolean isDestroyed() { return destroyed; }
+
+    public void setDestroyed(boolean destroyed) { this.destroyed = destroyed; }
+
+    public void update () {
+        if (toDestroy && !destroyed) {
+
+        }
+    }
 }

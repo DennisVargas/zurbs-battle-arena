@@ -12,6 +12,7 @@ import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -114,8 +115,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         }*/
         // original code
 
-
-
         // player1
         player1 = idManager.get("Player01");
         player1.edit().add(new Player(controller1, "zurbBLUE", true));
@@ -128,7 +127,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         body1.createFixture(fdefHead).setUserData(this); // attaches head box
         // player1
 
-        //player2
+        // player 2
         player2 = idManager.get("Player02");
         player2.edit().add(new Player(controller2, "zurbRED", true));
         sprite2 = spriteCm.get(player2);
@@ -138,7 +137,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         body2.createFixture(fdefZurb).setUserData(this); // attaches body box
         fdefHead.filter.categoryBits = GameSceneManager.PLAYER02_HEAD_BIT;
         body2.createFixture(fdefHead).setUserData(this); // attaches head box
-        //player2
+        // player 2
 
     }
 
@@ -148,90 +147,99 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
         debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
-        sprite1.setFlip(flip1, false);
-        sprite2.setFlip(flip2, false);
+        // if player 1 is alive
+        if (!playerCm.get(player1).getToDestroy() && !playerCm.get(player1).isDestroyed()) {
+            sprite1.setFlip(flip1, false);
+            float x1 = body1.getLinearVelocity().x;
+            float y1 = body1.getLinearVelocity().y;
+            float desiredVel1 = 0.0f;
 
-        // players 1 & 2
-        float x1 = body1.getLinearVelocity().x;
-        float x2 = body2.getLinearVelocity().x;
-        float y1 = body1.getLinearVelocity().y;
-        float y2 = body2.getLinearVelocity().y;
-        // players 1 & 2
+            if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
+                desiredVel1 = -maxVel;
+                sprite1.setFlip(false, false);
+                flip1 = true;
+                playerCm.get(player1).setFacingRight(false);
+            } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
+                desiredVel1 = maxVel;
+                sprite1.setFlip(true, false);
+                flip1 = false;
+                playerCm.get(player1).setFacingRight(true);
+            }
 
-        float desiredVel1 = 0.0f;
-        float desiredVel2 = 0.0f;
+            if (Math.abs(body1.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
+                float impulse1 = body1.getMass() * 400;
+                body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
+            }
 
-        // move player1
-        if (Gdx.input.isKeyPressed(Keys.A)) { // LEFT
-            desiredVel1 = -maxVel;
-            sprite1.setFlip(false, false);
-            flip1 = true;
-            playerCm.get(player1).setFacingRight(false);
-        } else if (Gdx.input.isKeyPressed(Keys.D)) { // RIGHT
-            desiredVel1 = maxVel;
-            sprite1.setFlip(true, false);
-            flip1 = false;
-            playerCm.get(player1).setFacingRight(true);
-        }
+            float velChange1 = desiredVel1 - x1;
+            float impulse1 = body1.getMass() * velChange1;
+            body1.applyForce(impulse1, 0, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
 
-        if (Math.abs(body1.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.SPACE)) { // UP
-            float impulse1 = body1.getMass() * 400;
-            body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
-        }
+            if (body1.getPosition().y < 0) {
+                body1.setTransform(body1.getPosition().x, 9.0f, 0.0f);
+                System.out.println("position = " + body1.getPosition());
+            }
 
-        float velChange1 = desiredVel1 - x1;
-        float impulse1 = body1.getMass() * velChange1;
-        body1.applyForce(impulse1, 0, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
+            if (body1.getPosition().y > 9) {
+                body1.setTransform(body1.getPosition().x, 0.0f, 0.0f);
+                System.out.println("position = " + body1.getPosition());
+            }
+        } // if player 1 is alive
 
-        if (body1.getPosition().y < 0) {
-            body1.setTransform(body1.getPosition().x, 9.0f, 0.0f);
-            System.out.println("position = " + body1.getPosition());
-        }
+        // if player 2 is alive
+        if (!playerCm.get(player2).getToDestroy() && !playerCm.get(player2).isDestroyed()) {
+            sprite2.setFlip(flip2, false);
+            float x2 = body2.getLinearVelocity().x;
+            float y2 = body2.getLinearVelocity().y;
+            float desiredVel2 = 0.0f;
 
-        if (body1.getPosition().y > 9) {
-            body1.setTransform(body1.getPosition().x, 0.0f, 0.0f);
-            System.out.println("position = " + body1.getPosition());
-        }
-        // move player1
+            if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
+                desiredVel2 = -maxVel;
+                sprite2.setFlip(false, false);
+                flip2 = true;
+                playerCm.get(player2).setFacingRight(false);
+            } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
+                desiredVel2 = maxVel;
+                sprite2.setFlip(true, false);
+                flip2 = false;
+                playerCm.get(player2).setFacingRight(true);
+            }
 
+            if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.UP)) { // UP
+                float impulse2 = body2.getMass() * 400;
+                body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
+            }
 
-        // move player2
-        if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
-            desiredVel2 = -maxVel;
-            sprite2.setFlip(false, false);
-            flip2 = true;
-            playerCm.get(player2).setFacingRight(false);
-        } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
-            desiredVel2 = maxVel;
-            sprite2.setFlip(true, false);
-            flip2 = false;
-            playerCm.get(player2).setFacingRight(true);
-        }
+            float velChange2 = desiredVel2 - x2;
+            float impulse2 = body2.getMass() * velChange2;
+            body2.applyForce(impulse2, 0, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
 
-        if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyJustPressed(Keys.UP)) { // UP
-            float impulse2 = body2.getMass() * 400;
-            body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
-        }
+            if (body2.getPosition().y < 0) {
+                body2.setTransform(body2.getPosition().x, 9.0f, 0.0f);
+                System.out.println("position = " + body2.getPosition());
+            }
 
-        float velChange2 = desiredVel2 - x2;
-        float impulse2 = body2.getMass() * velChange2;
-        body2.applyForce(impulse2, 0, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
+            if (body2.getPosition().y > 9) {
+                body2.setTransform(body2.getPosition().x, 0.0f, 0.0f);
+                System.out.println("position = " + body2.getPosition());
+            }
+        } // if player 2 is alive
 
-        if (body2.getPosition().y < 0) {
-            body2.setTransform(body2.getPosition().x, 9.0f, 0.0f);
-            System.out.println("position = " + body2.getPosition());
-        }
-
-        if (body2.getPosition().y > 9) {
-            body2.setTransform(body2.getPosition().x, 0.0f, 0.0f);
-            System.out.println("position = " + body2.getPosition());
-        }
-        // move player2
 
     }
 
     public void hitOnHead(String playerKiller, String playerKilled) {
-        System.out.println(playerKilled + " was squished by " + playerKiller);
+        System.out.println(playerKilled + " was smooshed by " + playerKiller + "!!1111");
+
+
+        if (playerKilled == "Player01") {
+            playerCm.get(player1).setToDestroy(true);
+            //player1.getWorld().deleteEntity(player1);
+        } else {
+            playerCm.get(player2).setToDestroy(true);
+            //player2 = idManager.get("Player02_squish");
+            //body2.getWorld().destroyBody(body2);
+        }
     }
 
     public void hitByLaser(String playerKiller, String playerKilled) {
