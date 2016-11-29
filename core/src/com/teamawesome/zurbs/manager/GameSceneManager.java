@@ -2,6 +2,7 @@ package com.teamawesome.zurbs.manager;
 
 import com.artemis.*;
 import com.artemis.utils.EntityBuilder;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -68,16 +69,28 @@ public class GameSceneManager extends BaseSceneManager {
         String wallName = "";
         Entity wall;
 
-        for(int i = 1; i < 11; i ++){
-            if(i < 10)
+
+        for(int i = 1; i < 10; i ++){
+           // FixtureDef wallSensor = new FixtureDef();
+            if(i < 10&& i!=0)
                 wallName = "wall0"+i;
+            else if(i == 0)
+                wallName = "wall";
             else
                 wallName = "wall"+i;
 
             wall = idManager.get(wallName);
             Array<Fixture> fixArray = physicsCm.get(wall).body.getFixtureList();
-            for(Fixture fixture: fixArray)
-                fixture.getFilterData().categoryBits = WALL_BIT;
+       /*     fixArray.get(0).getFilterData().categoryBits = WALL_BIT;
+            wallSensor.shape = fixArray.get(0).getShape();
+            wall.getComponent(PhysicsBody.class).body.createFixture(wallSensor);*/
+            for(Fixture fixture: fixArray) {
+                Filter filterData = new Filter();
+                filterData.categoryBits = WALL_BIT;
+                fixture.setFilterData(filterData);
+                //wallSensor.shape = fixture.getShape();
+                //wall.getComponent(PhysicsBody.class).body.createFixture(wallSensor);
+            }
         }
 
     }
@@ -92,8 +105,6 @@ public class GameSceneManager extends BaseSceneManager {
 
         super.afterSceneInit();
 
-        this.AddWallBits();
-
       laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
                                                     .add(VisPolygon.class)
                                                     .add(PhysicsProperties.class)
@@ -104,11 +115,14 @@ public class GameSceneManager extends BaseSceneManager {
                                                     .build(world);
         player1 = idManager.get("Player01");
         player2 = idManager.get("Player02");
+        this.AddWallBits();
+
+        physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
 
         animation1 = animationCM.get(player1);
         animation2 = animationCM.get(player2);
 
-        physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
+
 
         Array<Controller> controllers = Controllers.getControllers();
 
@@ -172,7 +186,7 @@ public class GameSceneManager extends BaseSceneManager {
 
     }*/
 
-    public void LaserFactory(Entity player){
+    public void LaserFactory(Entity player) {
         float laserVelocity = 0.05f;
         float originX = transCM.get(player).getX();
         float originY = transCM.get(player).getY();
@@ -182,10 +196,10 @@ public class GameSceneManager extends BaseSceneManager {
         if (facingRight) {
             originX += .6f;
             originY += .25f;
-        }  else {
+        } else {
             originX += -.6f;
             originY += .25f;
-       //     laserVelocity = -laserVelocity;
+            //     laserVelocity = -laserVelocity;
         }
 
         if (color == "zurbBLUE")
@@ -207,14 +221,14 @@ public class GameSceneManager extends BaseSceneManager {
         //  myNewLaserFactory
 */
         FixtureDef fdefLaser = new FixtureDef();
-        PolygonShape laserShape = new PolygonShape();
+       /* PolygonShape laserShape = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
         vertice[0] = new Vector2(.19f, .43f);
         vertice[1] = new Vector2(.42f, .43f);
         vertice[2] = new Vector2(.42f, .35f);
         vertice[3] = new Vector2(.19f, .35f);
         laserShape.set(vertice);
-        fdefLaser.shape = laserShape;
+        fdefLaser.shape = laserShape;*/
         fdefLaser.isSensor = true;
 
         BodyDef laserBodyDef = new BodyDef();
@@ -224,13 +238,17 @@ public class GameSceneManager extends BaseSceneManager {
 
 
         if (facingRight) {
-            laserBodyDef.linearVelocity.set(2.0f,0.0f);
-        }  else {
-            laserBodyDef.linearVelocity.set(-2.0f,0.0f);
+            laserBodyDef.linearVelocity.set(2.0f, 0.0f);
+        } else {
+            laserBodyDef.linearVelocity.set(-2.0f, 0.0f);
         }
 
 
-        fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
+        if (color == "zurbRED")
+            fdefLaser.filter.categoryBits = GameSceneManager.PLAYER02_LASER_BIT;
+       // else
+            //fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
+
 
         // OldFactory
         EntityComposer ec = new EntityComposer(game.getScene());
@@ -243,13 +261,14 @@ public class GameSceneManager extends BaseSceneManager {
 
         Laser laserComp = laserCm.create(newLaser);
         laserComp.whoShotId = idCm.get(player);
-        velocityCm.create(newLaser).SetVelocity(laserVelocity,0.0f);
+        velocityCm.create(newLaser).SetVelocity(laserVelocity, 0.0f);
 
         Body newLaserBody = physicsCm.get(laser).body.getWorld().createBody(laserBodyDef);
         Array<Fixture> fixArray = physicsCm.get(laser).body.getFixtureList();
-        fdefLaser.shape = fixArray.get(0).getShape();
-        newLaserBody.createFixture(fdefLaser);
-
+        for (Fixture fixture : fixArray){
+            fdefLaser.shape = fixture.getShape();
+            newLaserBody.createFixture(fdefLaser);
+        }
         newLaserBody.setUserData(newLaser);
 
         PhysicsBody newLaserPhysicsBody = new PhysicsBody(newLaserBody);

@@ -124,6 +124,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
         body1.createFixture(fdefZurb).setUserData(this); // attaches body box
         fdefHead.filter.categoryBits = GameSceneManager.PLAYER01_HEAD_BIT;
+
         body1.createFixture(fdefHead).setUserData(this); // attaches head
         if(controllers.size > 0) {
             controller1 = controllers.get(0);
