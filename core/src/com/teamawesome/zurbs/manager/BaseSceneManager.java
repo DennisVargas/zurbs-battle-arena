@@ -52,7 +52,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 		return boundsCm.get(entity);
 	}
 
-	protected void SwapPNG(String id1, String id2){
+	public void SwapPNG(String id1, String id2){
 		float x, y;
 		Entity entity1 = idManager.get(id1);
 		Entity entity2 = idManager.get(id2);

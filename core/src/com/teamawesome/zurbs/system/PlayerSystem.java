@@ -22,10 +22,10 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.MassData;
+
 import com.badlogic.gdx.utils.Array;
-import com.kotcrab.vis.runtime.component.PhysicsBody;
-import com.kotcrab.vis.runtime.component.VisSprite;
-import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
+import com.kotcrab.vis.runtime.component.*;
+import com.kotcrab.vis.runtime.component.Transform;
 import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
@@ -33,12 +33,14 @@ import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
+import com.teamawesome.zurbs.manager.BaseSceneManager;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
     CameraManager cameraManager;
+    ComponentMapper<Transform> transCm;
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Player> playerCm;
@@ -157,7 +159,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
 
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
-        debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
+      //  debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
         // if player 1 is alive
         if (!playerCm.get(player1).getToDestroy() && !playerCm.get(player1).isDestroyed()) {
@@ -287,7 +289,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             deathCount++;
             if (deathCount == 1) {
                 System.out.println(playerKiller + " is the winner");
-        }
+                WinnerPNG(playerKiller);
+            }
     }
 
     public void hitByLaser(String playerKiller, String playerKilled) {
@@ -304,7 +307,28 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         deathCount++;
         if (deathCount == 1) {
             System.out.println(playerKiller + " is the winner");
+            WinnerPNG(playerKiller);
+
         }
     }
+    public void WinnerPNG(String id1) {
+        float x, y;
+        VisSprite sprite;
+        Entity spriteEnt;
+        if(id1 == "Player01") {
+            spriteEnt = idManager.get("Player1Win");
+            sprite = spriteCm.get(spriteEnt);
 
+        }
+        else {
+            spriteEnt = idManager.get("Player2Win");
+            sprite = spriteCm.get(spriteEnt);
+        }
+
+        x = 4.375f;
+        y = 2.25f;
+
+        transCm.get(spriteEnt).setPosition(x, y);
+
+    }
 }

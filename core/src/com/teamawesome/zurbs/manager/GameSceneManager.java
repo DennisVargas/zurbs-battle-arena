@@ -30,6 +30,7 @@ import java.util.IdentityHashMap;
  * Created by Dennis on 11/16/2016.
  */
 public class GameSceneManager extends BaseSceneManager {
+    ComponentMapper<Layer> layerCm;
     ComponentMapper<Renderable> renderCM;
     ComponentMapper <Laser> laserCm;
     ComponentMapper <Velocity> velocityCm;
@@ -197,7 +198,7 @@ public class GameSceneManager extends BaseSceneManager {
             originX += .6f;
             originY += .25f;
         } else {
-            originX += -.6f;
+            originX += -.06f;
             originY += .25f;
             //     laserVelocity = -laserVelocity;
         }
@@ -238,9 +239,9 @@ public class GameSceneManager extends BaseSceneManager {
 
 
         if (facingRight) {
-            laserBodyDef.linearVelocity.set(2.0f, 0.0f);
+            laserBodyDef.linearVelocity.set(3.0f, 0.0f);
         } else {
-            laserBodyDef.linearVelocity.set(-2.0f, 0.0f);
+            laserBodyDef.linearVelocity.set(-3.0f, 0.0f);
         }
 
 
@@ -255,6 +256,7 @@ public class GameSceneManager extends BaseSceneManager {
         VisSprite laserSprite = spriteCm.get(laser);
         SpriteEntityComposer spriteComp = ec.sprite(laserSprite, -1.0f, -1.0f);
         Entity newLaser = spriteComp.finish();
+        layerCm.get(newLaser).layerId = 4;
 
         OriginalRotation ogRotComp = ogRotCm.create(newLaser);
         ogRotComp.rotation = 0.0f;

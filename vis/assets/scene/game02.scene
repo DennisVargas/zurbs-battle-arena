@@ -54,9 +54,17 @@
       "visible": true,
       "cordsSystem": "WORLD",
       "@class": "EditorLayer"
+    },
+    {
+      "name": "GameOVer",
+      "id": 5,
+      "locked": false,
+      "visible": true,
+      "cordsSystem": "WORLD",
+      "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 1,
+  "activeLayerId": 5,
   "groupIds": [],
   "schemes": [
     {
@@ -199,7 +207,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -210,7 +218,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -686,7 +694,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -697,7 +705,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -1094,7 +1102,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -1105,7 +1113,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -2064,7 +2072,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -2075,7 +2083,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -2688,7 +2696,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -3135,7 +3143,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -3146,7 +3154,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -4276,7 +4284,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -4287,7 +4295,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -6713,7 +6721,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -6724,7 +6732,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -11289,7 +11297,7 @@
           "@class": "VisPolygon"
         },
         {
-          "bodyType": "KinematicBody",
+          "bodyType": "StaticBody",
           "friction": 1.0,
           "density": 1.0,
           "restitution": 0.0,
@@ -11300,7 +11308,7 @@
           "bullet": false,
           "fixedRotation": false,
           "active": true,
-          "sleepingAllowed": false,
+          "sleepingAllowed": true,
           "adjustOrigin": false,
           "maskBits": -1,
           "categoryBits": 1,
@@ -13168,6 +13176,124 @@
           "maskBits": -1,
           "categoryBits": 1,
           "@class": "PhysicsProperties"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": -9.0,
+          "y": 4.5,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 3.755,
+          "originY": 2.0,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/player1wins.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 7.51,
+          "height": 4.0,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 5,
+          "@class": "Layer"
+        },
+        {
+          "groupIds": [],
+          "@class": "VisGroup"
+        },
+        {
+          "uuid": "e1a02315-9f0f-4570-ba33-cf15c2d4209b",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player1Win",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": -9.125,
+          "y": 0.0,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 3.755,
+          "originY": 2.0,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/player2wins.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 7.51,
+          "height": 4.0,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 5,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "21c3e0cb-f0e4-4869-80b2-592626f6c3e5",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player2Win",
+          "@class": "VisID"
         }
       ],
       "@class": "EntityScheme"
