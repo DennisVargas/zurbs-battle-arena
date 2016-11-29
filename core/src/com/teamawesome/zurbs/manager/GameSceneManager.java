@@ -200,6 +200,7 @@ public class GameSceneManager extends BaseSceneManager {
         laserBodyDef.type = BodyDef.BodyType.KinematicBody;
         //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
+        laserBodyDef.linearVelocity.set(1.0f,0.0f);
 
 
         fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
