@@ -31,6 +31,7 @@ import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.lang.*;
@@ -273,6 +274,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     public void hitOnHead(String playerKiller, String playerKilled) {
         System.out.println(playerKilled + " was smooshed by " + playerKiller + "!!1111");
+
 
         if (playerKilled == "Player01") {
             playerCm.get(player1).setDestroyed(true);

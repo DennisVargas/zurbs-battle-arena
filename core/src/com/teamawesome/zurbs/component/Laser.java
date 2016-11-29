@@ -11,7 +11,7 @@ import com.kotcrab.vis.runtime.component.VisSprite;
 
 public class Laser extends Component {
     public VisID whoShotId;
-    public boolean hit = false;
+    public boolean destroy = false;
 
   /*  private VisSprite sprite;
     private float velocity;

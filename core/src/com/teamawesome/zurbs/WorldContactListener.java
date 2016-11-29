@@ -19,6 +19,9 @@ public class WorldContactListener implements ContactListener {
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
+        if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER01_LASER_BIT || fixB.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT)
+            System.out.println("laser hit");
+
         switch (cDef){
             case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
                 ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player02"); // hitOnHead(killer, killed)

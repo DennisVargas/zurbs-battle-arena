@@ -94,8 +94,6 @@ public class GameSceneManager extends BaseSceneManager {
 
         this.AddWallBits();
 
-
-
       laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
                                                     .add(VisPolygon.class)
                                                     .add(PhysicsProperties.class)
@@ -119,9 +117,7 @@ public class GameSceneManager extends BaseSceneManager {
 
         if(controllers.size > 1)
             controllers.get(1).addListener(new GameModeControllerListener(player2, this));
-
     }
-
 
     @Override
     public boolean keyDown(int keyCode){
@@ -187,7 +183,7 @@ public class GameSceneManager extends BaseSceneManager {
             originX += .6f;
             originY += .25f;
         }  else {
-            originX += -.05f;
+            originX += -.6f;
             originY += .25f;
        //     laserVelocity = -laserVelocity;
         }
@@ -292,4 +288,22 @@ public class GameSceneManager extends BaseSceneManager {
        /* return newLaser;*/
     }
 
+  /*  public void AddWallBits(){
+
+        String wallName = "";
+        Entity wall;
+
+        for(int i = 1; i < 11; i ++){
+            if(i < 10)
+                wallName = "wall0"+i;
+            else
+                wallName = "wall"+i;
+
+            wall = idManager.get(wallName);
+            Array<Fixture> fixArray = physicsCm.get(wall).body.getFixtureList();
+            for(Fixture fixture: fixArray)
+                fixture.getFilterData().categoryBits = WALL_BIT;
+        }
+
+    }*/
 }

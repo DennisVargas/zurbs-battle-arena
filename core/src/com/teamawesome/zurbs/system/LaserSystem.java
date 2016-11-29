@@ -24,10 +24,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.MassData;
-import com.kotcrab.vis.runtime.component.PhysicsBody;
-import com.kotcrab.vis.runtime.component.Transform;
-import com.kotcrab.vis.runtime.component.VisID;
-import com.kotcrab.vis.runtime.component.VisSprite;
+import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.sun.xml.internal.stream.*;
@@ -39,7 +36,7 @@ import java.lang.*;
 
 
 public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
-
+    ComponentMapper<Invisible> invisCm;
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<Velocity> velCm;
     ComponentMapper<PhysicsBody> physicsCm;
@@ -74,32 +71,11 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     @Override
     protected void process(int entityId) {
-        if(laserCm.get(entityId).hit)
-            ProcessIsHit(entityId);
-        else{
-            tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
-            PhysicsBody laserBody = physicsCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
-
-            //laserBody.body.applyLinearImpulse(10.0f, 0.0f,laserBody.body.getWorldCenter().x , laserBody.body.getWorldCenter().y, true );
-            //laserBody.body.applyForce(0.0f, 0.0f, laserBody.body.getWorldCenter().x, laserBody.body.getWorldCenter().y, true);
-            System.out.print("");
-           // tempTrans = transCm.get(entityId);
-           // desVel = velCm.get(entityId);
-
-            //tempTrans.setPosition(tempTrans.getX()+desVel.x, tempTrans.getY()+desVel.y);
-            }
-
-        //System.out.println(tempTrans);
-      /*  float y1 = body1.getLinearVelocity().y;
-        if (Gdx.input.isKeyPressed(Keys.Q)) { // LEFT
-            desiredVel1 = -y1;
-        } else if (Gdx.input.isKeyPressed(Keys.E)) { // RIGHT
-            desiredVel1 = y1;
-        }*/
-
+        if (laserCm.get(entityId).destroy)
+            DestroyLaser(entityId);
     }
 
-    void ProcessIsHit(int entityId){
-
+    void DestroyLaser(int entityId){
+        invisCm.create(entityId);
     }
 }

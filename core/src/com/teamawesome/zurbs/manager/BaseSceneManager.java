@@ -82,6 +82,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 		trans.setPosition(trans.getX(),trans.getY()+displacement);
 	}
 
+
 	@Override
 	public void afterSceneInit () {
 		Gdx.input.setInputProcessor(this);

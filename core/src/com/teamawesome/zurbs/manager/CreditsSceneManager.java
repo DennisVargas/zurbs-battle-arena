@@ -15,8 +15,6 @@ public class CreditsSceneManager extends BaseSceneManager {
 	@Override
 	public void afterSceneInit () {
 		super.afterSceneInit();
-
-
 		backText = getSpriteBounds("backText");
 	}
 
