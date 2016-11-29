@@ -60,8 +60,7 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
      * Creates a new EntityProcessingSystem.
      */
     public LaserSystem() {
-        super(Aspect.all(Laser.class));
-    }
+        super(Aspect.all(Laser.class));}
 
 /*    @Override
     public void afterSceneInit() {
@@ -80,7 +79,9 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
         else{
             tempPlayer = playerCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
             PhysicsBody laserBody = physicsCm.get(idManager.get(laserCm.get(entityId).whoShotId.id));
-            laserBody.body.applyForce(-200.0f, 0.0f, laserBody.body.getWorldCenter().x, laserBody.body.getWorldCenter().y, true);
+
+            //laserBody.body.applyLinearImpulse(10.0f, 0.0f,laserBody.body.getWorldCenter().x , laserBody.body.getWorldCenter().y, true );
+            //laserBody.body.applyForce(0.0f, 0.0f, laserBody.body.getWorldCenter().x, laserBody.body.getWorldCenter().y, true);
             System.out.print("");
            // tempTrans = transCm.get(entityId);
            // desVel = velCm.get(entityId);

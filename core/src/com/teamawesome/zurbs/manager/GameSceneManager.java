@@ -159,10 +159,10 @@ public class GameSceneManager extends BaseSceneManager {
         boolean facingRight = playerCm.get(player).isFacingRight();
 
         if (facingRight) {
-            originX += .3f;
+            originX += .8f;
             originY += .25f;
         }  else {
-            originX += -.03f;
+            originX += -.8f;
             originY += .25f;
             laserVelocity = -laserVelocity;
         }
@@ -194,10 +194,11 @@ public class GameSceneManager extends BaseSceneManager {
         vertice[3] = new Vector2(.19f, .35f);
         laserShape.set(vertice);
         fdefLaser.shape = laserShape;
+        fdefLaser.isSensor = true;
 
         BodyDef laserBodyDef = new BodyDef();
-        laserBodyDef.type = BodyDef.BodyType.DynamicBody;
-        laserBodyDef.position.set(5, 5);
+        laserBodyDef.type = BodyDef.BodyType.KinematicBody;
+        //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
 
 
