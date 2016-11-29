@@ -10519,7 +10519,7 @@
     {
       "components": [
         {
-          "x": 0.75,
+          "x": 0.625,
           "y": -0.75,
           "scaleX": 1.0,
           "scaleY": 1.0,
@@ -10542,8 +10542,9 @@
         },
         {
           "asset": {
-            "relativePath": "gfx/Zurbs/zurbBLUE_squish.png",
-            "@class": "TextureRegionAsset"
+            "regionName": "zurbBLUE_squish",
+            "relativePath": "spritesheets/zurbBLUE_idle.atlas",
+            "@class": "AtlasRegionAsset"
           },
           "@class": "AssetReference"
         },
@@ -10555,11 +10556,18 @@
           "@class": "ProtoVisSprite"
         },
         {
+          "playMode": "NORMAL",
+          "frameDuration": 0.3,
+          "playing": true,
+          "animationName": "zurbBLUE_squish",
+          "@class": "com.kotcrab.vis.runtime.component.VisSpriteAnimation"
+        },
+        {
           "layerId": 2,
           "@class": "Layer"
         },
         {
-          "uuid": "78df4bbe-c665-49d6-9107-6ec8b3c022ee",
+          "uuid": "2ffae60b-57d1-4b1d-9518-81e8647d7ea2",
           "@class": "VisUUID"
         },
         {
@@ -10599,8 +10607,9 @@
         },
         {
           "asset": {
-            "relativePath": "gfx/Zurbs/zurbGREEN_squish.png",
-            "@class": "TextureRegionAsset"
+            "regionName": "zurbGREEN_squish",
+            "relativePath": "spritesheets/zurbBLUE_idle.atlas",
+            "@class": "AtlasRegionAsset"
           },
           "@class": "AssetReference"
         },
@@ -10612,11 +10621,18 @@
           "@class": "ProtoVisSprite"
         },
         {
+          "playMode": "NORMAL",
+          "frameDuration": 0.3,
+          "playing": true,
+          "animationName": "zurbGREEN_squish",
+          "@class": "com.kotcrab.vis.runtime.component.VisSpriteAnimation"
+        },
+        {
           "layerId": 2,
           "@class": "Layer"
         },
         {
-          "uuid": "b4179d69-8999-41e6-9237-67ed1f5b71dc",
+          "uuid": "114e82b2-0cdf-4e09-a5b2-f6f398222d64",
           "@class": "VisUUID"
         },
         {
@@ -10656,8 +10672,9 @@
         },
         {
           "asset": {
-            "relativePath": "gfx/Zurbs/zurbPURPLE_squish.png",
-            "@class": "TextureRegionAsset"
+            "regionName": "zurbPURPLE_squish",
+            "relativePath": "spritesheets/zurbBLUE_idle.atlas",
+            "@class": "AtlasRegionAsset"
           },
           "@class": "AssetReference"
         },
@@ -10669,11 +10686,18 @@
           "@class": "ProtoVisSprite"
         },
         {
+          "playMode": "NORMAL",
+          "frameDuration": 0.3,
+          "playing": true,
+          "animationName": "zurbPURPLE_squish",
+          "@class": "com.kotcrab.vis.runtime.component.VisSpriteAnimation"
+        },
+        {
           "layerId": 2,
           "@class": "Layer"
         },
         {
-          "uuid": "a3b1298e-3a6f-4f0a-93e2-ca2545c19cc7",
+          "uuid": "7c2c7a74-a8a8-45b4-bd96-bcdd7e8b8416",
           "@class": "VisUUID"
         },
         {
@@ -10713,8 +10737,9 @@
         },
         {
           "asset": {
-            "relativePath": "gfx/Zurbs/zurbRED_squish.png",
-            "@class": "TextureRegionAsset"
+            "regionName": "zurbRED_squish",
+            "relativePath": "spritesheets/zurbBLUE_idle.atlas",
+            "@class": "AtlasRegionAsset"
           },
           "@class": "AssetReference"
         },
@@ -10726,11 +10751,18 @@
           "@class": "ProtoVisSprite"
         },
         {
+          "playMode": "NORMAL",
+          "frameDuration": 0.3,
+          "playing": true,
+          "animationName": "zurbRED_squish",
+          "@class": "com.kotcrab.vis.runtime.component.VisSpriteAnimation"
+        },
+        {
           "layerId": 2,
           "@class": "Layer"
         },
         {
-          "uuid": "18e7835a-4407-4b44-ae72-ce96c50341b2",
+          "uuid": "de2221be-1373-406e-884a-53140ad06c63",
           "@class": "VisUUID"
         },
         {

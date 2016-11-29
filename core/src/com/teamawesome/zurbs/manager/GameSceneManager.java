@@ -62,6 +62,27 @@ public class GameSceneManager extends BaseSceneManager {
     //public static final short FIREBALL_BIT = 1024;
 
 
+    public void AddWallBits() {
+
+
+        String wallName = "";
+        Entity wall;
+
+        for(int i = 1; i < 11; i ++){
+            if(i < 10)
+                wallName = "wall0"+i;
+            else
+                wallName = "wall"+i;
+
+            wall = idManager.get(wallName);
+            Array<Fixture> fixArray = physicsCm.get(wall).body.getFixtureList();
+            for(Fixture fixture: fixArray)
+                fixture.getFilterData().categoryBits = WALL_BIT;
+        }
+
+    }
+
+
     public GameSceneManager(ZurbGame game) {
         super(game);
     }
@@ -70,6 +91,10 @@ public class GameSceneManager extends BaseSceneManager {
     public void afterSceneInit() {
 
         super.afterSceneInit();
+
+        this.AddWallBits();
+
+
 
       laserArchetype = new ArchetypeBuilder().add(VisSprite.class)
                                                     .add(VisPolygon.class)
@@ -159,12 +184,12 @@ public class GameSceneManager extends BaseSceneManager {
         boolean facingRight = playerCm.get(player).isFacingRight();
 
         if (facingRight) {
-            originX += .8f;
+            originX += .6f;
             originY += .25f;
         }  else {
-            originX += -.8f;
+            originX += -.05f;
             originY += .25f;
-            laserVelocity = -laserVelocity;
+       //     laserVelocity = -laserVelocity;
         }
 
         if (color == "zurbBLUE")
@@ -200,7 +225,13 @@ public class GameSceneManager extends BaseSceneManager {
         laserBodyDef.type = BodyDef.BodyType.KinematicBody;
         //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
-        laserBodyDef.linearVelocity.set(1.0f,0.0f);
+
+
+        if (facingRight) {
+            laserBodyDef.linearVelocity.set(2.0f,0.0f);
+        }  else {
+            laserBodyDef.linearVelocity.set(-2.0f,0.0f);
+        }
 
 
         fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;

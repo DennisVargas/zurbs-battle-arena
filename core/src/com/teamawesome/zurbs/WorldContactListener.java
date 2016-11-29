@@ -32,6 +32,12 @@ public class WorldContactListener implements ContactListener {
             case GameSceneManager.PLAYER01_BIT | GameSceneManager.PLAYER02_LASER_BIT:
                 ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
                 break;
+            case GameSceneManager.WALL_BIT | GameSceneManager.PLAYER01_LASER_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");
+                break;
+            case GameSceneManager.WALL_BIT | GameSceneManager.PLAYER02_LASER_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
+                break;
 /*
             case MarioBros.ENEMY_BIT | MarioBros.OBJECT_BIT:
                 if(fixA.getFilterData().categoryBits == MarioBros.ENEMY_BIT)

@@ -63,6 +63,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     MassData massData = new MassData();
     boolean falling = false;
     boolean peak = false;
+    int deathCount = 0;
 
 
 
@@ -152,6 +153,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     @Override
     protected void processSystem() {
 
+
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
         debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
@@ -198,7 +200,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 body1.setTransform(body1.getPosition().x, 0.0f, 0.0f);
                 System.out.println("position = " + body1.getPosition());
             }
-        } // if player 1 is alive
+        } else {
+            body1.setTransform(body1.getPosition().x, 10.0f, 17.0f);  // transport to zurb prison
+        } // player 1
+
 
         // if player 2 is alive
         if (!playerCm.get(player2).getToDestroy() && !playerCm.get(player2).isDestroyed()) {
@@ -259,7 +264,9 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 body2.setTransform(body2.getPosition().x, 0.0f, 0.0f);
                 System.out.println("position = " + body2.getPosition());
             }
-        } // if player 2 is alive
+        } else {
+            body2.setTransform(body2.getPosition().x, 10.5f, 17.5f); // transport to zurb prison
+        }
 
 
     }
@@ -267,6 +274,21 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     public void hitOnHead(String playerKiller, String playerKilled) {
         System.out.println(playerKilled + " was smooshed by " + playerKiller + "!!1111");
 
+        if (playerKilled == "Player01") {
+            playerCm.get(player1).setDestroyed(true);
+            //player1.getWorld().deleteEntity(player1);
+        } else {
+            //playerCm.get(player2).setToDestroy(true);
+            playerCm.get(player2).setDestroyed(true);
+        }
+            deathCount++;
+            if (deathCount == 1) {
+                System.out.println(playerKiller + " is the winner");
+        }
+    }
+
+    public void hitByLaser(String playerKiller, String playerKilled) {
+        System.out.println(playerKilled + " was vaporized by " + playerKiller);
 
         if (playerKilled == "Player01") {
             playerCm.get(player1).setDestroyed(true);
@@ -274,13 +296,12 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         } else {
             //playerCm.get(player2).setToDestroy(true);
             playerCm.get(player2).setDestroyed(true);
-            //player2.getWorld().deleteEntity(player2);
-            //body2.getWorld().destroyBody(body2);
         }
-    }
 
-    public void hitByLaser(String playerKiller, String playerKilled) {
-        System.out.println(playerKilled + " was vaporized by " + playerKiller);
+        deathCount++;
+        if (deathCount == 1) {
+            System.out.println(playerKiller + " is the winner");
+        }
     }
 
 }

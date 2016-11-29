@@ -52,6 +52,7 @@ public class GameModeControllerListener implements ControllerListener {
         if(axisCode == NextController.AXIS_X) {
             if(value < -NextController.STICK_DEADZONE || value > NextController.STICK_DEADZONE) {
                 animation.setAnimationName(color + "_run");
+                System.out.println(System.getProperty("os.name").toLowerCase());
             }
             else {
                 animation.setAnimationName(color + "_idle");
