@@ -207,23 +207,40 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             float y2 = body2.getLinearVelocity().y;
             float desiredVel2 = 0.0f;
 
+            if(Controllers.getControllers().size > 1) {
+                if (controller2.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
+                    desiredVel2 = -maxVel;
+
+                    sprite2.setFlip(false, false);
+                    flip2 = true;
+                    playerCm.get(player2).setFacingRight(false);
+
+
+                } else if (controller2.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
+                    desiredVel2 = maxVel;
+                    sprite2.setFlip(true, false);
+                    flip2 = false;
+                    playerCm.get(player2).setFacingRight(true);
+
+                }
+
+                if (Math.abs(body2.getLinearVelocity().y) < 0.005 && controller2.getButton(NextController.BUTTON_B)) { // UP
+                    float impulse2 = body2.getMass() * 400;
+                    body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
+                }
+            }
+
             if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
                 desiredVel2 = -maxVel;
                 sprite2.setFlip(false, false);
                 flip2 = true;
                 playerCm.get(player2).setFacingRight(false);
-
-
             } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
                 desiredVel2 = maxVel;
                 sprite2.setFlip(true, false);
                 flip2 = false;
                 playerCm.get(player2).setFacingRight(true);
-
-
             }
-
-
             if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyPressed(Keys.UP)) { // UP
                 float impulse2 = body2.getMass() * 400;
                 body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);

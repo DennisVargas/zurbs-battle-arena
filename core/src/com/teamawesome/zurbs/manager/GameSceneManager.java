@@ -92,6 +92,9 @@ public class GameSceneManager extends BaseSceneManager {
         if(controllers.size > 0)
             controllers.get(0).addListener(new GameModeControllerListener(player1, this));
 
+        if(controllers.size > 1)
+            controllers.get(1).addListener(new GameModeControllerListener(player2, this));
+
     }
 
 
