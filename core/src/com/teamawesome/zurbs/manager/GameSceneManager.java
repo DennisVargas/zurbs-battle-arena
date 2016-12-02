@@ -240,12 +240,13 @@ public class GameSceneManager extends BaseSceneManager {
         vertice[3] = new Vector2(.19f, .35f);
         laserShape.set(vertice);
         fdefLaser.shape = laserShape;*/
-        //fdefLaser.isSensor = true;
+        fdefLaser.isSensor = true;
 
         BodyDef laserBodyDef = new BodyDef();
         laserBodyDef.type = BodyDef.BodyType.DynamicBody;
         //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
+
 
 
         if (facingRight) {

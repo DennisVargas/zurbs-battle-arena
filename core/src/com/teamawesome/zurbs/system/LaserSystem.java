@@ -71,8 +71,13 @@ public class LaserSystem extends IteratingSystem /*implements AfterSceneInit*/ {
 
     @Override
     protected void process(int entityId) {
-        if (laserCm.get(entityId).destroy)
-            DestroyLaser(entityId);
+        if (laserCm.get(entityId).destroy) {
+            physicsCm.get(entityId).body.setTransform(2.0f, 10.0f, 0.0f);
+            laserCm.get(entityId).destroy = false;
+            //body1.setTransform(2.0f, 10.0f, 0.0f);
+            //DestroyLaser(entityId);
+        }
+
     }
 
     void DestroyLaser(int entityId){

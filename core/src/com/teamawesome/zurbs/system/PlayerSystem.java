@@ -204,7 +204,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 System.out.println("position = " + body1.getPosition());
             }
         } else {
-            body1.setTransform(body1.getPosition().x, 10.0f, 17.0f);  // transport to zurb prison
+            body1.setTransform(0.0f, 15.0f, 0.0f);  // transport to zurb prison
         } // player 1
 
 
@@ -268,7 +268,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 System.out.println("position = " + body2.getPosition());
             }
         } else {
-            body2.setTransform(body2.getPosition().x, 10.5f, 17.5f); // transport to zurb prison
+            body2.setTransform(0.0f, 15.0f, 0.0f); // transport to zurb prison
         }
 
 
