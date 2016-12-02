@@ -2558,7 +2558,7 @@ gfx/UI/player1wins
   orig: 751, 400
   offset: 0, 0
   index: -1
-gfx/UI/player2wins
+gfx/UI/player1wins_bg
   rotate: false
   xy: 755, 218
   size: 751, 400
@@ -2620,344 +2620,372 @@ size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Environment/Object_1
-  rotate: false
-  xy: 1765, 1257
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_10
-  rotate: false
-  xy: 1034, 146
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_11
-  rotate: false
-  xy: 518, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_12
-  rotate: false
-  xy: 776, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_13
-  rotate: false
-  xy: 1292, 146
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_14
-  rotate: false
-  xy: 1550, 146
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
 gfx/Environment/Object_15
   rotate: false
-  xy: 1270, 743
+  xy: 1507, 735
   size: 512, 256
   orig: 512, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_17
   rotate: false
-  xy: 755, 1515
+  xy: 1508, 1507
   size: 512, 512
   orig: 512, 512
   offset: 0, 0
   index: -1
 gfx/Environment/Object_18
   rotate: false
-  xy: 1269, 1515
+  xy: 1508, 993
   size: 512, 512
   orig: 512, 512
   offset: 0, 0
   index: -1
 gfx/Environment/Object_19
   rotate: false
-  xy: 1507, 1001
+  xy: 1507, 221
   size: 256, 512
   orig: 256, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_2
-  rotate: false
-  xy: 1783, 1771
-  size: 256, 256
-  orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Object_20
   rotate: false
-  xy: 754, 662
+  xy: 1765, 221
   size: 256, 512
   orig: 256, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_21
-  rotate: false
-  xy: 1012, 662
-  size: 256, 512
-  orig: 256, 512
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_3
-  rotate: false
-  xy: 1784, 869
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_4
-  rotate: false
-  xy: 2, 289
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_5
-  rotate: false
-  xy: 260, 289
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_6
-  rotate: false
-  xy: 518, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_7
-  rotate: false
-  xy: 2, 31
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_8
-  rotate: false
-  xy: 260, 31
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Object_9
-  rotate: false
-  xy: 776, 260
-  size: 256, 256
-  orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/UI/credits_reg
   rotate: false
-  xy: 754, 518
+  xy: 377, 2
   size: 359, 70
   orig: 359, 70
   offset: 0, 0
   index: -1
 gfx/UI/options_reg
   rotate: false
-  xy: 754, 590
+  xy: 2, 2
   size: 373, 70
   orig: 373, 70
   offset: 0, 0
   index: -1
 gfx/UI/player1Panel
   rotate: false
-  xy: 755, 1176
+  xy: 755, 878
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player2Panel
   rotate: false
-  xy: 2, 886
+  xy: 2, 74
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
+gfx/UI/player2wins
+  rotate: false
+  xy: 2, 1619
+  size: 751, 400
+  orig: 751, 400
+  offset: 0, 0
+  index: -1
+gfx/UI/player2wins_bg
+  rotate: false
+  xy: 2, 1217
+  size: 751, 400
+  orig: 751, 400
+  offset: 0, 0
+  index: -1
 gfx/UI/player3Panel
   rotate: false
-  xy: 2, 547
+  xy: 755, 539
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player3wins
   rotate: false
-  xy: 2, 1627
+  xy: 755, 1619
+  size: 751, 400
+  orig: 751, 400
+  offset: 0, 0
+  index: -1
+gfx/UI/player3wins_bg
+  rotate: false
+  xy: 2, 815
   size: 751, 400
   orig: 751, 400
   offset: 0, 0
   index: -1
 gfx/UI/player4Panel
   rotate: false
-  xy: 1270, 404
+  xy: 755, 200
   size: 750, 337
   orig: 750, 337
   offset: 0, 0
   index: -1
 gfx/UI/player4wins
   rotate: false
-  xy: 2, 1225
+  xy: 755, 1217
+  size: 751, 400
+  orig: 751, 400
+  offset: 0, 0
+  index: -1
+gfx/UI/player4wins_bg
+  rotate: false
+  xy: 2, 413
   size: 751, 400
   orig: 751, 400
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-gun
   rotate: false
-  xy: 1783, 1641
+  xy: 754, 70
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-idle.1
   rotate: false
-  xy: 1765, 1127
+  xy: 1012, 70
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbBLUE-run
   rotate: false
-  xy: 1034, 16
+  xy: 1270, 70
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbGREEN-gun
   rotate: false
-  xy: 1292, 16
+  xy: 1528, 91
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbGREEN-idle
   rotate: false
-  xy: 1550, 16
+  xy: 1786, 91
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 
 textures4.png
-size: 2048,1024
+size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gfx/Environment/Tile_1
+gfx/Environment/Object_1
   rotate: false
-  xy: 2, 648
+  xy: 2, 1164
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Tile_10
-  rotate: false
-  xy: 518, 132
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_11
-  rotate: false
-  xy: 776, 390
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_12
-  rotate: false
-  xy: 1034, 648
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_13
-  rotate: false
-  xy: 776, 132
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_14
-  rotate: false
-  xy: 1034, 390
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_15
-  rotate: false
-  xy: 1292, 648
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-gfx/Environment/Tile_2
+gfx/Environment/Object_10
   rotate: false
   xy: 2, 390
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Tile_3
+gfx/Environment/Object_11
   rotate: false
-  xy: 260, 648
+  xy: 260, 904
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-gfx/Environment/Tile_4
+gfx/Environment/Object_12
+  rotate: false
+  xy: 518, 1162
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_13
+  rotate: false
+  xy: 776, 1420
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_14
+  rotate: false
+  xy: 1034, 1678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_2
+  rotate: false
+  xy: 260, 1678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_21
+  rotate: false
+  xy: 2, 1422
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_3
+  rotate: false
+  xy: 2, 906
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_4
+  rotate: false
+  xy: 260, 1420
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_5
+  rotate: false
+  xy: 518, 1678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_6
+  rotate: false
+  xy: 2, 648
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_7
+  rotate: false
+  xy: 260, 1162
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_8
+  rotate: false
+  xy: 518, 1420
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Object_9
+  rotate: false
+  xy: 776, 1678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_1
   rotate: false
   xy: 2, 132
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
+gfx/Environment/Tile_10
+  rotate: false
+  xy: 1034, 1162
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_11
+  rotate: false
+  xy: 1292, 1420
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_12
+  rotate: false
+  xy: 1550, 1678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_13
+  rotate: false
+  xy: 518, 388
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_14
+  rotate: false
+  xy: 776, 646
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_15
+  rotate: false
+  xy: 1034, 904
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_2
+  rotate: false
+  xy: 260, 646
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_3
+  rotate: false
+  xy: 518, 904
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+gfx/Environment/Tile_4
+  rotate: false
+  xy: 776, 1162
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
 gfx/Environment/Tile_5
   rotate: false
-  xy: 260, 390
+  xy: 1034, 1420
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Tile_6
   rotate: false
-  xy: 518, 648
+  xy: 1292, 1678
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Tile_7
   rotate: false
-  xy: 260, 132
+  xy: 260, 388
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Tile_8
   rotate: false
-  xy: 518, 390
+  xy: 518, 646
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 gfx/Environment/Tile_9
   rotate: false
-  xy: 776, 648
+  xy: 776, 904
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
@@ -2971,49 +2999,49 @@ gfx/Zurbs/zurbGREEN-run
   index: -1
 gfx/Zurbs/zurbPURPLE-gun
   rotate: false
-  xy: 1292, 518
+  xy: 260, 258
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbPURPLE-idle
   rotate: false
-  xy: 1550, 776
+  xy: 1550, 1548
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbPURPLE-run
   rotate: false
-  xy: 260, 2
+  xy: 776, 516
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-gun
   rotate: false
-  xy: 1292, 388
+  xy: 1034, 774
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-idle
   rotate: false
-  xy: 1550, 646
+  xy: 1292, 1032
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/Zurbs/zurbRED-run
   rotate: false
-  xy: 518, 2
+  xy: 260, 128
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
 gfx/default/badlogic
   rotate: false
-  xy: 1034, 132
+  xy: 1292, 1162
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

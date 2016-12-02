@@ -64,7 +64,7 @@
       "@class": "EditorLayer"
     }
   ],
-  "activeLayerId": 5,
+  "activeLayerId": 4,
   "groupIds": [],
   "schemes": [
     {
@@ -13233,6 +13233,10 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "id": "Player1Win",
+          "@class": "VisID"
         }
       ],
       "@class": "EntityScheme"
@@ -13286,6 +13290,10 @@
         {
           "zIndex": 0,
           "@class": "Renderable"
+        },
+        {
+          "id": "Player2Win",
+          "@class": "VisID"
         }
       ],
       "@class": "EntityScheme"

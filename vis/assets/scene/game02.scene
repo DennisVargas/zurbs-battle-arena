@@ -13235,7 +13235,7 @@
           "@class": "Renderable"
         },
         {
-          "id": "Player1Win",
+          "id": "Player1Win_x",
           "@class": "VisID"
         }
       ],
@@ -13285,6 +13285,120 @@
         },
         {
           "uuid": "21c3e0cb-f0e4-4869-80b2-592626f6c3e5",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player2Win_x",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 18.0,
+          "y": 6.0,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 3.755,
+          "originY": 2.0,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/player1wins_bg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 7.51,
+          "height": 4.0,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 4,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "098d2ed7-a920-48dc-b68c-6e837f5ddfd1",
+          "@class": "VisUUID"
+        },
+        {
+          "zIndex": 0,
+          "@class": "Renderable"
+        },
+        {
+          "id": "Player1Win",
+          "@class": "VisID"
+        }
+      ],
+      "@class": "EntityScheme"
+    },
+    {
+      "components": [
+        {
+          "x": 17.375,
+          "y": -0.375,
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "rotation": 0.0,
+          "@class": "Transform"
+        },
+        {
+          "originX": 3.755,
+          "originY": 2.0,
+          "@class": "Origin"
+        },
+        {
+          "tint": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "@class": "Tint"
+        },
+        {
+          "asset": {
+            "relativePath": "gfx/UI/player2wins_bg.png",
+            "@class": "TextureRegionAsset"
+          },
+          "@class": "AssetReference"
+        },
+        {
+          "flipX": false,
+          "flipY": false,
+          "width": 7.51,
+          "height": 4.0,
+          "@class": "ProtoVisSprite"
+        },
+        {
+          "layerId": 4,
+          "@class": "Layer"
+        },
+        {
+          "uuid": "744e5ac0-3826-4eff-ba6c-8e2265ad4262",
           "@class": "VisUUID"
         },
         {
