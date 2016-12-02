@@ -16,7 +16,8 @@ public class MenuSceneManager extends BaseSceneManager {
 	private Bounds optionsButton;
 	private Bounds creditsButton;
 	private Bounds quitButton;
-
+	enum Selections {Start, Options, Credits, Quit};
+	Selections selection = Selections.Start;
 	public MenuSceneManager (ZurbGame game) {
 		super(game);
 	}
@@ -29,7 +30,8 @@ public class MenuSceneManager extends BaseSceneManager {
 		optionsButton = getSpriteBounds("Options");
 		creditsButton = getSpriteBounds("Credits");
 		quitButton = getSpriteBounds("QuitGame");
-		
+		SwapPNG("StartGame","StartSelect");
+
 	}
 
 	@Override
@@ -65,8 +67,54 @@ public class MenuSceneManager extends BaseSceneManager {
 	@Override
 	public boolean keyDown(int keyCode){
 		System.out.println(keyCode);
-		if(keyCode == 20)
-			SwapPNG("StartGame", "StartSelect");
+		if(keyCode == 20){
+			if(selection == Selections.Start){
+				SwapPNG("StartSelect","StartGame");
+				SwapPNG("Options", "OptionsSelect");
+				selection = Selections.Options;
+			}
+			else if(selection == Selections.Options){
+				SwapPNG("OptionsSelect","Options");
+				SwapPNG("Credits","CreditsSelect");
+				selection = Selections.Credits;
+			}
+			else if(selection == Selections.Credits){
+				SwapPNG("CreditsSelect","Credits");
+				SwapPNG("QuitGame","QuitGameSelect");
+				selection = Selections.Quit;
+			}
+			else if(selection == Selections.Quit){
+				SwapPNG("QuitGameSelect","QuitGame");
+				SwapPNG("StartGame","StartSelect");
+				selection = Selections.Start;
+			}
+
+		}
+		if(keyCode == 19){
+			if(selection == Selections.Start){
+				SwapPNG("StartSelect","StartGame");
+				SwapPNG("QuitGame", "QuitGameSelect");
+				selection = Selections.Quit;
+			}
+			else if(selection == Selections.Options){
+				SwapPNG("OptionsSelect","Options");
+				SwapPNG("StartGame","StartSelect");
+				selection = Selections.Start;
+			}
+			else if(selection == Selections.Credits){
+				SwapPNG("CreditsSelect","Credits");
+				SwapPNG("Options", "OptionsSelect");
+				selection = Selections.Options;
+			}
+			else if(selection == Selections.Quit){
+				SwapPNG("QuitGameSelect","QuitGame");
+				SwapPNG("CreditsSelect","Credits");
+				selection = Selections.Credits;
+			}
+
+		}
+
+
 		return false;
 	}
 
