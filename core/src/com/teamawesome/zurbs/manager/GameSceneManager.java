@@ -1,18 +1,14 @@
 package com.teamawesome.zurbs.manager;
 
-import com.artemis.*;
-import com.artemis.utils.EntityBuilder;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.Controllers;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
+import com.artemis.Archetype;
+import com.artemis.ArchetypeBuilder;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.component.Transform;
-import com.kotcrab.vis.runtime.scene.VisAssetManager;
-import com.kotcrab.vis.runtime.system.render.SpriteAnimationUpdateSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
 import com.kotcrab.vis.runtime.util.entity.composer.SpriteEntityComposer;
 import com.teamawesome.zurbs.WorldContactListener;
@@ -20,11 +16,7 @@ import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
-import com.teamawesome.zurbs.WorldContactListener;
 import com.teamawesome.zurbs.system.GameModeControllerListener;
-import javafx.geometry.Pos;
-
-import java.util.IdentityHashMap;
 
 /**
  * Created by Dennis on 11/16/2016.
@@ -134,14 +126,18 @@ public class GameSceneManager extends BaseSceneManager {
         animation2 = animationCM.get(player2);
 
 
+        if(game.controllers.size > 0) {
+            ControllerListener listener = new GameModeControllerListener(player1, this);
+            game.controllers.get(0).addListener(listener);
+            game.controllerListeners.add(listener);
+        }
 
-        Array<Controller> controllers = Controllers.getControllers();
+        if(game.controllers.size > 1) {
+            ControllerListener listener = new GameModeControllerListener(player2, this);
+            game.controllers.get(1).addListener(listener);
+            game.controllerListeners.add(listener);
 
-        if(controllers.size > 0)
-            controllers.get(0).addListener(new GameModeControllerListener(player1, this));
-
-        if(controllers.size > 1)
-            controllers.get(1).addListener(new GameModeControllerListener(player2, this));
+        }
     }
 
     @Override

@@ -1,15 +1,13 @@
 package com.teamawesome.zurbs;
 
 import com.artemis.BaseSystem;
-import com.artemis.World;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Logger;
 import com.kotcrab.vis.runtime.RuntimeContext;
@@ -22,7 +20,10 @@ import com.kotcrab.vis.runtime.scene.SystemProvider;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
 import com.teamawesome.zurbs.manager.*;
-import com.teamawesome.zurbs.system.*;
+import com.teamawesome.zurbs.system.BoundsCreator;
+import com.teamawesome.zurbs.system.BoundsUpdater;
+import com.teamawesome.zurbs.system.LaserSystem;
+import com.teamawesome.zurbs.system.PlayerSystem;
 
 //	========
 //	ZurbGame
@@ -34,8 +35,10 @@ import com.teamawesome.zurbs.system.*;
 
 	    public Array<Controller> controllers;	// for easy debugging of Controllers
 
+		public Array<ControllerListener> controllerListeners = new Array<ControllerListener>();
 
-	String scenePath;
+
+		String scenePath;
 		//private World world = PlayerSystem.;
 
 	public Scene getScene() {
@@ -59,8 +62,8 @@ import com.teamawesome.zurbs.system.*;
 
 			controllers  = Controllers.getControllers();
 
-			//loadMenuScene();
-			loadStartGameScene();
+			loadMenuScene();
+			//loadStartGameScene();
 
 		}//	create()
 //		============
@@ -188,6 +191,10 @@ import com.teamawesome.zurbs.system.*;
 				manager.unload(scenePath);
 				scenePath = null;
 				scene = null;
+
+				for(ControllerListener listener : controllerListeners)
+					for(Controller con : controllers)
+						con.removeListener(listener);
 			}
 		}//	unloadPreviousScene()
 //		=========================

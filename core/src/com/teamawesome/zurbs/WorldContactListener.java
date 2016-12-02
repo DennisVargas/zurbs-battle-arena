@@ -15,13 +15,12 @@ import com.teamawesome.zurbs.system.LaserSystem;
  */
 public class WorldContactListener implements ContactListener {
 
-    ComponentMapper<Invisible> invisComp;
-
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
         Entity laser;
+        ComponentMapper<Invisible> invisComp;
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
@@ -38,7 +37,6 @@ public class WorldContactListener implements ContactListener {
             case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER01_BIT:
                 ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
                 break;
-
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER01_LASER_BIT:
                 System.out.println("wall hit");
                 if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER01_LASER_BIT) {
@@ -52,7 +50,6 @@ public class WorldContactListener implements ContactListener {
                 ComponentMapper<Invisible> invisComp = laser.getWorld().getMapper(Invisible.class);
                 invisComp.create(laser);
                 break;
-
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
                 System.out.println("wall hit");
                 if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT) {
