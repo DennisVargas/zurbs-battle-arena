@@ -59,8 +59,8 @@ import com.teamawesome.zurbs.system.*;
 
 			controllers  = Controllers.getControllers();
 
-			loadMenuScene();
-			//loadStartGameScene();
+			//loadMenuScene();
+			loadStartGameScene();
 
 		}//	create()
 //		============

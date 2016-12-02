@@ -44,6 +44,8 @@ public class GameSceneManager extends BaseSceneManager {
 
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2, laser;
+    String wallName = "";
+    Entity wall;
 
     Archetype laserArchetype;
 
@@ -65,11 +67,19 @@ public class GameSceneManager extends BaseSceneManager {
 
 
     public void AddWallBits() {
-
-
-        String wallName = "";
-        Entity wall;
-
+    /*
+        FixtureDef fdefZurb = new FixtureDef();
+        PolygonShape body = new PolygonShape();
+        Vector2[] vertice2 = new Vector2[5];
+        vertice2[0] = new Vector2(.14f, .00f);
+        body.set(vertice2);
+        fdefZurb.shape = body;
+        fdefZurb.isSensor = true;
+        fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
+        body1.createFixture(fdefZurb).setUserData(this); // attaches body box
+*/
+        //String wallName = "";
+        //Entity wall;
 
         for(int i = 1; i < 10; i ++){
            // FixtureDef wallSensor = new FixtureDef();
@@ -230,10 +240,10 @@ public class GameSceneManager extends BaseSceneManager {
         vertice[3] = new Vector2(.19f, .35f);
         laserShape.set(vertice);
         fdefLaser.shape = laserShape;*/
-        fdefLaser.isSensor = true;
+        //fdefLaser.isSensor = true;
 
         BodyDef laserBodyDef = new BodyDef();
-        laserBodyDef.type = BodyDef.BodyType.KinematicBody;
+        laserBodyDef.type = BodyDef.BodyType.DynamicBody;
         //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
 
@@ -247,8 +257,8 @@ public class GameSceneManager extends BaseSceneManager {
 
         if (color == "zurbRED")
             fdefLaser.filter.categoryBits = GameSceneManager.PLAYER02_LASER_BIT;
-       // else
-            //fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
+        else
+            fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
 
 
         // OldFactory
@@ -269,7 +279,7 @@ public class GameSceneManager extends BaseSceneManager {
         Array<Fixture> fixArray = physicsCm.get(laser).body.getFixtureList();
         for (Fixture fixture : fixArray){
             fdefLaser.shape = fixture.getShape();
-            newLaserBody.createFixture(fdefLaser);
+            newLaserBody.createFixture(fdefLaser).setUserData(newLaser);
         }
         newLaserBody.setUserData(newLaser);
 
@@ -327,4 +337,11 @@ public class GameSceneManager extends BaseSceneManager {
         }
 
     }*/
+
+    public void destroyBullet(Fixture toDelete) {
+        //toDelete.getBody().getWorld().destroyBody(toDelete.getBody());
+        //player1.getWorld().deleteEntity(player1);
+        System.out.println("bullet destroyed");
+    }
+
 }

@@ -126,7 +126,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
         body1.createFixture(fdefZurb).setUserData(this); // attaches body box
         fdefHead.filter.categoryBits = GameSceneManager.PLAYER01_HEAD_BIT;
-
         body1.createFixture(fdefHead).setUserData(this); // attaches head
         if(controllers.size > 0) {
             controller1 = controllers.get(0);
@@ -159,7 +158,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
 
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
-      //  debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
+        debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
         // if player 1 is alive
         if (!playerCm.get(player1).getToDestroy() && !playerCm.get(player1).isDestroyed()) {

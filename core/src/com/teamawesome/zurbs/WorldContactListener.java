@@ -1,8 +1,10 @@
 package com.teamawesome.zurbs;
 
+import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.Gdx;
+import com.kotcrab.vis.runtime.component.Invisible;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import com.teamawesome.zurbs.system.PlayerSystem;
 import com.teamawesome.zurbs.system.LaserSystem;
@@ -33,11 +35,32 @@ public class WorldContactListener implements ContactListener {
                 ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
                 break;
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER01_LASER_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");
+                System.out.println("wall hit");
+                if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER01_LASER_BIT)
+                    ((GameSceneManager)fixA.getUserData()).destroyBullet(contact.getFixtureA());
+                else
+                    ((GameSceneManager)fixB.getUserData()).destroyBullet(contact.getFixtureB());
                 break;
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
                 System.out.println("wall hit");
+                Entity laser;
+                if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT)
+                    laser = (Entity)fixA.getUserData();
+
+                else
+                    laser = (Entity)fixB.getUserData();
+                ComponentMapper<Invisible> invisComp = laser.getWorld().getMapper(Invisible.class);
+                invisComp.create(laser);
                 break;
+                /*
+            case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
+                System.out.println("wall hit");
+                if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT)
+                    ((GameSceneManager)fixA.getUserData()).destroyBullet(contact.getFixtureA());
+                else
+                    ((GameSceneManager)fixB.getUserData()).destroyBullet(contact.getFixtureB());
+                break;
+                */
 /*
             case MarioBros.ENEMY_BIT | MarioBros.OBJECT_BIT:
                 if(fixA.getFilterData().categoryBits == MarioBros.ENEMY_BIT)
