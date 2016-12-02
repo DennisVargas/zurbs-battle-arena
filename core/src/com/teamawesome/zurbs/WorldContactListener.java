@@ -47,7 +47,7 @@ public class WorldContactListener implements ContactListener {
                     laser = (Entity) fixB.getUserData();
                 }
                 laser.getComponent(Laser.class).destroy = true;
-                ComponentMapper<Invisible> invisComp = laser.getWorld().getMapper(Invisible.class);
+                invisComp = laser.getWorld().getMapper(Invisible.class);
                 invisComp.create(laser);
                 break;
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
