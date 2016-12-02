@@ -3,11 +3,9 @@ package com.teamawesome.zurbs;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.Gdx;
 import com.kotcrab.vis.runtime.component.Invisible;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import com.teamawesome.zurbs.system.PlayerSystem;
-import com.teamawesome.zurbs.system.LaserSystem;
 
 /**
  * Created by Amy on 11/26/2016.
@@ -18,6 +16,8 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+        Entity laser;
+        ComponentMapper<Invisible> invisComp;
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
@@ -37,19 +37,21 @@ public class WorldContactListener implements ContactListener {
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER01_LASER_BIT:
                 System.out.println("wall hit");
                 if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER01_LASER_BIT)
-                    ((GameSceneManager)fixA.getUserData()).destroyBullet(contact.getFixtureA());
+                    laser = (Entity)fixA.getUserData();
+
                 else
-                    ((GameSceneManager)fixB.getUserData()).destroyBullet(contact.getFixtureB());
+                    laser = (Entity)fixB.getUserData();
+                invisComp = laser.getWorld().getMapper(Invisible.class);
+                invisComp.create(laser);
                 break;
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
                 System.out.println("wall hit");
-                Entity laser;
                 if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT)
                     laser = (Entity)fixA.getUserData();
 
                 else
                     laser = (Entity)fixB.getUserData();
-                ComponentMapper<Invisible> invisComp = laser.getWorld().getMapper(Invisible.class);
+                invisComp = laser.getWorld().getMapper(Invisible.class);
                 invisComp.create(laser);
                 break;
                 /*

@@ -32,7 +32,7 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 	protected ComponentMapper<VisSprite> spriteCm;
 	protected ComponentMapper<VisText> textCm;
 	protected ComponentMapper<PhysicsBody> physicsCm;
-	protected ZurbGame game;
+	public ZurbGame game;
 	protected SoundController soundController;
 
 	protected CameraManager cameraManager;

@@ -1,6 +1,5 @@
 package com.teamawesome.zurbs.system;
 
-import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerListener;
@@ -24,24 +23,29 @@ public class GameModeControllerListener implements ControllerListener {
 
     @Override
     public void connected(Controller controller) {
-
+        System.out.println("Controller: '" + controller.getName() + "' connected!");
     }
 
     @Override
     public void disconnected(Controller controller) {
-
+        System.out.println("Controller: '" + controller.getName() + "' disconnected!");
     }
 
     @Override
     public boolean buttonDown(Controller controller, int buttonCode) {
         if(buttonCode == NextController.BUTTON_Y || buttonCode == NextController.BUTTON_A)
             gameSceneManager.LaserFactory(player);
+        else if(buttonCode == NextController.BUTTON_SELECT)
+            gameSceneManager.game.loadMenuScene();
 
         return false;
     }
 
     @Override
     public boolean buttonUp(Controller controller, int buttonCode) {
+        //We could implement here the mechanics to jump applying force when jumping.
+        //eg, smaller jumps
+
         return false;
     }
 
@@ -52,7 +56,6 @@ public class GameModeControllerListener implements ControllerListener {
         if(axisCode == NextController.AXIS_X) {
             if(value < -NextController.STICK_DEADZONE || value > NextController.STICK_DEADZONE) {
                 animation.setAnimationName(color + "_run");
-                System.out.println(System.getProperty("os.name").toLowerCase());
             }
             else {
                 animation.setAnimationName(color + "_idle");
