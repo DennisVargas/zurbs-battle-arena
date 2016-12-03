@@ -19,8 +19,6 @@ public class Player extends Component {
     public boolean toDestroy = false;
     private boolean destroyed = false;
 
-
-
     public Player(Controller controller, final String spriteColor, boolean right) {
         this.spriteColor = spriteColor;
         this.controller = controller;

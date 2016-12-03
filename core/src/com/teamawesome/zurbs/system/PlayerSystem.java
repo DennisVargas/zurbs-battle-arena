@@ -5,37 +5,22 @@ import com.artemis.BaseSystem;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
-import com.badlogic.gdx.controllers.PovDirection;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.ImageResolver;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.MassData;
-
 import com.badlogic.gdx.utils.Array;
-import com.kotcrab.vis.runtime.component.*;
+import com.kotcrab.vis.runtime.component.PhysicsBody;
 import com.kotcrab.vis.runtime.component.Transform;
+import com.kotcrab.vis.runtime.component.VisSprite;
+import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
-import com.artemis.ComponentMapper;
-import com.artemis.Entity;
-import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
-import com.teamawesome.zurbs.manager.BaseSceneManager;
 import com.teamawesome.zurbs.manager.GameSceneManager;
-import java.lang.*;
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
@@ -48,16 +33,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     VisIDManager idManager;
 
-    VisSprite sprite1, sprite2;
-
-    Body body1, body2;
-    Controller controller1, controller2, controller3, controller4;
-    Entity player1, player2;
-
-
-
-    boolean flip1 = false;
-    boolean flip2 = false;
+    Array<String> players = new Array<String>();
 
     //  initialize debugRenderer
     Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
@@ -67,10 +43,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean falling = false;
     boolean peak = false;
     int deathCount = 0;
-
-
-
-
+    int deathMax;
 
     @Override
     public void afterSceneInit() {
@@ -102,54 +75,96 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.shape = body;
         fdefZurb.isSensor = true;
 
+        players.add("Player01");
+        InitializePlayer("Player01", "zurbBLUE", Controllers.getControllers().get(0), fdefZurb, fdefHead,
+                GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
 
-        Array<Controller> controllers = Controllers.getControllers();
-
-
-
-        if(controllers.size > 2) {
-            controller3 = controllers.get(2);
-        }
-        if(controllers.size > 3) {
-            controller4 = controllers.get(3);
-        }
-
-
-
-
-        // player1
-        player1 = idManager.get("Player01");
-        player1.edit().add(new Player(controller1, "zurbBLUE", true));
-        sprite1 = spriteCm.get(player1);
-        body1 = physicsCm.get(player1).body;
-        body1.setMassData(massData);
-        fdefZurb.filter.categoryBits = GameSceneManager.PLAYER01_BIT;
-        body1.createFixture(fdefZurb).setUserData(this); // attaches body box
-        fdefHead.filter.categoryBits = GameSceneManager.PLAYER01_HEAD_BIT;
-        body1.createFixture(fdefHead).setUserData(this); // attaches head
-        if(controllers.size > 0) {
-            controller1 = controllers.get(0);
-
+        if(Controllers.getControllers().size > 1) {
+            players.add("Player02");
+            InitializePlayer("Player02", "zurbRED", Controllers.getControllers().get(1), fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
+            deathMax = 1;
         }
 
-        // player1
-
-        // player 2
-        player2 = idManager.get("Player02");
-        player2.edit().add(new Player(controller2, "zurbRED", true));
-        sprite2 = spriteCm.get(player2);
-        body2 = physicsCm.get(player2).body;
-        body2.setMassData(massData);
-        fdefZurb.filter.categoryBits = GameSceneManager.PLAYER02_BIT;
-        body2.createFixture(fdefZurb).setUserData(this); // attaches body box
-        fdefHead.filter.categoryBits = GameSceneManager.PLAYER02_HEAD_BIT;
-        body2.createFixture(fdefHead).setUserData(this); // attaches head box
-        if(controllers.size > 1) {
-            controller2 = controllers.get(1);
-
+        if(Controllers.getControllers().size > 2) {
+            players.add("Player03");
+            InitializePlayer("Player03", "zurbGREEN", Controllers.getControllers().get(2), fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER03_BIT, GameSceneManager.PLAYER03_HEAD_BIT);
+            deathMax = 2;
         }
 
-        // player 2
+        if(Controllers.getControllers().size > 3) {
+            players.add("Player04");
+            InitializePlayer("Player04", "zurbPURPLE", Controllers.getControllers().get(3), fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER04_BIT, GameSceneManager.PLAYER04_HEAD_BIT);
+            deathMax = 3;
+        }
+
+    }
+
+    protected void InitializePlayer(String name, String spriteName, Controller con,
+                                    FixtureDef fxdBody, FixtureDef fxdHead,
+                                    short bodyBit, short headBit) {
+
+        Entity player = idManager.get(name);
+        player.edit().add(new Player(con, spriteName, true));
+        Body body = physicsCm.get(player).body;
+        body.setMassData(massData);
+        fxdBody.filter.categoryBits = bodyBit;
+        body.createFixture(fxdBody).setUserData(this); // attaches body box
+        fxdHead.filter.categoryBits = headBit;
+        body.createFixture(fxdHead).setUserData(this); // attaches head
+
+    }
+
+    protected void ProcessPlayerController(String name) {
+        Entity player = idManager.get(name);
+        Body body = physicsCm.get(player).body;
+        VisSprite sprite  = spriteCm.get(player);
+        Player playerClass = player.getComponent(Player.class);
+
+        // if player is alive
+        if (!playerCm.get(player).getToDestroy() && !playerCm.get(player).isDestroyed()) {
+            sprite.setFlip(!playerClass.isFacingRight(), false);
+            float x1 = body.getLinearVelocity().x;
+            float y1 = body.getLinearVelocity().y;
+            float desiredVel = 0.0f;
+
+            Controller con = player.getComponent(Player.class).getController();
+
+            if (con.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
+                desiredVel = -maxVel;
+                sprite.setFlip(false, false);
+                playerClass.setFacingRight(false);
+
+
+            } else if (con.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
+                desiredVel = maxVel;
+                sprite.setFlip(true, false);
+                playerClass.setFacingRight(true);
+
+            }
+
+            if (Math.abs(body.getLinearVelocity().y) < 0.005 && con.getButton(NextController.BUTTON_B)) { // UP
+                float impulse1 = body.getMass() * 400;
+                body.applyForce(0, impulse1, body.getWorldCenter().x, body.getWorldCenter().y, true);
+            }
+
+            float impulse = body.getMass() * desiredVel - x1;
+            body.applyForce(impulse, 0, body.getWorldCenter().x, body.getWorldCenter().y, true);
+
+            if (body.getPosition().y < 0) {
+                body.setTransform(body.getPosition().x, 9.0f, 0.0f);
+                System.out.println("position = " + body.getPosition());
+            }
+
+            if (body.getPosition().y > 9) {
+                body.setTransform(body.getPosition().x, 0.0f, 0.0f);
+                System.out.println("position = " + body.getPosition());
+            }
+        } else {
+            body.setTransform(0.0f, 15.0f, 0.0f);  // transport to zurb prison
+        }
 
     }
 
@@ -158,118 +173,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
 
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
-        debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
+        //debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
-        // if player 1 is alive
-        if (!playerCm.get(player1).getToDestroy() && !playerCm.get(player1).isDestroyed()) {
-            sprite1.setFlip(flip1, false);
-            float x1 = body1.getLinearVelocity().x;
-            float y1 = body1.getLinearVelocity().y;
-            float desiredVel1 = 0.0f;
+        for(String player : players)
+            ProcessPlayerController(player);
 
-            if(Controllers.getControllers().size > 0) {
-                if (controller1.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
-                    desiredVel1 = -maxVel;
-
-                    sprite1.setFlip(false, false);
-                    flip1 = true;
-                    playerCm.get(player1).setFacingRight(false);
-
-
-                } else if (controller1.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
-                    desiredVel1 = maxVel;
-                    sprite1.setFlip(true, false);
-                    flip1 = false;
-                    playerCm.get(player1).setFacingRight(true);
-
-                }
-
-                if (Math.abs(body1.getLinearVelocity().y) < 0.005 && controller1.getButton(NextController.BUTTON_B)) { // UP
-                    float impulse1 = body1.getMass() * 400;
-                    body1.applyForce(0, impulse1, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
-                }
-            }
-
-            float velChange1 = desiredVel1 - x1;
-            float impulse1 = body1.getMass() * velChange1;
-            body1.applyForce(impulse1, 0, body1.getWorldCenter().x, body1.getWorldCenter().y, true);
-
-            if (body1.getPosition().y < 0) {
-                body1.setTransform(body1.getPosition().x, 9.0f, 0.0f);
-                System.out.println("position = " + body1.getPosition());
-            }
-
-            if (body1.getPosition().y > 9) {
-                body1.setTransform(body1.getPosition().x, 0.0f, 0.0f);
-                System.out.println("position = " + body1.getPosition());
-            }
-        } else {
-            body1.setTransform(0.0f, 15.0f, 0.0f);  // transport to zurb prison
-        } // player 1
-
-
-        // if player 2 is alive
-        if (!playerCm.get(player2).getToDestroy() && !playerCm.get(player2).isDestroyed()) {
-            sprite2.setFlip(flip2, false);
-            float x2 = body2.getLinearVelocity().x;
-            float y2 = body2.getLinearVelocity().y;
-            float desiredVel2 = 0.0f;
-
-            if(Controllers.getControllers().size > 1) {
-                if (controller2.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
-                    desiredVel2 = -maxVel;
-
-                    sprite2.setFlip(false, false);
-                    flip2 = true;
-                    playerCm.get(player2).setFacingRight(false);
-
-
-                } else if (controller2.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
-                    desiredVel2 = maxVel;
-                    sprite2.setFlip(true, false);
-                    flip2 = false;
-                    playerCm.get(player2).setFacingRight(true);
-
-                }
-
-                if (Math.abs(body2.getLinearVelocity().y) < 0.005 && controller2.getButton(NextController.BUTTON_B)) { // UP
-                    float impulse2 = body2.getMass() * 400;
-                    body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
-                }
-            }
-
-            if (Gdx.input.isKeyPressed(Keys.LEFT)) { // LEFT
-                desiredVel2 = -maxVel;
-                sprite2.setFlip(false, false);
-                flip2 = true;
-                playerCm.get(player2).setFacingRight(false);
-            } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) { // RIGHT
-                desiredVel2 = maxVel;
-                sprite2.setFlip(true, false);
-                flip2 = false;
-                playerCm.get(player2).setFacingRight(true);
-            }
-            if (Math.abs(body2.getLinearVelocity().y) < 0.005 && Gdx.input.isKeyPressed(Keys.UP)) { // UP
-                float impulse2 = body2.getMass() * 400;
-                body2.applyForce(0, impulse2, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
-            }
-
-            float velChange2 = desiredVel2 - x2;
-            float impulse2 = body2.getMass() * velChange2;
-            body2.applyForce(impulse2, 0, body2.getWorldCenter().x, body2.getWorldCenter().y, true);
-
-            if (body2.getPosition().y < 0) {
-                body2.setTransform(body2.getPosition().x, 9.0f, 0.0f);
-                System.out.println("position = " + body2.getPosition());
-            }
-
-            if (body2.getPosition().y > 9) {
-                body2.setTransform(body2.getPosition().x, 0.0f, 0.0f);
-                System.out.println("position = " + body2.getPosition());
-            }
-        } else {
-            body2.setTransform(0.0f, 15.0f, 0.0f); // transport to zurb prison
-        }
 
 
     }
@@ -277,34 +185,24 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     public void hitOnHead(String playerKiller, String playerKilled) {
         System.out.println(playerKilled + " was smooshed by " + playerKiller + "!!1111");
 
-
-        if (playerKilled == "Player01") {
-            playerCm.get(player1).setDestroyed(true);
-            //player1.getWorld().deleteEntity(player1);
-        } else {
-            //playerCm.get(player2).setToDestroy(true);
-            playerCm.get(player2).setDestroyed(true);
+        Entity player = idManager.get(playerKilled);
+        playerCm.get(player).setDestroyed(true);
+        //player.getWorld().deleteEntity(player);
+        deathCount++;
+        if (deathCount == deathMax) {
+            System.out.println(playerKiller + " is the winner");
+            WinnerPNG(playerKiller);
         }
-            deathCount++;
-            if (deathCount == 1) {
-                System.out.println(playerKiller + " is the winner");
-                WinnerPNG(playerKiller);
-            }
     }
 
     public void hitByLaser(String playerKiller, String playerKilled) {
         System.out.println(playerKilled + " was vaporized by " + playerKiller);
 
-        if (playerKilled == "Player01") {
-            playerCm.get(player1).setDestroyed(true);
-            //player1.getWorld().deleteEntity(player1);
-        } else {
-            //playerCm.get(player2).setToDestroy(true);
-            playerCm.get(player2).setDestroyed(true);
-        }
-
+        Entity player = idManager.get(playerKilled);
+        playerCm.get(player).setDestroyed(true);
+        //player.getWorld().deleteEntity(player);
         deathCount++;
-        if (deathCount == 1) {
+        if (deathCount == deathMax) {
             System.out.println(playerKiller + " is the winner");
             WinnerPNG(playerKiller);
 
@@ -323,6 +221,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             spriteEnt = idManager.get("Player2Win");
             sprite = spriteCm.get(spriteEnt);
         }
+
 
         x = 4.375f;
         y = 2.25f;

@@ -4,7 +4,10 @@ import com.artemis.Archetype;
 import com.artemis.ArchetypeBuilder;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerListener;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
@@ -35,21 +38,37 @@ public class GameSceneManager extends BaseSceneManager {
     private ComponentMapper<PhysicsBody> physicsCm;
 
     private VisSpriteAnimation animation1, animation2;
-    private Entity player1, player2, laser;
+    private Entity laser;
+
+    private Array<String> players = new Array<String>();
+
     String wallName = "";
     Entity wall;
 
     Archetype laserArchetype;
 
-    //Box2D Collision Bits
+    //Box2D Collision Category Bits
     public static final short NOTHING_BIT = 0;
     public static final short WALL_BIT = 1;
+
     public static final short PLAYER01_BIT = 2;
     public static final short PLAYER01_HEAD_BIT = 4;
     public static final short PLAYER01_LASER_BIT = 8;
+
     public static final short PLAYER02_BIT = 16;
     public static final short PLAYER02_HEAD_BIT = 32;
     public static final short PLAYER02_LASER_BIT = 64;
+
+    public static final short PLAYER03_BIT = 128;
+    public static final short PLAYER03_HEAD_BIT =256;
+    public static final short PLAYER03_LASER_BIT = 512;
+
+    public static final short PLAYER04_BIT = 1024;
+    public static final short PLAYER04_HEAD_BIT = 2048;
+    public static final short PLAYER04_LASER_BIT = 4096;
+
+
+
     //public static final short x1_BIT = 32;
     //public static final short x2_BIT = 64;
     //public static final short x3_BIT = 128;
@@ -116,28 +135,24 @@ public class GameSceneManager extends BaseSceneManager {
                                                     .add(Layer.class)
                                                     .add(Transform.class)
                                                     .build(world);
-        player1 = idManager.get("Player01");
-        player2 = idManager.get("Player02");
+        players.add("Player01");
+        Entity p = idManager.get("Player01");
         this.AddWallBits();
 
-        physicsCm.get(player1).body.getWorld().setContactListener(new WorldContactListener());
+        physicsCm.get(p).body.getWorld().setContactListener(new WorldContactListener());
 
-        animation1 = animationCM.get(player1);
-        animation2 = animationCM.get(player2);
+        //animation1 = animationCM.get(player1);
+        //animation2 = animationCM.get(player2);
 
-
-        if(game.controllers.size > 0) {
-            ControllerListener listener = new GameModeControllerListener(player1, this);
-            game.controllers.get(0).addListener(listener);
+        for(int i = 0; i < game.controllers.size; i++) {
+            if(i >= 1)
+                players.add("Player0"+(i+1));
+            Entity player = idManager.get(players.get(i));
+            ControllerListener listener = new GameModeControllerListener(player, this);
+            game.controllers.get(i).addListener(listener);
             game.controllerListeners.add(listener);
         }
 
-        if(game.controllers.size > 1) {
-            ControllerListener listener = new GameModeControllerListener(player2, this);
-            game.controllers.get(1).addListener(listener);
-            game.controllerListeners.add(listener);
-
-        }
     }
 
     @Override
@@ -147,23 +162,22 @@ public class GameSceneManager extends BaseSceneManager {
 
         // player 1
 //       if(!playerCm.get(player1).isDestroyed() && !playerCm.get(player1).getToDestroy()) {
-            if(keyCode == 29 || keyCode == 32){ // player 1
-                animation1.setAnimationName("zurbBLUE_run");
+            if(keyCode == Input.Keys.A || keyCode == Input.Keys.D){ // player 1
+                //animation1.setAnimationName("zurbBLUE_run");
             }
-           System.out.println(keyCode);
-           if(keyCode == 59){
-               LaserFactory(player1);
+           if(keyCode == Input.Keys.SHIFT_LEFT){
+               //LaserFactory(player1);
                System.out.println("BLUE fired");
            }
 //       }
 
         // player 2
 //        if(!playerCm.get(player2).isDestroyed() && !playerCm.get(player2).getToDestroy()) {
-            if(keyCode == 21 || keyCode == 22){ // player 2
-                animation2.setAnimationName("zurbRED_run");
+            if(keyCode == Input.Keys.LEFT || keyCode == Input.Keys.RIGHT){ // player 2
+                //animation2.setAnimationName("zurbRED_run");
             }
-            if(keyCode == 60){
-                LaserFactory(player2);
+            if(keyCode == Input.Keys.SHIFT_RIGHT){
+                //LaserFactory(player2);
                 System.out.println("RED fired");
             }
 //       }
@@ -179,19 +193,14 @@ public class GameSceneManager extends BaseSceneManager {
     @Override
     public boolean keyUp(int keyCode) {
         if(keyCode == 29 || keyCode == 32){ // player 1
-            animation1.setAnimationName("zurbBLUE_idle");
+            //animation1.setAnimationName("zurbBLUE_idle");
         }
 
         if(keyCode == 21 || keyCode == 22){ // player 2
-            animation2.setAnimationName("zurbRED_idle");
+            //animation2.setAnimationName("zurbRED_idle");
         }
         return false;
     }
-
-  /*  @Override
-    public boolean axisMoved(Controller controller, int axisCode, float value){
-
-    }*/
 
     public void LaserFactory(Entity player) {
         float laserVelocity = 0.05f;
@@ -213,6 +222,10 @@ public class GameSceneManager extends BaseSceneManager {
             laser = idManager.get("Player1_laser");
         else if (color == "zurbRED")
             laser = idManager.get("Player2_laser");
+        else if (color == "zurbGREEN")
+            laser = idManager.get("Player3_laser");
+        else if (color == "zurbPURPLE")
+            laser = idManager.get("Player4_laser");
         /*
 //  MyNewLaserFactory
         int newLaser = world.create(laserArchetype);
@@ -251,11 +264,14 @@ public class GameSceneManager extends BaseSceneManager {
             laserBodyDef.linearVelocity.set(-3.0f, 0.0f);
         }
 
-
         if (color == "zurbRED")
             fdefLaser.filter.categoryBits = GameSceneManager.PLAYER02_LASER_BIT;
-        else
+        else if(color == "zurbBLUE")
             fdefLaser.filter.categoryBits = GameSceneManager.PLAYER01_LASER_BIT;
+        else if(color == "zurbGREEN")
+            fdefLaser.filter.categoryBits = GameSceneManager.PLAYER03_LASER_BIT;
+        else if(color == "zurbPURPLE")
+            fdefLaser.filter.categoryBits = GameSceneManager.PLAYER04_LASER_BIT;
 
 
         // OldFactory

@@ -3,66 +3,121 @@ package com.teamawesome.zurbs;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.Gdx;
 import com.kotcrab.vis.runtime.component.Invisible;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import com.teamawesome.zurbs.system.PlayerSystem;
-import com.teamawesome.zurbs.system.LaserSystem;
 
 /**
  * Created by Amy on 11/26/2016.
  */
 public class WorldContactListener implements ContactListener {
+    ComponentMapper<Invisible> invisComp;
 
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-        Entity laser;
-        ComponentMapper<Invisible> invisComp;
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
         switch (cDef){
-            case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player02"); // hitOnHead(killer, killed)
-                break;
             case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player01");
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player01"); // hitOnHead(killer, killed)
                 break;
+            case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player01");
+                break;
+            case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player01");
+                break;
+
+            case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player02");
+                break;
+            case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player02");
+                break;
+            case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player02");
+                break;
+
+            case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player03");
+                break;
+            case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player03");
+                break;
+            case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player03");
+                break;
+
+            case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player04");
+                break;
+            case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player04");
+                break;
+            case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player04");
+                break;
+
+
             case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER02_BIT :
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");// (killer, killed)
                 break;
+            case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER03_BIT :
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player03");// (killer, killed)
+                break;
+            case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER04_BIT :
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player04");// (killer, killed)
+                break;
+
             case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER01_BIT:
                 ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
                 break;
+            case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER03_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player03");
+                break;
+            case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER04_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player04");
+                break;
+
+            case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player01");
+                break;
+            case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER02_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player02");
+                break;
+            case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER04_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player04");
+                break;
+
+            case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER01_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player01");
+                break;
+            case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER02_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player02");
+                break;
+            case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER03_BIT:
+                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player03");
+                break;
+
+
+
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER01_LASER_BIT:
-                System.out.println("wall hit");
-                if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER01_LASER_BIT) {
-                    laser = (Entity) fixA.getUserData();
-                    laser.getComponent(Laser.class).destroy = true;
-                }
-                else {
-                    laser = (Entity) fixB.getUserData();
-                }
-                laser.getComponent(Laser.class).destroy = true;
-                invisComp = laser.getWorld().getMapper(Invisible.class);
-                invisComp.create(laser);
+                DestroyLaser(fixA, fixB);
                 break;
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
-                System.out.println("wall hit");
-                if(fixA.getFilterData().categoryBits == GameSceneManager.PLAYER02_LASER_BIT) {
-                    laser = (Entity) fixA.getUserData();
-                    laser.getComponent(Laser.class).destroy = true;
-                }
-                else {
-                    laser = (Entity) fixB.getUserData();
-                }
-                laser.getComponent(Laser.class).destroy = true;
-                invisComp = laser.getWorld().getMapper(Invisible.class);
-                invisComp.create(laser);
+                DestroyLaser(fixA, fixB);
                 break;
+            case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER03_LASER_BIT:
+                DestroyLaser(fixA, fixB);
+                break;
+            case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER04_LASER_BIT:
+                DestroyLaser(fixA, fixB);
+                break;
+
                 /*
             case GameSceneManager.WALL_BIT|GameSceneManager.PLAYER02_LASER_BIT:
                 System.out.println("wall hit");
@@ -109,6 +164,28 @@ public class WorldContactListener implements ContactListener {
                 break;
 */
         }
+    }
+
+    private void DestroyLaser(Fixture fixA, Fixture fixB) {
+        Entity laser;
+        System.out.println("wall hit");
+        switch(fixA.getFilterData().categoryBits) {
+            case GameSceneManager.PLAYER01_LASER_BIT:
+            case GameSceneManager.PLAYER02_LASER_BIT:
+            case GameSceneManager.PLAYER03_LASER_BIT:
+            case GameSceneManager.PLAYER04_LASER_BIT:
+                laser = (Entity) fixA.getUserData();
+                laser.getComponent(Laser.class).destroy = true;
+                break;
+
+            default:
+                laser = (Entity) fixB.getUserData();
+        }
+
+        laser.getComponent(Laser.class).destroy = true;
+        invisComp = laser.getWorld().getMapper(Invisible.class);
+        invisComp.create(laser);
+
     }
 
     @Override
