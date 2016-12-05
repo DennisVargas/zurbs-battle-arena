@@ -4,7 +4,6 @@ package com.teamawesome.zurbs.system;
 import com.artemis.BaseSystem;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
-import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
@@ -73,33 +72,23 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.isSensor = true;
 
 
-        if(Controllers.getControllers().size > 0) {
-            players.add("Player01");
-            InitializePlayer("Player01", "zurbBLUE", Controllers.getControllers().get(0), fdefZurb, fdefHead,
-                    GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
-        }
-        else {
-            players.add("Player02");
-            InitializePlayer("Player01", "zurbBLUE", null, fdefZurb, fdefHead,
-                    GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
-        }
 
+        com.kennycason.gdx.controller.Controller<GameControls> controller = ControllerFactory.buildMultiController("Player01", 0);
+        players.add("Player01");
+        InitializePlayer("Player01", "zurbBLUE", controller, fdefZurb, fdefHead,
+                GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
+
+
+        controller = ControllerFactory.buildMultiController("Player02", 1);
+        players.add("Player02");
+        InitializePlayer("Player02", "zurbRED", controller, fdefZurb, fdefHead,
+                GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
 
 
         if(Controllers.getControllers().size > 1) {
-            players.add("Player02");
-            InitializePlayer("Player02", "zurbRED", Controllers.getControllers().get(1), fdefZurb, fdefHead,
-                    GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
-        }
-        else {
-            players.add("Player02");
-            InitializePlayer("Player02", "zurbRED", null, fdefZurb, fdefHead,
-                    GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
-        }
-
-        if(Controllers.getControllers().size > 2) {
+            controller = ControllerFactory.buildMultiController("Player03", 2);
             players.add("Player03");
-            InitializePlayer("Player03", "zurbGREEN", Controllers.getControllers().get(2), fdefZurb, fdefHead,
+            InitializePlayer("Player03", "zurbGREEN", controller, fdefZurb, fdefHead,
                     GameSceneManager.PLAYER03_BIT, GameSceneManager.PLAYER03_HEAD_BIT);
             deathMax = 2;
         }
@@ -108,9 +97,10 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             player.deleteFromWorld();
         }
 
-        if(Controllers.getControllers().size > 3) {
+        if(Controllers.getControllers().size > 1) {
+            controller = ControllerFactory.buildMultiController("Player04", 3);
             players.add("Player04");
-            InitializePlayer("Player04", "zurbPURPLE", Controllers.getControllers().get(3), fdefZurb, fdefHead,
+            InitializePlayer("Player04", "zurbPURPLE", controller, fdefZurb, fdefHead,
                     GameSceneManager.PLAYER04_BIT, GameSceneManager.PLAYER04_HEAD_BIT);
             deathMax = 3;
         }
@@ -121,7 +111,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     }
 
-    protected void InitializePlayer(String name, String spriteName, Controller con,
+    protected void InitializePlayer(String name, String spriteName, com.kennycason.gdx.controller.Controller con,
                                     FixtureDef fxdBody, FixtureDef fxdHead,
                                     short bodyBit, short headBit) {
 
@@ -149,16 +139,16 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             float y1 = body.getLinearVelocity().y;
             float desiredVel = 0.0f;
 
-            Controller con = player.getComponent(Player.class).getController();
+            com.kennycason.gdx.controller.Controller con = player.getComponent(Player.class).getController();
 
             if(con != null) {
-                if (con.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
+                if (con.isPressed(GameControls.DPAD_LEFT)) { // LEFT
                     desiredVel = -maxVel;
                     sprite.setFlip(false, false);
                     playerClass.setFacingRight(false);
                     player.getComponent(VisSpriteAnimation.class).setAnimationName(playerClass.getSpriteColor() + "_run");
 
-                } else if (con.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
+                } else if (con.isPressed(GameControls.DPAD_RIGHT)) { // RIGHT
                     desiredVel = maxVel;
                     sprite.setFlip(true, false);
                     playerClass.setFacingRight(true);
@@ -168,7 +158,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                     player.getComponent(VisSpriteAnimation.class).setAnimationName(playerClass.getSpriteColor() + "_idle");
                 }
 
-                if (Math.abs(body.getLinearVelocity().y) < 0.005 && con.getButton(NextController.BUTTON_B)) { // UP
+                if (Math.abs(body.getLinearVelocity().y) < 0.005 && con.isPressed(GameControls.B)) { // UP
                     float impulse1 = body.getMass() * 400;
                     body.applyForce(0, impulse1, body.getWorldCenter().x, body.getWorldCenter().y, true);
                 }

@@ -18,89 +18,95 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+        PlayerSystem playerSys = null;
+
+        if(fixA != null && fixA.getUserData() instanceof PlayerSystem)
+            playerSys = (PlayerSystem)fixA.getUserData();
+        else if(fixB != null && fixB.getUserData() instanceof PlayerSystem)
+            playerSys = (PlayerSystem)fixB.getUserData();
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
         switch (cDef){
             case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player01"); // hitOnHead(killer, killed)
+                (playerSys).hitOnHead("Player02", "Player01"); // hitOnHead(killer, killed)
                 break;
             case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player01");
+                (playerSys).hitOnHead("Player03", "Player01");
                 break;
             case GameSceneManager.PLAYER01_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player01");
+                (playerSys).hitOnHead("Player04", "Player01");
                 break;
 
             case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player02");
+                (playerSys).hitOnHead("Player01", "Player02");
                 break;
             case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player02");
+                (playerSys).hitOnHead("Player03", "Player02");
                 break;
             case GameSceneManager.PLAYER02_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player02");
+                (playerSys).hitOnHead("Player04", "Player02");
                 break;
 
             case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player03");
+                (playerSys).hitOnHead("Player01", "Player03");
                 break;
             case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player03");
+                (playerSys).hitOnHead("Player02", "Player03");
                 break;
             case GameSceneManager.PLAYER03_HEAD_BIT | GameSceneManager.PLAYER04_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player04", "Player03");
+                (playerSys).hitOnHead("Player04", "Player03");
                 break;
 
             case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player01", "Player04");
+                (playerSys).hitOnHead("Player01", "Player04");
                 break;
             case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player02", "Player04");
+                (playerSys).hitOnHead("Player02", "Player04");
                 break;
             case GameSceneManager.PLAYER04_HEAD_BIT | GameSceneManager.PLAYER03_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitOnHead("Player03", "Player04");
+                (playerSys).hitOnHead("Player03", "Player04");
                 break;
 
 
             case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER02_BIT :
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player02");// (killer, killed)
+                (playerSys).hitByLaser("Player01", "Player02");// (killer, killed)
                 break;
             case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER03_BIT :
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player03");// (killer, killed)
+                (playerSys).hitByLaser("Player01", "Player03");// (killer, killed)
                 break;
             case GameSceneManager.PLAYER01_LASER_BIT|GameSceneManager.PLAYER04_BIT :
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player01", "Player04");// (killer, killed)
+                (playerSys).hitByLaser("Player01", "Player04");// (killer, killed)
                 break;
 
             case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player01");
+                (playerSys).hitByLaser("Player02", "Player01");
                 break;
             case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER03_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player03");
+                (playerSys).hitByLaser("Player02", "Player03");
                 break;
             case GameSceneManager.PLAYER02_LASER_BIT|GameSceneManager.PLAYER04_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player02", "Player04");
+                (playerSys).hitByLaser("Player02", "Player04");
                 break;
 
             case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player01");
+                (playerSys).hitByLaser("Player03", "Player01");
                 break;
             case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player02");
+                (playerSys).hitByLaser("Player03", "Player02");
                 break;
             case GameSceneManager.PLAYER03_LASER_BIT|GameSceneManager.PLAYER04_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player04");
+                (playerSys).hitByLaser("Player03", "Player04");
                 break;
 
             case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER01_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player01");
+                (playerSys).hitByLaser("Player03", "Player01");
                 break;
             case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER02_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player02");
+                (playerSys).hitByLaser("Player03", "Player02");
                 break;
             case GameSceneManager.PLAYER04_LASER_BIT|GameSceneManager.PLAYER03_BIT:
-                ((PlayerSystem)fixA.getUserData()).hitByLaser("Player03", "Player03");
+                (playerSys).hitByLaser("Player03", "Player03");
                 break;
 
 

@@ -1,7 +1,7 @@
 package com.teamawesome.zurbs.component;
 
 import com.artemis.Component;
-import com.badlogic.gdx.controllers.Controller;
+import com.kennycason.gdx.controller.Controller;
 
 
 /**
