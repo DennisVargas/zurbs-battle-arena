@@ -4,11 +4,8 @@ package com.teamawesome.zurbs.system;
 import com.artemis.BaseSystem;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
@@ -43,7 +40,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean falling = false;
     boolean peak = false;
     int deathCount = 0;
-    int deathMax;
+    int deathMax = 1;
 
     @Override
     public void afterSceneInit() {
@@ -75,15 +72,29 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.shape = body;
         fdefZurb.isSensor = true;
 
-        players.add("Player01");
-        InitializePlayer("Player01", "zurbBLUE", Controllers.getControllers().get(0), fdefZurb, fdefHead,
-                GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
+
+        if(Controllers.getControllers().size > 0) {
+            players.add("Player01");
+            InitializePlayer("Player01", "zurbBLUE", Controllers.getControllers().get(0), fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
+        }
+        else {
+            players.add("Player02");
+            InitializePlayer("Player01", "zurbBLUE", null, fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER01_BIT, GameSceneManager.PLAYER01_HEAD_BIT);
+        }
+
+
 
         if(Controllers.getControllers().size > 1) {
             players.add("Player02");
             InitializePlayer("Player02", "zurbRED", Controllers.getControllers().get(1), fdefZurb, fdefHead,
                     GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
-            deathMax = 1;
+        }
+        else {
+            players.add("Player02");
+            InitializePlayer("Player02", "zurbRED", null, fdefZurb, fdefHead,
+                    GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
         }
 
         if(Controllers.getControllers().size > 2) {
@@ -92,12 +103,20 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                     GameSceneManager.PLAYER03_BIT, GameSceneManager.PLAYER03_HEAD_BIT);
             deathMax = 2;
         }
+        else {
+            Entity player = idManager.get("Player03");
+            player.deleteFromWorld();
+        }
 
         if(Controllers.getControllers().size > 3) {
             players.add("Player04");
             InitializePlayer("Player04", "zurbPURPLE", Controllers.getControllers().get(3), fdefZurb, fdefHead,
                     GameSceneManager.PLAYER04_BIT, GameSceneManager.PLAYER04_HEAD_BIT);
             deathMax = 3;
+        }
+        else {
+            Entity player = idManager.get("Player04");
+            player.deleteFromWorld();
         }
 
     }
@@ -132,24 +151,28 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
             Controller con = player.getComponent(Player.class).getController();
 
-            if (con.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
-                desiredVel = -maxVel;
-                sprite.setFlip(false, false);
-                playerClass.setFacingRight(false);
+            if(con != null) {
+                if (con.getAxis(NextController.AXIS_X) < -NextController.STICK_DEADZONE) { // LEFT
+                    desiredVel = -maxVel;
+                    sprite.setFlip(false, false);
+                    playerClass.setFacingRight(false);
+                    player.getComponent(VisSpriteAnimation.class).setAnimationName(playerClass.getSpriteColor() + "_run");
 
+                } else if (con.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
+                    desiredVel = maxVel;
+                    sprite.setFlip(true, false);
+                    playerClass.setFacingRight(true);
+                    player.getComponent(VisSpriteAnimation.class).setAnimationName(playerClass.getSpriteColor() + "_run");
+                }
+                else {
+                    player.getComponent(VisSpriteAnimation.class).setAnimationName(playerClass.getSpriteColor() + "_idle");
+                }
 
-            } else if (con.getAxis(NextController.AXIS_X) > NextController.STICK_DEADZONE) { // RIGHT
-                desiredVel = maxVel;
-                sprite.setFlip(true, false);
-                playerClass.setFacingRight(true);
-
+                if (Math.abs(body.getLinearVelocity().y) < 0.005 && con.getButton(NextController.BUTTON_B)) { // UP
+                    float impulse1 = body.getMass() * 400;
+                    body.applyForce(0, impulse1, body.getWorldCenter().x, body.getWorldCenter().y, true);
+                }
             }
-
-            if (Math.abs(body.getLinearVelocity().y) < 0.005 && con.getButton(NextController.BUTTON_B)) { // UP
-                float impulse1 = body.getMass() * 400;
-                body.applyForce(0, impulse1, body.getWorldCenter().x, body.getWorldCenter().y, true);
-            }
-
             float impulse = body.getMass() * desiredVel - x1;
             body.applyForce(impulse, 0, body.getWorldCenter().x, body.getWorldCenter().y, true);
 

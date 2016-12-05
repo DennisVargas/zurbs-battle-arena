@@ -123,6 +123,26 @@ public class MenuSceneManager extends BaseSceneManager implements ControllerList
 			}
 
 		}
+		if(keyCode == Input.Keys.SPACE || keyCode == Input.Keys.ENTER ){
+			soundController.playClick();
+
+			switch(selection) {
+				case Start:
+					game.loadStartGameScene();
+					break;
+				case Options:
+					game.loadOptionsScene();
+					break;
+				case Credits:
+					game.loadCreditsScene();
+					break;
+				case Quit:
+					Gdx.app.exit();
+					break;
+			}
+
+		}
+
 
 
 		return false;

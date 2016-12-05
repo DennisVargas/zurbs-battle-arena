@@ -2,9 +2,6 @@ package com.teamawesome.zurbs.component;
 
 import com.artemis.Component;
 import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.ControllerListener;
-import com.badlogic.gdx.controllers.PovDirection;
-import com.badlogic.gdx.math.Vector3;
 
 
 /**

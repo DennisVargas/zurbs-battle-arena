@@ -38,6 +38,7 @@ public class GameSceneManager extends BaseSceneManager {
     private ComponentMapper<PhysicsBody> physicsCm;
 
     private VisSpriteAnimation animation1, animation2;
+    private Entity player1, player2;
     private Entity laser;
 
     private Array<String> players = new Array<String>();
@@ -140,9 +141,11 @@ public class GameSceneManager extends BaseSceneManager {
         this.AddWallBits();
 
         physicsCm.get(p).body.getWorld().setContactListener(new WorldContactListener());
-
-        //animation1 = animationCM.get(player1);
-        //animation2 = animationCM.get(player2);
+        player1 = p;
+        animation1 = animationCM.get(p);
+        p = idManager.get("Player02");
+        animation2 = animationCM.get(p);
+        player2 = p;
 
         for(int i = 0; i < game.controllers.size; i++) {
             if(i >= 1)
@@ -161,43 +164,39 @@ public class GameSceneManager extends BaseSceneManager {
             this.game.loadMenuScene();
 
         // player 1
-//       if(!playerCm.get(player1).isDestroyed() && !playerCm.get(player1).getToDestroy()) {
+       if(!playerCm.get(player1).isDestroyed() && !playerCm.get(player1).getToDestroy()) {
             if(keyCode == Input.Keys.A || keyCode == Input.Keys.D){ // player 1
-                //animation1.setAnimationName("zurbBLUE_run");
+                animation1.setAnimationName("zurbBLUE_run");
             }
-           if(keyCode == Input.Keys.SHIFT_LEFT){
-               //LaserFactory(player1);
-               System.out.println("BLUE fired");
-           }
-//       }
+
+            if(keyCode  == Input.Keys.SHIFT_LEFT || keyCode == Input.Keys.ALT_LEFT )
+                LaserFactory(player1);
+
+       }
 
         // player 2
-//        if(!playerCm.get(player2).isDestroyed() && !playerCm.get(player2).getToDestroy()) {
+        if(!playerCm.get(player2).isDestroyed() && !playerCm.get(player2).getToDestroy()) {
             if(keyCode == Input.Keys.LEFT || keyCode == Input.Keys.RIGHT){ // player 2
-                //animation2.setAnimationName("zurbRED_run");
+                animation2.setAnimationName("zurbRED_run");
             }
-            if(keyCode == Input.Keys.SHIFT_RIGHT){
-                //LaserFactory(player2);
-                System.out.println("RED fired");
-            }
-//       }
 
-        /*
-         if(keyCode == 21)
-            MoveXPNG("Player02", - 0.25f);
-        */
+            if(keyCode  == Input.Keys.SHIFT_RIGHT || keyCode == Input.Keys.NUMPAD_0 )
+                LaserFactory(player2);
+
+       }
+
 
         return false;
     }
 
     @Override
     public boolean keyUp(int keyCode) {
-        if(keyCode == 29 || keyCode == 32){ // player 1
-            //animation1.setAnimationName("zurbBLUE_idle");
+        if(keyCode == Input.Keys.A || keyCode == Input.Keys.D){ // player 1
+            animation1.setAnimationName("zurbBLUE_idle");
         }
 
-        if(keyCode == 21 || keyCode == 22){ // player 2
-            //animation2.setAnimationName("zurbRED_idle");
+        if(keyCode == Input.Keys.LEFT || keyCode == Input.Keys.RIGHT){ // player 2
+            animation2.setAnimationName("zurbRED_idle");
         }
         return false;
     }
