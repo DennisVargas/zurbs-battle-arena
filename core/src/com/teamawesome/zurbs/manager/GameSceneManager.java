@@ -12,6 +12,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.component.Transform;
+import com.kotcrab.vis.runtime.system.physics.PhysicsBodyManager;
+import com.kotcrab.vis.runtime.system.physics.PhysicsSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
 import com.kotcrab.vis.runtime.util.entity.composer.SpriteEntityComposer;
 import com.teamawesome.zurbs.WorldContactListener;
@@ -40,6 +42,7 @@ public class GameSceneManager extends BaseSceneManager {
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2;
     private Entity laser;
+    boolean isPaused = false;
 
     private Array<String> players = new Array<String>();
 
@@ -115,9 +118,7 @@ public class GameSceneManager extends BaseSceneManager {
                 //wall.getComponent(PhysicsBody.class).body.createFixture(wallSensor);
             }
         }
-
     }
-
 
     public GameSceneManager(ZurbGame game) {
         super(game);
@@ -155,13 +156,30 @@ public class GameSceneManager extends BaseSceneManager {
             game.controllers.get(i).addListener(listener);
             game.controllerListeners.add(listener);
         }
-
     }
 
     @Override
     public boolean keyDown(int keyCode){
-        if (keyCode == 131) // ESC
-            this.game.loadMenuScene();
+        if (keyCode == 131) { // ESC
+            if(this.game.getState() == ZurbGame.State.play)
+                this.game.setState(ZurbGame.State.paused);
+            else
+                this.game.setState(ZurbGame.State.play);
+        }
+        if(keyCode == 41){
+            if(this.game.getState() == ZurbGame.State.paused){
+                this.game.setState(ZurbGame.State.play);
+                this.game.loadMenuScene();
+            }
+
+
+        }
+            /*if(physicsCm.get(player1).body.isActive())
+                physicsCm.get(player1).body.setActive(false);
+            else
+                physicsCm.get(player1).body.setActive(true);*/
+
+        //this.game.loadMenuScene();
 
         // player 1
        if(!playerCm.get(player1).isDestroyed() && !playerCm.get(player1).getToDestroy()) {
@@ -171,7 +189,6 @@ public class GameSceneManager extends BaseSceneManager {
 
             if(keyCode  == Input.Keys.SHIFT_LEFT || keyCode == Input.Keys.ALT_LEFT )
                 LaserFactory(player1);
-
        }
 
         // player 2
@@ -182,10 +199,7 @@ public class GameSceneManager extends BaseSceneManager {
 
             if(keyCode  == Input.Keys.SHIFT_RIGHT || keyCode == Input.Keys.NUMPAD_0 )
                 LaserFactory(player2);
-
        }
-
-
         return false;
     }
 
@@ -225,6 +239,7 @@ public class GameSceneManager extends BaseSceneManager {
             laser = idManager.get("Player3_laser");
         else if (color == "zurbPURPLE")
             laser = idManager.get("Player4_laser");
+
         /*
 //  MyNewLaserFactory
         int newLaser = world.create(laserArchetype);
@@ -254,8 +269,6 @@ public class GameSceneManager extends BaseSceneManager {
         laserBodyDef.type = BodyDef.BodyType.DynamicBody;
         //laserBodyDef.position.set(5, 5);
         laserBodyDef.gravityScale = 0.0f;
-
-
 
         if (facingRight) {
             laserBodyDef.linearVelocity.set(3.0f, 0.0f);
@@ -310,7 +323,6 @@ public class GameSceneManager extends BaseSceneManager {
         System.out.print("");
 
         world.edit(newLaser.getId()).add(newLaserPhysicsBody);
-
 
 
       //OldFactory

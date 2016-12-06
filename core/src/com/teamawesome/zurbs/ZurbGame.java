@@ -38,6 +38,9 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 		public Array<ControllerListener> controllerListeners = new Array<ControllerListener>();
 
 
+		public enum State {play, paused}
+		public State state = State.play;
+
 		String scenePath;
 		//private World world = PlayerSystem.;
 
@@ -45,6 +48,9 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 		return scene;
 	}
 
+
+	public State getState(){return state;}
+	public void setState(State stateValue){state = stateValue;}
 	Scene scene;
 
 
@@ -142,12 +148,12 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 			SceneParameter parameter = new SceneParameter();
 		//	parameter.config.addSystem(BoundsCreator.class);
 		//	parameter.config.addSystem(BoundsUpdater.class);
-           parameter.config.enable(SceneFeature.PHYSICS_SYSTEM);
+           /*parameter.config.disable(SceneFeature.PHYSICS_SYSTEM);
             parameter.config.enable(SceneFeature.RENDER_BATCHING_SYSTEM);
             parameter.config.enable(SceneFeature.SPRITE_RENDER_SYSTEM);
             parameter.config.enable(SceneFeature.PHYSICS_BODY_MANAGER);
             parameter.config.enable(SceneFeature.PHYSICS_SPRITE_UPDATE_SYSTEM);
-			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);
+			parameter.config.enable(SceneFeature.SPRITE_ANIMATION_UPDATE_SYSTEM);*/
 			parameter.config.addSystem(PlayerSystem.class);
 			parameter.config.addSystem(LaserSystem.class);
 			parameter.config.addSystem(new SystemProvider() {
@@ -201,8 +207,16 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 
 		@Override
 		public void render () {
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-			scene.render();
+			switch(state){
+				case play:
+					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+					scene.render();
+					break;
+				case paused:
+					System.out.println("Game Paused");
+					break;
+			}
+
 		}
 
 		@Override

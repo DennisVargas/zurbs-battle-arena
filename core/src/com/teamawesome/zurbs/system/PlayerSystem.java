@@ -72,7 +72,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         fdefZurb.isSensor = true;
 
 
-
         com.kennycason.gdx.controller.Controller<GameControls> controller = ControllerFactory.buildMultiController("Player01", 0);
         players.add("Player01");
         InitializePlayer("Player01", "zurbBLUE", controller, fdefZurb, fdefHead,
