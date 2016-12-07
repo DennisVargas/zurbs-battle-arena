@@ -18,6 +18,10 @@ import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.manager.GameSceneManager;
+import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     //assigned by artemis
@@ -27,6 +31,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Player> playerCm;
     private ComponentMapper<VisSpriteAnimation> animationCM;
+    Robot robot = new Robot();
 
     VisIDManager idManager;
 
@@ -41,6 +46,9 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean peak = false;
     int deathCount = 0;
     int deathMax = 1;
+
+    public PlayerSystem() throws AWTException {
+    }
 
     @Override
     public void afterSceneInit() {
@@ -225,6 +233,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         float x, y;
         VisSprite sprite;
         Entity spriteEnt;
+
         if(id1 == "Player01") {
             spriteEnt = idManager.get("Player1Win");
             sprite = spriteCm.get(spriteEnt);
@@ -240,6 +249,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         y = 2.25f;
 
         transCm.get(spriteEnt).setPosition(x, y);
+
+        robot.keyPress(KeyEvent.VK_ESCAPE); // robot hits escape to pause game
 
     }
 }
