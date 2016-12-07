@@ -32,13 +32,13 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 		SpriteBatch batch;
 		VisAssetManager manager;
 		SoundController soundController;
-
+		int pauseCount = 0;
 	    public Array<Controller> controllers;	// for easy debugging of Controllers
 
 		public Array<ControllerListener> controllerListeners = new Array<ControllerListener>();
 
 
-		public enum State {play, paused}
+		public enum State {play, pausing, paused}
 		public State state = State.play;
 
 		String scenePath;
@@ -212,6 +212,16 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 					scene.render();
 					break;
+				case pausing:
+					if(pauseCount <= 2)
+						pauseCount++;
+					else{
+						pauseCount = 0;
+						state = State.paused;
+					}
+
+					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+					scene.render();
 				case paused:
 					//System.out.println("Game Paused");
 					break;

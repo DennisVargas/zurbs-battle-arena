@@ -169,7 +169,7 @@ public class GameSceneManager extends BaseSceneManager {
         if (keyCode == 131) { // ESC - pause
             if(this.game.getState() == ZurbGame.State.play) {
                 transCM.get(spriteEnt).setPosition(4.375f, 2.25f); // place pause menu WHY WON'T YOU WORK??!!!!
-                this.game.setState(ZurbGame.State.paused);
+                this.game.setState(ZurbGame.State.pausing);
             }
             else {
                 this.game.setState(ZurbGame.State.play);
