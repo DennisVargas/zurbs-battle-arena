@@ -233,7 +233,7 @@ public class GameSceneManager extends BaseSceneManager {
     }
 
     public void LaserFactory(Entity player) {
-        float laserVelocity = 0.05f;
+        float laserVelocity = 0.50f;
         float originX = transCM.get(player).getX();
         float originY = transCM.get(player).getY();
         String color = playerCm.get(player).getSpriteColor();
