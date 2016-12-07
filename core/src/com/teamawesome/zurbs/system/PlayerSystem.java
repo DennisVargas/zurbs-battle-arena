@@ -15,6 +15,7 @@ import com.kotcrab.vis.runtime.component.VisSpriteAnimation;
 import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
+import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 

@@ -4,6 +4,7 @@ import com.artemis.Archetype;
 import com.artemis.ArchetypeBuilder;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerListener;
@@ -160,19 +161,35 @@ public class GameSceneManager extends BaseSceneManager {
 
     @Override
     public boolean keyDown(int keyCode){
-        if (keyCode == 131) { // ESC
-            if(this.game.getState() == ZurbGame.State.play)
+        VisSprite pauseMenu;
+        Entity spriteEnt;
+        spriteEnt = idManager.get("PauseMenu");
+        pauseMenu = spriteCm.get(spriteEnt);
+
+        if (keyCode == 131) { // ESC - pause
+            if(this.game.getState() == ZurbGame.State.play) {
+                transCM.get(spriteEnt).setPosition(4.375f, 2.25f); // place pause menu WHY WON'T YOU WORK??!!!!
                 this.game.setState(ZurbGame.State.paused);
-            else
+            }
+            else {
                 this.game.setState(ZurbGame.State.play);
+                transCM.get(spriteEnt).setPosition(1600f, 900f); // remove pause menu
+            }
         }
-        if(keyCode == 41){
+        if(keyCode == 41){ // M - main menu
             if(this.game.getState() == ZurbGame.State.paused){
                 this.game.setState(ZurbGame.State.play);
+                transCM.get(spriteEnt).setPosition(1600f, 900f); // remove pause menu
                 this.game.loadMenuScene();
             }
+        }
 
-
+        if(keyCode == 46){ // R - restart
+            if(this.game.getState() == ZurbGame.State.paused){
+                this.game.setState(ZurbGame.State.play);
+                transCM.get(spriteEnt).setPosition(1600f, 900f); // remove pause menu
+                this.game.loadStartGameScene();
+            }
         }
             /*if(physicsCm.get(player1).body.isActive())
                 physicsCm.get(player1).body.setActive(false);
@@ -361,11 +378,5 @@ public class GameSceneManager extends BaseSceneManager {
         }
 
     }*/
-
-    public void destroyBullet(Fixture toDelete) {
-        //toDelete.getBody().getWorld().destroyBody(toDelete.getBody());
-        //player1.getWorld().deleteEntity(player1);
-        System.out.println("bullet destroyed");
-    }
 
 }

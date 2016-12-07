@@ -213,7 +213,7 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 					scene.render();
 					break;
 				case paused:
-					System.out.println("Game Paused");
+					//System.out.println("Game Paused");
 					break;
 			}
 
