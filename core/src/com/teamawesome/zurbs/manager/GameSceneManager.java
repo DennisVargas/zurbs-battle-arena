@@ -214,7 +214,7 @@ public class GameSceneManager extends BaseSceneManager {
                 animation2.setAnimationName("zurbRED_run");
             }
 
-            if(keyCode  == Input.Keys.SHIFT_RIGHT || keyCode == Input.Keys.NUMPAD_0 )
+            if(keyCode  == Input.Keys.SHIFT_RIGHT || keyCode == Input.Keys.CONTROL_RIGHT )
                 LaserFactory(player2);
        }
         return false;

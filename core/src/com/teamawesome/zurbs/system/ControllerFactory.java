@@ -47,8 +47,8 @@ public class ControllerFactory {
             buttonMapper.map(GameControls.START, Input.Keys.ENTER);
             buttonMapper.map(GameControls.SELECT, Input.Keys.END);
 
-            buttonMapper.map(GameControls.A, Input.Keys.NUMPAD_0);
-            buttonMapper.map(GameControls.B, Input.Keys.CONTROL_RIGHT);
+            buttonMapper.map(GameControls.A, Input.Keys.CONTROL_RIGHT);
+            buttonMapper.map(GameControls.B, Input.Keys.UP);
             buttonMapper.map(GameControls.X, Input.Keys.ALT_RIGHT);
             buttonMapper.map(GameControls.Y, Input.Keys.SHIFT_RIGHT);
 
@@ -57,6 +57,7 @@ public class ControllerFactory {
             buttonMapper.map(GameControls.R1, Input.Keys.NUMPAD_2);
             buttonMapper.map(GameControls.R2, Input.Keys.NUMPAD_5);
         }
+        else return null;
 
         return new KeyboardController<>(buttonMapper);
     }

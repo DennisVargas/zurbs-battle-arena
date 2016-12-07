@@ -93,7 +93,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
                 GameSceneManager.PLAYER02_BIT, GameSceneManager.PLAYER02_HEAD_BIT);
 
 
-        if(Controllers.getControllers().size > 1) {
+        if(Controllers.getControllers().size > 2) {
             controller = ControllerFactory.buildMultiController("Player03", 2);
             players.add("Player03");
             InitializePlayer("Player03", "zurbGREEN", controller, fdefZurb, fdefHead,
@@ -105,7 +105,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
             player.deleteFromWorld();
         }
 
-        if(Controllers.getControllers().size > 1) {
+        if(Controllers.getControllers().size > 3) {
             controller = ControllerFactory.buildMultiController("Player04", 3);
             players.add("Player04");
             InitializePlayer("Player04", "zurbPURPLE", controller, fdefZurb, fdefHead,
@@ -234,16 +234,24 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         VisSprite sprite;
         Entity spriteEnt;
 
-        if(id1 == "Player01") {
-            spriteEnt = idManager.get("Player1Win");
-            sprite = spriteCm.get(spriteEnt);
+        switch(id1) {
+            case "Player01":
+                spriteEnt = idManager.get("Player1Win");
+                break;
+            case "Player02":
+                spriteEnt = idManager.get("Player2Win");
+                break;
+            case "Player03":
+                spriteEnt = idManager.get("Player3Win");
+                break;
+
+            default:
+                spriteEnt = idManager.get("Player4Win");
 
         }
-        else {
-            spriteEnt = idManager.get("Player2Win");
-            sprite = spriteCm.get(spriteEnt);
-        }
 
+
+        sprite = spriteCm.get(spriteEnt);
 
         x = 4.375f;
         y = 2.25f;
