@@ -238,8 +238,10 @@ public class GameSceneManager extends BaseSceneManager{
     @Override
     protected void processSystem() {
         super.processSystem();
-        if(winnerCm.get(winner).isWinner)
+        if(winnerCm.get(winner).isWinner){
+            winnerCm.get(winner).isWinner = false;
             this.game.state = ZurbGame.State.winner;
+        }
         if(this.game.state == ZurbGame.State.doneWinning){
             this.game.state = ZurbGame.State.play;
             PauseGame();}

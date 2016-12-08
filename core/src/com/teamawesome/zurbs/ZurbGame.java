@@ -228,7 +228,7 @@ import java.awt.event.KeyEvent;
 					scene.render();
 					break;
 				case winner:
-					if(winCount <= 5)
+					if(winCount <= 100)
 						winCount++;
 					else{
 						winCount = 0;

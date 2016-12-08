@@ -135,7 +135,6 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         body.createFixture(fxdBody).setUserData(this); // attaches body box
         fxdHead.filter.categoryBits = headBit;
         body.createFixture(fxdHead).setUserData(this); // attaches head
-
     }
 
     protected void ProcessPlayerController(String name) {
