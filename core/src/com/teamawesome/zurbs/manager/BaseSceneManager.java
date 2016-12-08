@@ -1,5 +1,6 @@
 package com.teamawesome.zurbs.manager;
 
+import com.artemis.BaseSystem;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.Manager;
@@ -26,7 +27,7 @@ import com.kotcrab.vis.runtime.system.CameraManager;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 
-public abstract class BaseSceneManager extends Manager implements InputProcessor,  AfterSceneInit {
+public abstract class BaseSceneManager extends BaseSystem implements InputProcessor,  AfterSceneInit {
 	protected ComponentMapper<Bounds> boundsCm;
 	protected ComponentMapper<Transform> transformCm;
 	protected ComponentMapper<VisSprite> spriteCm;
@@ -129,4 +130,8 @@ public abstract class BaseSceneManager extends Manager implements InputProcessor
 		return false;
 	}
 
+	@Override
+	protected void processSystem() {
+
+	}
 }

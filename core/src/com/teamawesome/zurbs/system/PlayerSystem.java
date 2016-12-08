@@ -17,6 +17,7 @@ import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
 import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Player;
+import com.teamawesome.zurbs.component.Winner;
 import com.teamawesome.zurbs.manager.GameSceneManager;
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -30,6 +31,8 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     ComponentMapper<VisSprite> spriteCm;
     ComponentMapper<PhysicsBody> physicsCm;
     ComponentMapper<Player> playerCm;
+    ComponentMapper<Winner> winnerCm;
+
     private ComponentMapper<VisSpriteAnimation> animationCM;
     Robot robot = new Robot();
 
@@ -46,6 +49,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
     boolean peak = false;
     int deathCount = 0;
     int deathMax = 1;
+    Entity winner ;
 
     public PlayerSystem() throws AWTException {
     }
@@ -191,15 +195,11 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
 
     @Override
     protected void processSystem() {
-
-
         //  renders Debugger based on Box2dWorld from body1 and a Matrix4 of the camera projection
         //debugRenderer.render(body1.getWorld(),new Matrix4(cameraManager.getCombined()));
 
         for(String player : players)
             ProcessPlayerController(player);
-
-
 
     }
 
@@ -210,7 +210,7 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         playerCm.get(player).setDestroyed(true);
         //player.getWorld().deleteEntity(player);
         deathCount++;
-        if (deathCount == deathMax) {
+        if (deathCount == deathMax ) {
             System.out.println(playerKiller + " is the winner");
             WinnerPNG(playerKiller);
         }
@@ -223,15 +223,14 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         playerCm.get(player).setDestroyed(true);
         //player.getWorld().deleteEntity(player);
         deathCount++;
-        if (deathCount == deathMax) {
+        if (deathCount == deathMax ) {
             System.out.println(playerKiller + " is the winner");
             WinnerPNG(playerKiller);
-
         }
     }
     public void WinnerPNG(String id1) {
         float x, y;
-        VisSprite sprite;
+     //   VisSprite sprite;
         Entity spriteEnt;
 
         switch(id1) {
@@ -251,14 +250,17 @@ public class PlayerSystem extends BaseSystem implements AfterSceneInit {
         }
 
 
-        sprite = spriteCm.get(spriteEnt);
+       // sprite = spriteCm.get(spriteEnt);
 
         x = 4.375f;
         y = 2.25f;
 
         transCm.get(spriteEnt).setPosition(x, y);
 
-        robot.keyPress(KeyEvent.VK_ESCAPE); // robot hits escape to pause game
+        winner = idManager.get("Winner");
+        if (winnerCm.get(winner).isWinner == false)
+            winnerCm.get(winner).isWinner = true;
+       // robot.keyPress(KeyEvent.VK_ESCAPE); // robot hits escape to pause game
 
     }
 }

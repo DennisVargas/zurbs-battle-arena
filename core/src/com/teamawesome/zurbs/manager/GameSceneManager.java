@@ -1,9 +1,6 @@
 package com.teamawesome.zurbs.manager;
 
-import com.artemis.Archetype;
-import com.artemis.ArchetypeBuilder;
-import com.artemis.ComponentMapper;
-import com.artemis.Entity;
+import com.artemis.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.controllers.Controller;
@@ -13,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.component.Transform;
+import com.kotcrab.vis.runtime.scene.Scene;
 import com.kotcrab.vis.runtime.system.physics.PhysicsBodyManager;
 import com.kotcrab.vis.runtime.system.physics.PhysicsSystem;
 import com.kotcrab.vis.runtime.util.entity.composer.EntityComposer;
@@ -22,12 +20,16 @@ import com.teamawesome.zurbs.ZurbGame;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
+import com.teamawesome.zurbs.component.Winner;
 import com.teamawesome.zurbs.system.GameModeControllerListener;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  * Created by Dennis on 11/16/2016.
  */
-public class GameSceneManager extends BaseSceneManager {
+public class GameSceneManager extends BaseSceneManager{
     ComponentMapper<Layer> layerCm;
     ComponentMapper<Renderable> renderCM;
     ComponentMapper <Laser> laserCm;
@@ -39,11 +41,12 @@ public class GameSceneManager extends BaseSceneManager {
     private ComponentMapper<Transform> transCM;
     private ComponentMapper<Player> playerCm;
     private ComponentMapper<PhysicsBody> physicsCm;
-
+    private ComponentMapper<Winner> winnerCm;
     private VisSpriteAnimation animation1, animation2;
     private Entity player1, player2;
     private Entity laser;
-    boolean isPaused = false;
+    boolean isWinner;
+    Entity winner;
 
     private Array<String> players = new Array<String>();
 
@@ -80,6 +83,7 @@ public class GameSceneManager extends BaseSceneManager {
     //public static final short x4_BIT = 256;
     //public static final short MARIO_HEAD_BIT = 512;
     //public static final short FIREBALL_BIT = 1024;
+
 
 
     public void AddWallBits() {
@@ -121,7 +125,7 @@ public class GameSceneManager extends BaseSceneManager {
         }
     }
 
-    public GameSceneManager(ZurbGame game) {
+    public GameSceneManager(ZurbGame game){
         super(game);
     }
 
@@ -138,6 +142,11 @@ public class GameSceneManager extends BaseSceneManager {
                                                     .add(Layer.class)
                                                     .add(Transform.class)
                                                     .build(world);
+        winner = world.createEntity();// creates winner entity
+        idCm.create(winner).id = "Winner";// create id for winner component
+        winnerCm.create(winner);//  creates winner component on winner entity
+
+
         players.add("Player01");
         Entity p = idManager.get("Player01");
         this.AddWallBits();
@@ -167,14 +176,8 @@ public class GameSceneManager extends BaseSceneManager {
         pauseMenu = spriteCm.get(spriteEnt);
 
         if (keyCode == 131) { // ESC - pause
-            if(this.game.getState() == ZurbGame.State.play) {
-                transCM.get(spriteEnt).setPosition(4.375f, 2.25f); // place pause menu WHY WON'T YOU WORK??!!!!
-                this.game.setState(ZurbGame.State.pausing);
-            }
-            else {
-                this.game.setState(ZurbGame.State.play);
-                transCM.get(spriteEnt).setPosition(1600f, 900f); // remove pause menu
-            }
+            PauseGame();
+
         }
         if(keyCode == 41){ // M - main menu
             if(this.game.getState() == ZurbGame.State.paused){
@@ -230,6 +233,30 @@ public class GameSceneManager extends BaseSceneManager {
             animation2.setAnimationName("zurbRED_idle");
         }
         return false;
+    }
+
+    @Override
+    protected void processSystem() {
+        super.processSystem();
+        if(winnerCm.get(winner).isWinner)
+            this.game.state = ZurbGame.State.winner;
+        if(this.game.state == ZurbGame.State.doneWinning){
+            this.game.state = ZurbGame.State.play;
+            PauseGame();}
+    }
+
+    private void PauseGame() {
+        Entity spriteEnt;
+        spriteEnt = idManager.get("PauseMenu");
+
+        if(this.game.getState() == ZurbGame.State.play) {
+            transCM.get(spriteEnt).setPosition(4.375f, 2.25f); // place pause menu WHY WON'T YOU WORK??!!!!
+            this.game.setState(ZurbGame.State.pausing);
+        }
+        else {
+            this.game.setState(ZurbGame.State.play);
+            transCM.get(spriteEnt).setPosition(1600f, 900f); // remove pause menu
+        }
     }
 
     public void LaserFactory(Entity player) {

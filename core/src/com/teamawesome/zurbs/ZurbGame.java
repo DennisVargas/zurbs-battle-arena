@@ -1,6 +1,7 @@
 package com.teamawesome.zurbs;
 
 import com.artemis.BaseSystem;
+import com.artemis.ComponentMapper;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controller;
@@ -18,12 +19,18 @@ import com.kotcrab.vis.runtime.scene.SceneFeature;
 import com.kotcrab.vis.runtime.scene.SceneLoader.SceneParameter;
 import com.kotcrab.vis.runtime.scene.SystemProvider;
 import com.kotcrab.vis.runtime.scene.VisAssetManager;
+import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.EntityEngineConfiguration;
+import com.teamawesome.zurbs.component.Player;
+import com.teamawesome.zurbs.component.Winner;
 import com.teamawesome.zurbs.manager.*;
 import com.teamawesome.zurbs.system.BoundsCreator;
 import com.teamawesome.zurbs.system.BoundsUpdater;
 import com.teamawesome.zurbs.system.LaserSystem;
 import com.teamawesome.zurbs.system.PlayerSystem;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 //	========
 //	ZurbGame
@@ -32,13 +39,20 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 		SpriteBatch batch;
 		VisAssetManager manager;
 		SoundController soundController;
-		int pauseCount = 0;
+
+		int pauseCount, winCount = 0;
+		ComponentMapper<Winner> winnerCm;
+		VisIDManager idManager;
+		Robot robot = new Robot();
 	    public Array<Controller> controllers;	// for easy debugging of Controllers
 
 		public Array<ControllerListener> controllerListeners = new Array<ControllerListener>();
 
+	public ZurbGame() throws AWTException {
+	}
 
-		public enum State {play, pausing, paused}
+
+	public enum State {play, pausing, paused, winner, doneWinning}
 		public State state = State.play;
 
 		String scenePath;
@@ -207,8 +221,19 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 
 		@Override
 		public void render () {
+
 			switch(state){
 				case play:
+					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+					scene.render();
+					break;
+				case winner:
+					if(winCount <= 5)
+						winCount++;
+					else{
+						winCount = 0;
+						state = State.doneWinning;
+					}
 					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 					scene.render();
 					break;
@@ -219,7 +244,6 @@ import com.teamawesome.zurbs.system.PlayerSystem;
 						pauseCount = 0;
 						state = State.paused;
 					}
-
 					Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 					scene.render();
 				case paused:
