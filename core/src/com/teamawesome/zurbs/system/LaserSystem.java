@@ -27,7 +27,7 @@ import com.badlogic.gdx.physics.box2d.MassData;
 import com.kotcrab.vis.runtime.component.*;
 import com.kotcrab.vis.runtime.system.VisIDManager;
 import com.kotcrab.vis.runtime.util.AfterSceneInit;
-import com.sun.xml.internal.stream.*;
+//import com.sun.xml.internal.stream.*;
 import com.teamawesome.zurbs.component.Laser;
 import com.teamawesome.zurbs.component.Player;
 import com.teamawesome.zurbs.component.Velocity;
